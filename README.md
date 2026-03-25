@@ -1,23 +1,23 @@
-# ling-project - 🧬 Emergent Language Agent Experiment
+# ling-project - Emergent Language Agent Experiment 🧬
 
 > A multi-agent AI system where two LLM agents invent a shared language from scratch through a referential communication game — and we analyze whether the emergent system mirrors properties of natural human language.
 
 ---
 
-## 📚 Academic Context
+## Academic Context
 
-This project is inspired by:
+Lit Review + Project Inspo:
 - **Simon Kirby's Iterated Learning Model** — language structure emerges from repeated transmission
 - **Nicaraguan Sign Language** — spontaneous language emergence in deaf communities
 - **Lewis Signaling Games** — agents develop shared conventions through repeated interaction
 - **Compositionality in neural agents** — recent NLP research on emergent communication (Lazaridou et al., 2018)
 
-### Core Research Question
+### Our Core Research Question:
 > *When two LLM agents are forced to communicate through a constrained symbolic channel, does the emergent language exhibit structural properties of human language — compositionality, arbitrariness, economy — or does it collapse into something alien?*
 
 ---
 
-## 🗂️ File Tree
+## File Tree
 
 ```
 linguagenesis/
@@ -55,7 +55,7 @@ linguagenesis/
 
 ---
 
-## ⚙️ Setup
+## Setup
 
 ### Prerequisites
 - Python 3.10+
@@ -83,7 +83,7 @@ ANTHROPIC_API_KEY=your_api_key_here
 
 ---
 
-## 📦 Dependencies (`requirements.txt`)
+## Dependencies (`requirements.txt`)
 
 ```
 anthropic>=0.25.0
@@ -99,7 +99,7 @@ jupyter>=1.0.0
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 ### 1. The Communication Task
 
@@ -153,7 +153,7 @@ After N rounds, the analysis pipeline measures:
 
 ---
 
-## 🚀 Running the Experiment
+## Running the Experiment
 
 ### Quick start (20 rounds, 3 concepts)
 ```bash
@@ -183,7 +183,7 @@ jupyter notebook notebooks/analysis.ipynb
 
 ---
 
-## 📊 Expected Outputs
+## Expected Outputs
 
 After running the experiment, `data/results/` will contain:
 
@@ -195,7 +195,7 @@ After running the experiment, `data/results/` will contain:
 
 ---
 
-## 🧪 Experiment Configurations
+## Experiment Configurations
 
 You can modify `config.py` to run different experimental conditions:
 
@@ -221,7 +221,7 @@ CHECKPOINT_INTERVAL = 10     # Save lexicon snapshot every N rounds
 
 ---
 
-## 🔬 Linguistic Analysis Guide
+## Linguistic Analysis Guide
 
 When writing up your results, evaluate the emergent language against these criteria:
 
@@ -242,7 +242,7 @@ When writing up your results, evaluate the emergent language against these crite
 
 ---
 
-## 👥 Team Responsibilities
+## Our Responsibilities
 
 | Task | Owner |
 |---|---|
@@ -256,7 +256,7 @@ When writing up your results, evaluate the emergent language against these crite
 
 ---
 
-## 📖 References
+## References so far:
 
 - Lazaridou, A., Baroni, M. (2020). *Emergent Multi-Agent Communication in the Deep Learning Era.* arXiv.
 - Kirby, S., Hurford, J. (2002). *The Emergence of Linguistic Structure.* Edinburgh.
