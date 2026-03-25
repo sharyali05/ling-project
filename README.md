@@ -265,6 +265,6 @@ When writing up your results, evaluate the emergent language against these crite
 
 ---
 
-## 📝 License
+## License
 
 MIT License — free to use and modify for academic purposes.
