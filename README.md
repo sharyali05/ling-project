@@ -17,7 +17,7 @@ Lit Review + Project Inspo:
 
 ---
 
-## File Tree
+## File Tree (just a proposal for now)
 
 ```
 linguagenesis/
