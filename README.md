@@ -1,6 +1,6 @@
 # ling-project - Emergent Language Agent Experiment
 
-> A multi-agent AI system where two LLM agents invent a shared language from scratch through a referential communication game — and we analyze whether the emergent system mirrors properties of natural human language.
+> A multi-agent AI system where two LLM agents invent a shared language from scratch through a referential communication game, and we analyze whether the emergent system mirrors properties of natural human language.
 
 ---
 
