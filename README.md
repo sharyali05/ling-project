@@ -13,7 +13,7 @@ Lit Review + Project Inspo:
 - **Compositionality in neural agents** — recent NLP research on emergent communication (Lazaridou et al., 2018)
 
 ### Our Core Research Question:
-> *When two LLM agents are forced to communicate through a constrained symbolic channel, does the emergent language exhibit structural properties of human language — compositionality, arbitrariness, economy — or does it collapse into something alien?*
+> *When two LLM agents are forced to communicate through a constrained symbolic channel, does the emergent language exhibit structural properties of human language or does it collapse into something alien?*
 
 ---
 
