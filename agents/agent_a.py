@@ -4,8 +4,6 @@ agents/agent_a.py — Agent A: the Speaker.
 Agent A sees the target concept and must encode it as a symbol string.
 It cannot use natural language in its output — only symbols.
 
-This is YOUR main prompt engineering file. Adjusting the system prompt
-here is the primary lever you have over agent behavior.
 """
 
 import json
@@ -13,8 +11,7 @@ from agents.base_agent import BaseAgent
 from config import SYMBOLS, NUMBERS, MAX_MESSAGE_LENGTH
 
 
-# Build a human-readable description of the allowed vocabulary
-# so the agent knows exactly what it's allowed to use.
+# human-readable description of allowed vocabulary so agent knows whats allowed
 VOCAB_DESCRIPTION = (
     f"Symbols: {SYMBOLS}\n"
     f"Numbers: {NUMBERS}\n"
@@ -50,9 +47,8 @@ class SpeakerAgent(BaseAgent):
         prompt = self._build_prompt(concept, lexicon)
         raw_output = self.call(prompt)
 
-        # Extract just the symbol message — the last non-empty line of output.
-        # We allow the model to reason internally before producing the symbol,
-        # but we only pass the final symbol string to Agent B.
+        # extract just the symbol message — the last non-empty line of output.
+        # only pass the final symbol string to Agent B.
         symbol_message = self._extract_symbol(raw_output)
         return symbol_message, raw_output  # return both for logging
 
@@ -103,7 +99,7 @@ class SpeakerAgent(BaseAgent):
         """
         Pull the symbol string from the model's output.
 
-        We take the last non-empty line, which should be the symbol string.
+        Take the last non-empty line, which should be the symbol string.
         Downstream validation in communication_loop.py will flag if it looks wrong.
         """
         lines = [line.strip() for line in raw_output.strip().splitlines() if line.strip()]

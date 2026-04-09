@@ -45,7 +45,7 @@ class ListenerAgent(BaseAgent):
         Construct the full prompt for Agent B.
 
         Key decisions:
-        - Agent B does NOT see the original concept (that would break the game)
+        - Agent B does NOT see the original concept
         - We tell it the valid output values so it can't hallucinate new ones
         - We ask for JSON output only so we can parse it reliably
         """
@@ -56,8 +56,7 @@ class ListenerAgent(BaseAgent):
             else "(empty — no conventions established yet)"
         )
 
-        # Tell the agent exactly what values are valid — this constrains
-        # its output space and prevents it from inventing new shapes/colors/positions
+        # tell the agent exactly what values are valid
         valid_values = {
             "shape": SHAPES,
             "color": COLORS,

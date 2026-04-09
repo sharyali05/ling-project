@@ -10,14 +10,12 @@ Each round:
   5. Update the shared lexicon
   6. Log everything
 
-This file is intentionally simple — no conflict resolution, no cheat detection,
-no partial credit scoring. Those belong in the analysis layer once you have data.
 """
 
 import json
 import os
 import time
-from tqdm import tqdm  # progress bar so you can see the experiment running
+from tqdm import tqdm
 
 from agents.agent_a import SpeakerAgent
 from agents.agent_b import ListenerAgent
@@ -34,7 +32,7 @@ def run_experiment(
     run_id: str
 ) -> tuple[dict, list]:
     """
-    Run the full communication experiment.
+    Run full communication experiment.
 
     Args:
         lexicon: starting lexicon (empty at beginning of experiment)
@@ -60,27 +58,25 @@ def run_experiment(
 
     for round_num in tqdm(range(1, num_rounds + 1), desc="Rounds"):
 
-        # --- Step 1: Generate target concept ---
+        # generate target concept
         target_concept = generate_concept()
 
-        # --- Step 2: Agent A encodes the concept ---
+        # Agent A encodes the concept
         symbol_message, speaker_raw = speaker.encode(target_concept, lexicon)
 
-        # --- Step 3: Agent B decodes the symbol string ---
-        # IMPORTANT: Agent B only sees the symbol string, not the target concept.
-        # Passing the target here would break the experiment.
+        # Agent B decodes the symbol string
         decoded_concept, listener_raw = listener.decode(symbol_message, lexicon)
 
-        # --- Step 4: Evaluate ---
+        # evaluate
         result = evaluate_decode(target_concept, decoded_concept)
         if result["success"]:
             success_count += 1
 
-        # --- Step 5: Update shared lexicon ---
+        # update shared lexicon
         # Only updates on success — see lexicon.py for the update strategy
         lexicon = update_lexicon(lexicon, symbol_message, target_concept, result["success"])
 
-        # --- Step 6: Log everything ---
+        # lLog everything
         # We log raw model output too so you can analyze agent reasoning later
         round_log = {
             "round": round_num,
@@ -90,14 +86,14 @@ def run_experiment(
             "result": result,
             "lexicon_size": len(lexicon),
             "cumulative_accuracy": success_count / round_num,
-            # Raw outputs for debugging and cheat detection (analysis layer)
+            # raw outputs for debugging and later analysis
             "speaker_raw_output": speaker_raw,
             "listener_raw_output": listener_raw,
         }
         round_logs.append(round_log)
 
         # Print a brief summary every round so you can watch it unfold
-        status = "✓" if result["success"] else "✗"
+        status = "correct" if result["success"] else "wrong"
         print(
             f"  Round {round_num:03d} {status} | "
             f"Concept: {target_concept['shape']}/{target_concept['color']}/{target_concept['position']} | "
@@ -106,14 +102,13 @@ def run_experiment(
             f"Accuracy: {success_count/round_num:.0%}"
         )
 
-        # --- Checkpoint: save lexicon snapshot ---
+        # checkpoint
         if round_num % checkpoint_interval == 0:
             checkpoint_path = os.path.join(LEXICON_DIR, f"checkpoint_{run_id}_round{round_num:04d}.json")
             save_lexicon(lexicon, checkpoint_path)
             print(f"  [Checkpoint saved: {checkpoint_path}]")
 
         # Small delay between API calls to avoid rate limiting
-        # Remove or reduce this if you're running a short experiment
         time.sleep(0.5)
 
     print(f"\nExperiment complete.")
