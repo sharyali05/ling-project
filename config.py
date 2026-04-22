@@ -24,7 +24,7 @@ if not ANTHROPIC_API_KEY:
 # Model 
 # use the same model for both agents so behavior is comparable
 MODEL = "claude-sonnet-4-6"
-MAX_TOKENS = 200  
+MAX_TOKENS = 1024  # 200 was too low
 
 # Symbol Vocabulary
 # These are the ONLY characters agents may use in their messages.
