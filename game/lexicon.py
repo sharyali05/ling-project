@@ -17,12 +17,13 @@ from config import LEXICON_DIR
 
 def initialize_lexicon() -> dict:
     """
-    Start with an empty lexicon — agents invent everything from scratch.
-
-    Returns:
-        An empty dict. Agents will populate it over rounds.
+    Seed the lexicon with a minimal structural convention —
+    which symbol letter maps to which attribute dimension.
+    This breaks the cold-start deadlock without giving away meanings.
     """
-    return {}
+    return {
+        "_convention": "F=shape, G=color, H=position. Numbers indicate specific values within each dimension."
+    }
 
 
 def update_lexicon(lexicon: dict, symbol_message: str, concept: dict, success: bool) -> dict:
