@@ -53,7 +53,7 @@ class ListenerAgent(BaseAgent):
         lexicon_section = (
             json.dumps(lexicon, indent=2)
             if lexicon
-            else "(empty — no conventions established yet)"
+            else "(empty — no conventions established yet, use your best inference)"
         )
 
         # tell the agent exactly what values are valid
@@ -63,31 +63,33 @@ class ListenerAgent(BaseAgent):
             "position": POSITIONS
         }
 
-        prompt = f"""You are Agent B, the Listener in a referential communication experiment about emergent language.
+        prompt = f"""ou are Agent B, the Listener in a referential communication experiment.
 
-                    YOUR ROLE:
-                    Agent A has encoded a concept using a shared symbol vocabulary and sent you a symbol string.
-                    Your job is to decode that symbol string back into the original concept.
-                    You have access to the shared lexicon of conventions built up over prior rounds.
+            Agent A has sent you this exact symbol string: {symbol_message}
 
-                    CURRENT SHARED LEXICON:
-                    {lexicon_section}
+            YOUR ONLY JOB is to decode what concept this symbol string represents.
 
-                    VALID OUTPUT VALUES:
-                    {json.dumps(valid_values, indent=2)}
+            SYMBOL VOCABULARY STRUCTURE:
+            - F + number = shape (e.g. F1, F2, F3, F4)
+            - G + number = color (e.g. G1, G2, G3, G4)
+            - H + number = position (e.g. H1, H2, H3, H4)
+            - Numbers within each dimension likely follow a consistent ordering
 
-                    INSTRUCTIONS:
-                    - Use the lexicon to interpret the symbol string
-                    - If a symbol has no lexicon entry, make your best inference based on patterns you observe
-                    - Output ONLY a JSON object — no explanation, no extra text
-                    - Your JSON must use exactly these keys: "shape", "color", "position"
-                    - Values must come from the valid output values listed above
+            CURRENT SHARED LEXICON (conventions so far):
+            {lexicon_section}
 
-                    SYMBOL MESSAGE RECEIVED:
-                    {symbol_message}
+            VALID OUTPUT VALUES:
+            {json.dumps(valid_values, indent=2)}
 
-                    Output ONLY the JSON object.
-                    """
+            CRITICAL INSTRUCTIONS:
+            - Parse the symbol string token by token: {symbol_message}
+            - Each token tells you something specific about one attribute
+            - Do NOT default to circle/red/top-left — actually decode the message
+            - If the lexicon has no entry for a token, infer from position and number patterns
+            - Output ONLY a JSON object with keys: "shape", "color", "position"
+            - No explanation, no markdown fences, just the JSON
+
+            Decode {symbol_message} now:"""
         return prompt
 
     def _parse_concept(self, raw_output: str) -> dict | None:

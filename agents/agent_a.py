@@ -91,7 +91,7 @@ class SpeakerAgent(BaseAgent):
                     TARGET CONCEPT TO ENCODE:
                     {json.dumps(concept, indent=2)}
 
-                    Think through your encoding, then output ONLY the symbol string on the very last line.
+                    Think through your encoding strategy above. Then on the very last line, output ONLY the symbol string with absolutely nothing else — no explanation, no punctuation, no labels. Just the symbol string like: F1-G3-H2
                     """
         return prompt
 
@@ -106,3 +106,13 @@ class SpeakerAgent(BaseAgent):
         if not lines:
             return ""
         return lines[-1]
+
+        # If it looks like English, flag it
+        if len(last_line) > 20 or " " in last_line:
+            # Try to find a valid-looking symbol line anywhere in the output
+            for line in reversed(lines):
+                if len(line) <= 15 and " " not in line and "-" in line or len(line) <= 3:
+                    return line
+            return "INVALID"  # Will be caught in logs for analysis
+        
+        return last_line
