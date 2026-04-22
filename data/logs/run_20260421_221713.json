@@ -1,0 +1,142 @@
+[
+  {
+    "round": 1,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G2-H4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": false
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode: shape=star, color=blue, position=bottom-left\n\nUsing the shared lexicon:\n- F = shape\n- G = color\n- H = position\n\nNow I need to assign numbers to specific values. I'll be consistent and systematic:\n\n**Shape (F):** I need a number for \"star\". Common shapes might be: 1=circle, 2=square, 3=triangle, 4=star. I'll use F4 for star.\n\n**Color (G):** Common colors: 1=red, 2=blue, 3=green, 4=yellow. I'll use G2 for blue.\n\n**Position (H):** Positions on a grid: 1=top-left, 2=top-right, 3=bottom-right, 4=bottom-left. I'll use H4 for bottom-left.\n\nF4-G2-H4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 2,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F1-G4-H1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode a square, yellow, top-left concept using the shared lexicon where F=shape, G=color, H=position.\n\nLet me establish consistent number mappings:\n\n**Shape (F):** I need to pick a number for \"square.\" Let me use F1 = square (first/basic shape).\n\n**Color (G):** I need a number for \"yellow.\" Common color ordering might be: 1=red, 2=blue, 3=green, 4=yellow. So G4 = yellow.\n\n**Position (H):** For positions, top-left could be H1 (top-left as position 1, thinking like reading order: top-left first).\n\nSo my encoding: F1-G4-H1\n\nF1-G4-H1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 3,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "F2-G4-H2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode: shape=square, color=yellow, position=top-right\n\nUsing the established lexicon:\n- F = shape\n- G = color\n- H = position\n\nNow I need to assign numbers to specific values. Since the lexicon doesn't specify which numbers map to which values, I'll establish consistent mappings:\n\n**Shape (F):** Let me use F1=circle, F2=square, F3=triangle, F4=rectangle\n- square \u2192 F2\n\n**Color (G):** Let me use G1=red, G2=blue, G3=green, G4=yellow\n- yellow \u2192 G4\n\n**Position (H):** Let me use H1=top-left, H2=top-right, H3=bottom-left, H4=bottom-right\n- top-right \u2192 H2\n\nF2-G4-H2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 4,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G1-H3",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode: shape=square, color=red, position=bottom-left\n\nUsing the shared lexicon:\n- F = shape\n- G = color\n- H = position\n\nNow I need to assign numbers to specific values. The lexicon doesn't specify which numbers map to which specific shapes, colors, or positions, so I'll establish consistent mappings:\n\n**Shape (F):** square \u2192 I'll use F1 (square as a basic/first shape)\n\n**Color (G):** red \u2192 I'll use G1 (red as a primary/first color)\n\n**Position (H):** bottom-left \u2192 I'll use H3 (using 3 for bottom-left; e.g., 1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right)\n\nF1-G1-H3",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 5,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G1-H4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 5,
+    "cumulative_accuracy": 0.2,
+    "speaker_raw_output": "I need to encode a triangle that is red and positioned at bottom-right.\n\nUsing the shared lexicon:\n- F = shape\n- G = color\n- H = position\n\nNow I need to assign numbers to specific values. I'll think about consistent mappings:\n\n**Shape (F):** I'll assign numbers to shapes. Triangle could be F2 (thinking: circle=1, triangle=2, square=3, etc.)\n\n**Color (G):** Red could be G1 (red=1, blue=2, green=3, yellow=4)\n\n**Position (H):** Bottom-right could be H4. Thinking of positions: top-left=1, top-right=2, bottom-left=3, bottom-right=4\n\nThese mappings feel intuitive and systematic. I'll go with:\n- F2 = triangle\n- G1 = red\n- H4 = bottom-right\n\nF2-G1-H4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  }
+]

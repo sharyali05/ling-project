@@ -1,0 +1,142 @@
+[
+  {
+    "round": 1,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F3-G3-H2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode a concept with three attributes: shape (triangle), color (green), and position (top-right).\n\nSince there's no existing lexicon, I'll invent mappings systematically:\n\n**Shape encoding:**\n- Let F = shape dimension\n- Triangle is a 3-sided figure \u2192 F3\n\n**Color encoding:**\n- Let G = color dimension\n- Green... I'll assign: 1=red, 2=blue, 3=green, 4=yellow \u2192 G3\n\n**Position encoding:**\n- Let H = position dimension\n- I'll think of positions on a 2x2 grid: 1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right\n- top-right \u2192 H2\n\nSo my encoding: F3-G3-H2\n\nF3-G3-H2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 2,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "F1-G1-H1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode a concept with three properties: shape (triangle), color (red), and position (top-left).\n\nSince the lexicon is empty, I'll invent mappings from scratch. I want to be systematic so future rounds can build on these conventions:\n\n**Shape encoding:**\n- Triangle \u2192 F1 (F for shape category, 1 for triangle)\n\n**Color encoding:**\n- Red \u2192 G1 (G for color category, 1 for red)\n\n**Position encoding:**\n- Top-left \u2192 H1 (H for position category, 1 for top-left)\n\nThis gives me a clean 3-pair string covering all three attributes.\n\nF1-G1-H1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 3,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "F3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode a concept with three attributes: shape (triangle), color (yellow), and position (top-right).\n\nSince the lexicon is empty, I'll invent mappings from scratch, trying to be systematic so Agent B can potentially infer patterns:\n\n**Shape encoding:**\n- I'll use F for shape\n- Triangle = 3 sides \u2192 F3\n\n**Color encoding:**\n- I'll use G for color\n- Yellow... I need a number mapping. Let me assign: 1=red, 2=blue, 3=yellow, 4=green\n- Yellow \u2192 G3\n\n**Position encoding:**\n- I'll use H for position\n- Position mapping: 1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right\n- Top-right \u2192 H2\n\nSo my encoding: F3-G3-H2\n\nF3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 4,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "F1-G2-H2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": true,
+        "color": false,
+        "position": false
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (circle), color (blue), and position (top-right).\n\nSince the lexicon is empty, I'll invent mappings:\n\n**Shape encoding using F:**\n- F1 = circle\n- F2 = square\n- F3 = triangle\n\n**Color encoding using G:**\n- G1 = red\n- G2 = blue\n- G3 = green\n- G4 = yellow\n\n**Position encoding using H:**\n- H1 = top-left\n- H2 = top-right\n- H3 = bottom-left\n- H4 = bottom-right\n\nSo for: circle + blue + top-right \u2192 F1-G2-H2\n\nF1-G2-H2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 5,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "- Numbers: 1=top-left, 2=top-",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode a concept with three attributes: shape (star), color (blue), and position (top-right).\n\nSince the lexicon is empty, I'll invent mappings from scratch. I want to be systematic so that Agent B can potentially decode this:\n\n**Shape encoding:**\n- I'll use the first symbol slot for shape\n- Star \u2192 F (first shape, first symbol)\n- Let's say F = shape category, and numbers indicate which shape: 1=circle, 2=square, 3=star, 4=triangle\n- So star = F3\n\n**Color encoding:**\n- I'll use G for color category\n- Numbers: 1=red, 2=blue, 3=green, 4=yellow\n- So blue = G2\n\n**Position encoding:**\n- I'll use H for position category\n- Numbers: 1=top-left, 2=top-",
+    "listener_raw_output": "```json\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}\n```"
+  }
+]

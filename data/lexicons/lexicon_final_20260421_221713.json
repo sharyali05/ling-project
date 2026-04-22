@@ -1,0 +1,7 @@
+{
+  "_convention": "F=shape, G=color, H=position. Numbers indicate specific values within each dimension.",
+  "F2-G1-H4": "triangle, red, bottom-right",
+  "?F2": "triangle",
+  "?G1": "red",
+  "?H4": "bottom-right"
+}
