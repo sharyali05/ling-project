@@ -225,6 +225,10 @@ def topsim_over_time(rounds: list, window: int = 30, step: int = 5) -> list[tupl
 def compute_all_metrics(rounds: list, run_name: str = "") -> dict:
     """Compute and return all metrics as a dict."""
     final_acc = cumulative_accuracy(rounds)[-1]
+    unique_concepts = len({
+        f"{r['target_concept']['shape']}-{r['target_concept']['color']}-{r['target_concept']['position']}"
+        for r in rounds
+    })
     stab_round = lexicon_stabilization_round(rounds)
     final_lexicon_size = lexicon_growth(rounds)[-1]
     ts = topographic_similarity(rounds)
@@ -234,6 +238,7 @@ def compute_all_metrics(rounds: list, run_name: str = "") -> dict:
         "run": run_name,
         "total_rounds": len(rounds),
         "final_cumulative_accuracy": round(final_acc, 4),
+        "unique_concepts_seen": unique_concepts,
         "final_lexicon_size": final_lexicon_size,
         "lexicon_stabilization_round": stab_round,
         "topographic_similarity": round(ts, 4) if not math.isnan(ts) else "N/A",
