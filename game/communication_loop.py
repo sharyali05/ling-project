@@ -16,10 +16,11 @@ import json
 import os
 import time
 from tqdm import tqdm
+import random
 
 from agents.agent_a import SpeakerAgent
 from agents.agent_b import ListenerAgent
-from game.task_generator import generate_concept, evaluate_decode
+from game.task_generator import generate_concept, evaluate_decode, generate_concept_set
 from game.lexicon import update_lexicon, save_lexicon
 from config import LEXICON_DIR
 
@@ -56,10 +57,15 @@ def run_experiment(
 
     print(f"Starting experiment: {num_rounds} rounds\n")
 
+    # Generate a fixed concept pool of size num_concepts
+    # Agents will only ever see concepts from this pool
+    concept_pool = generate_concept_set(num_concepts, allow_repeats=False)
+    print(f"Concept pool ({num_concepts} concepts): {concept_pool}\n")
+
     for round_num in tqdm(range(1, num_rounds + 1), desc="Rounds"):
 
         # generate target concept
-        target_concept = generate_concept()
+        target_concept = random.choice(concept_pool)
 
         # Agent A encodes the concept
         symbol_message, speaker_raw = speaker.encode(target_concept, lexicon)

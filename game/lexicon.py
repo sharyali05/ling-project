@@ -22,7 +22,7 @@ def initialize_lexicon() -> dict:
     This breaks the cold-start deadlock without giving away meanings.
     """
     return {
-        "_convention": "F=shape, G=color, H=position. Numbers indicate specific values within each dimension."
+        #"_convention": "F=shape, G=color, H=position. Numbers indicate specific values within each dimension."
     }
 
 

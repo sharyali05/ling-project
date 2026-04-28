@@ -41,6 +41,20 @@ def load_logs(log_dir: str) -> dict[str, list]:
                 print(f"  Loaded {fname}: {len(data)} rounds")
     return logs
 
+def normalize_stress_test_log(rounds: list) -> list:
+    """
+    Rename agent_c_decoded to decoded_concept so stress test
+    logs can be passed through the standard metrics pipeline.
+    """
+    normalized = []
+    for r in rounds:
+        r_copy = r.copy()
+        if "agent_c_decoded" in r_copy:
+            r_copy["decoded_concept"] = r_copy.pop("agent_c_decoded")
+        normalized.append(r_copy)
+    return normalized
+
+
 
 # ---------------------------------------------------------------------------
 # Accuracy metrics

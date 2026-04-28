@@ -1,0 +1,2802 @@
+[
+  {
+    "round": 1,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "F3-G3-H2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three attributes: shape (triangle), color (yellow), and position (top-right).\n\nSince the lexicon is empty, I'll invent mappings systematically:\n\n**Shape encoding:**\n- Let F = shape dimension\n- triangle = 3 sides \u2192 F3\n\n**Color encoding:**\n- Let G = color dimension\n- yellow: I'll assign colors systematically. Let's say G1=red, G2=blue, G3=yellow, G4=green\n- yellow \u2192 G3\n\n**Position encoding:**\n- Let H = position dimension\n- Positions: H1=top-left, H2=top-right, H3=bottom-left, H4=bottom-right\n- top-right \u2192 H2\n\nSo the encoding is: F3-G3-H2\n\nF3-G3-H2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 2,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "F1-G2-H1-J1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (triangle), color (blue), and position (top-left).\n\nLet me design a systematic encoding:\n\n**Shape encoding (using F):**\n- F1 = triangle\n- F2 = circle\n- F3 = square\n- F4 = rectangle\n\n**Color encoding (using G):**\n- G1 = red\n- G2 = blue\n- G3 = green\n- G4 = yellow\n\n**Position encoding (using H for vertical, J for horizontal):**\n- H1 = top, H2 = middle, H3 = bottom\n- J1 = left, J2 = center, J3 = right\n\nSo for this target:\n- shape = triangle \u2192 F1\n- color = blue \u2192 G2\n- position = top-left \u2192 H1-J1\n\nF1-G2-H1-J1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 3,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F1-G3-H1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (triangle), color (yellow), and position (top-left).\n\nSince the lexicon is empty, I'll invent mappings from scratch that are systematic:\n\n**Shape encoding** (using F):\n- F1 = triangle\n- F2 = circle\n- F3 = square\n\n**Color encoding** (using G):\n- G1 = red\n- G2 = blue\n- G3 = yellow\n- G4 = green\n\n**Position encoding** (using H):\n- H1 = top-left\n- H2 = top-right\n- H3 = bottom-left\n- H4 = bottom-right\n\nSo for triangle + yellow + top-left:\n- Shape: F1 (triangle)\n- Color: G3 (yellow)\n- Position: H1 (top-left)\n\nF1-G3-H1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 4,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F1-G3-H1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three attributes: shape (star), color (yellow), and position (top-left).\n\nSince there's no existing lexicon, I'll invent mappings:\n\n**Shape encoding:**\n- I'll use the F symbol for shape\n- Star = F1 (assigning star as shape type 1)\n\n**Color encoding:**\n- I'll use the G symbol for color\n- Yellow = G3 (assigning yellow as color type 3, somewhat arbitrary but I'll try to be systematic: e.g., 1=red, 2=blue, 3=yellow, 4=green)\n\n**Position encoding:**\n- I'll use the H symbol for position\n- Position can be encoded with quadrant logic: top-left = H1 (1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right)\n\nSo the full string: F1-G3-H1\n\nF1-G3-H1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 5,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F3-G3-H4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (triangle), color (green), and position (bottom-right).\n\nSince there's no existing lexicon, I'll invent mappings systematically:\n\n**Shape encoding:**\n- Let F = shape dimension\n- Triangle is a 3-sided figure \u2192 F3\n\n**Color encoding:**\n- Let G = color dimension\n- I'll assign colors to numbers: 1=red, 2=blue, 3=green, 4=yellow\n- Green \u2192 G3\n\n**Position encoding:**\n- Let H = position dimension\n- I'll think of positions on a grid: 1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right\n- Bottom-right \u2192 H4\n\nSo my encoding: F3-G3-H4\n\nF3-G3-H4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 6,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F3-G2-H1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": false
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (triangle), color (blue), and position (bottom-left).\n\nSince the lexicon is empty, I'll invent mappings:\n\n**Shape encoding:**\n- Let F = shape dimension\n- Triangle is a 3-sided figure \u2192 F3\n\n**Color encoding:**\n- Let G = color dimension\n- I'll assign numbers to colors: 1=red, 2=blue, 3=green, 4=yellow\n- Blue \u2192 G2\n\n**Position encoding:**\n- Let H = position dimension\n- I'll think of a grid: bottom-left = 1, bottom-right = 2, top-left = 3, top-right = 4\n- Bottom-left \u2192 H1\n\nSo the full encoding: F3-G2-H1\n\nF3-G2-H1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 7,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G1-H3",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape, color, and position. Since the lexicon is empty, I'll invent mappings from scratch.\n\n**Shape encoding:**\n- I'll use the symbol `F` for shape\n- Square = 1, Circle = 2, Triangle = 3 (inventing a system)\n- So square \u2192 `F1`\n\n**Color encoding:**\n- I'll use the symbol `G` for color\n- Green = 1, Red = 2, Blue = 3, Yellow = 4 (inventing a system)\n- So green \u2192 `G1`\n\n**Position encoding:**\n- I'll use the symbol `H` for position\n- I'll think of positions as a grid: top-left=1, top-right=2, bottom-left=3, bottom-right=4\n- So bottom-left \u2192 `H3`\n\nFinal encoding: shape=square (F1), color=green (G1), position=bottom-left (H3)\n\nF1-G1-H3",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 8,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G2-H4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (square), color (blue), and position (bottom-right).\n\nLet me invent a systematic mapping:\n\n**Shape** - I'll use F for shape:\n- F1 = circle\n- F2 = square\n- F3 = triangle\n- F4 = rectangle\n\n**Color** - I'll use G for color:\n- G1 = red\n- G2 = blue\n- G3 = green\n- G4 = yellow\n\n**Position** - I'll use H for position:\n- H1 = top-left\n- H2 = top-right\n- H3 = bottom-left\n- H4 = bottom-right\n\nSo for a blue square at bottom-right:\n- Shape: square \u2192 F2\n- Color: blue \u2192 G2\n- Position: bottom-right \u2192 H4\n\nF2-G2-H4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 9,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G3-H2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.1111111111111111,
+    "speaker_raw_output": "I need to encode three properties: shape (star), color (green), and position (top-right).\n\nLet me design a systematic encoding:\n\n**Shape** \u2192 use F-symbol\n- F1 = circle, F2 = square, F3 = triangle, F4 = star\n\n**Color** \u2192 use G-symbol\n- G1 = red, G2 = blue, G3 = green, G4 = yellow\n\n**Position** \u2192 use H-symbol\n- H1 = top-left, H2 = top-right, H3 = bottom-left, H4 = bottom-right\n\nSo:\n- shape \"star\" \u2192 F4\n- color \"green\" \u2192 G3\n- position \"top-right\" \u2192 H2\n\nF4-G3-H2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 10,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F1-G2-H1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.1,
+    "speaker_raw_output": "I need to encode: square, yellow, top-left.\n\nLooking at the existing lexicon:\n- F4 = star (shape)\n- G3 = green (color)\n- H2 = top-right (position)\n\nI need new mappings for:\n- square (shape) \u2192 F is for shape, F4 = star, so I'll use a different number: F1 = square\n- yellow (color) \u2192 G is for color, G3 = green, so I'll use a different number: G2 = yellow\n- top-left (position) \u2192 H is for position, H2 = top-right, so I'll use a different number: H1 = top-left\n\nThis follows the pattern consistently: F = shape, G = color, H = position.\n\nF1-G2-H1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 11,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G1-H4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": false
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.09090909090909091,
+    "speaker_raw_output": "I need to encode: square, blue, bottom-left.\n\nLooking at the existing lexicon:\n- F maps to \"star\" (shape)\n- G maps to \"green\" (color)\n- H maps to \"position\" (top-right specifically)\n\nI need new mappings for:\n- \"square\" shape: F is used for star, so I'll use a different symbol for shape variation. Since ?F4 = star, I could try F with a different number for square. Let me use F1 for square (F = shape category, different numbers = different shapes).\n- \"blue\" color: G = green, so I'll use G with a different number. G1 for blue (G = color category).\n- \"bottom-left\" position: H = position, H2 = top-right. I'll use H4 for bottom-left (opposite corner gets a different number).\n\nStrategy:\n- F1 = square (F = shape, 1 = square)\n- G1 = blue (G = color, 1 = blue)\n- H4 = bottom-left (H = position, 4 = bottom-left)\n\nF1-G1-H4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 12,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F1-G1-H4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.08333333333333333,
+    "speaker_raw_output": "I need to encode: square, blue, bottom-right.\n\nFrom the existing lexicon:\n- F = shape (F4 = star), so I need a new number for square. F4 is star, so I'll use F1 for square.\n- G = color (G3 = green), so I need a new number for blue. G3 is green, so I'll use G1 for blue.\n- H = position (H2 = top-right), so I need a new number for bottom-right. H2 is top-right, so I'll use H4 for bottom-right.\n\nThis follows the established pattern of F=shape, G=color, H=position, just with new numbers for new values.\n\nF1-G1-H4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 13,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F1-G3-H4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 7,
+    "cumulative_accuracy": 0.15384615384615385,
+    "speaker_raw_output": "I need to encode: circle, green, bottom-right.\n\nFrom the shared lexicon:\n- `?G3` = green, so G3 encodes green\n\nI need new symbols for:\n- \"circle\" \u2014 no existing entry. I'll use F1 (since F seems to be shape-related, and 1 could mean circle, distinct from F4=star)\n- \"bottom-right\" \u2014 no existing entry. H2 = top-right, so I need something different. I'll use H4 for bottom-right (H seems position-related, 4 for bottom-right)\n\nSo my encoding: F1-G3-H4\n\nF1-G3-H4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 14,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F2-G1-H3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 7,
+    "cumulative_accuracy": 0.14285714285714285,
+    "speaker_raw_output": "Looking at the current lexicon:\n- F encodes shape: F1=circle, F4=star \u2192 I need a new value for square, let's use F2\n- G encodes color: G3=green \u2192 I need a new value for blue, let's use G1\n- H encodes position: H2=top-right, H4=bottom-right \u2192 I need bottom-left, let's use H3\n\nSo: square=F2, blue=G1, bottom-left=H3\n\nF2-G1-H3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 15,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F2-G3-H2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 9,
+    "cumulative_accuracy": 0.2,
+    "speaker_raw_output": "Looking at the shared lexicon:\n\n- `?F1` = circle, `?F4` = star \u2192 F codes for shape. I need a new code for triangle. Available symbols for shape: F is used (F1=circle, F4=star). I'll use `F2` for triangle (new mapping).\n- `?G3` = green \u2192 G3 codes for green. \u2713\n- `?H2` = top-right \u2192 H2 codes for top-right. \u2713\n\nSo triangle + green + top-right = F2-G3-H2\n\nF2-G3-H2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 16,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G3-H4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 10,
+    "cumulative_accuracy": 0.25,
+    "speaker_raw_output": "Looking at the shared lexicon:\n\n- `?F2` = triangle\n- `?G3` = green\n- `?H4` = bottom-right\n\nSo I can combine these established mappings:\n\nF2-G3-H4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 17,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G1-H2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 12,
+    "cumulative_accuracy": 0.29411764705882354,
+    "speaker_raw_output": "Looking at the lexicon:\n- `?F4` = star \u2192 F4\n- `?G3` = green \u2192 G3, but I need red. No entry for red yet. I'll assign a new symbol: G1 = red\n- `?H2` = top-right \u2192 H2\n\nSo the encoding for \"star, red, top-right\" would be F4-G1-H2.\n\nF4-G1-H2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 18,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G1-H4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 13,
+    "cumulative_accuracy": 0.3333333333333333,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Red = G1\n- Bottom-right = H4\n\nAll three components are already in the lexicon. I'll combine them consistently.\n\nF2-G1-H4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 19,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F2-G3-H2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 13,
+    "cumulative_accuracy": 0.3684210526315789,
+    "speaker_raw_output": "Looking at the lexicon:\n- `?F2` = triangle\n- `?G3` = green\n- `?H2` = top-right\n\nAnd there's already an entry `F2-G3-H2` = \"triangle, green, top-right\" \u2014 this is exactly what I need.\n\nF2-G3-H2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 20,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "F3-G1-H1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 16,
+    "cumulative_accuracy": 0.4,
+    "speaker_raw_output": "I need to encode: square, red, top-left\n\nLooking at the existing lexicon:\n- Shape codes: F1=circle, F2=triangle, F4=star \u2192 I need a new code for square \u2192 F3\n- Color codes: G1=red, G3=green \u2192 G1=red \u2713\n- Position codes: H2=top-right, H4=bottom-right \u2192 I need a new code for top-left \u2192 H1\n\nSo: square=F3, red=G1, top-left=H1\n\nF3-G1-H1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 21,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G1-H3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 18,
+    "cumulative_accuracy": 0.42857142857142855,
+    "speaker_raw_output": "Looking at the shared lexicon:\n\n- `?F4` = star \u2192 use F4\n- `?G1` = red \u2192 use G1\n- `?H1` = top-left, `?H2` = top-right, `?H4` = bottom-right\n\nI need a symbol for \"bottom-left\". The pattern seems to be:\n- H1 = top-left\n- H2 = top-right\n- H4 = bottom-right\n\nSo H3 would logically be bottom-left (the remaining position).\n\nEncoding: F4 (star) - G1 (red) - H3 (bottom-left)\n\nF4-G1-H3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 22,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G1-H2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 18,
+    "cumulative_accuracy": 0.45454545454545453,
+    "speaker_raw_output": "Looking at the lexicon:\n- `?F4` = star\n- `?G1` = red\n- `?H2` = top-right\n\nThis combination already exists in the lexicon as `F4-G1-H2` = \"star, red, top-right\". Perfect, I can use it directly.\n\nF4-G1-H2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 23,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "F3-G1-H1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 18,
+    "cumulative_accuracy": 0.4782608695652174,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square \u2192 F3\n- color: red \u2192 G1\n- position: top-left \u2192 H1\n\nAll three components are already in the shared lexicon, and the full combination \"F3-G1-H1\" is also already established as \"square, red, top-left\".\n\nF3-G1-H1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 24,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "F2-G1-H2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 19,
+    "cumulative_accuracy": 0.5,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Red = G1\n- Top-right = H2\n\nAll three components are already in the lexicon. I just need to combine them.\n\nF2-G1-H2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 25,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "F1-G2-H1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.52,
+    "speaker_raw_output": "Looking at the lexicon:\n- Shape: circle = F1\n- Position: top-left = H1\n- Color: blue = no entry yet. I have G1=red, G3=green. I need a new symbol for blue. I'll use G2 for blue.\n\nSo the encoding is: F1-G2-H1\n\nF1-G2-H1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 26,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "F3-G3-H1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 22,
+    "cumulative_accuracy": 0.5384615384615384,
+    "speaker_raw_output": "Looking at the shared lexicon:\n- Shape \"square\" = F3\n- Color \"green\" = G3\n- Position \"top-left\" = H1\n\nAll three components are already established in the lexicon. I'll combine them following the consistent F-G-H pattern.\n\nF3-G3-H1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 27,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F4-G4-H1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.5555555555555556,
+    "speaker_raw_output": "Looking at the lexicon:\n- Shape \"star\" = F4\n- Position \"top-left\" = H1\n- Color \"yellow\" has no entry yet\n\nFor colors, I have:\n- G1 = red\n- G2 = blue\n- G3 = green\n- G4 = not yet assigned\n\nSo I'll assign G4 = yellow (next available number for color slot G).\n\nThe encoding for \"star, yellow, top-left\" would be: F4-G4-H1\n\nF4-G4-H1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 28,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F2-G2-H3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.5714285714285714,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Blue = G2\n- Bottom-left = H3\n\nAll three components are established in the lexicon. I'll combine them following the established pattern of F(shape)-G(color)-H(position).\n\nF2-G2-H3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 29,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G4-H2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.5862068965517241,
+    "speaker_raw_output": "Looking at the lexicon:\n- `?F4` = star\n- `?G4` = yellow\n- `?H2` = top-right\n\nSo I need F4 (star) + G4 (yellow) + H2 (top-right)\n\nF4-G4-H2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 30,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F3-G1-H3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.6,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G1 = red\n- H3 = bottom-left\n\nAll three components are already established in the lexicon. I can combine them directly.\n\nF3-G1-H3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 31,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F3-G1-H3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.6129032258064516,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G1 = red\n- H3 = bottom-left\n\nThis combination (F3-G1-H3) already exists in the lexicon as \"square, red, bottom-left\".\n\nF3-G1-H3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 32,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G2-H4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 28,
+    "cumulative_accuracy": 0.625,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Blue = G2\n- Bottom-right = H4\n\nAll three components are established. Combining them:\n\nF2-G2-H4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 33,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F3-G3-H4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 29,
+    "cumulative_accuracy": 0.6363636363636364,
+    "speaker_raw_output": "Looking at the shared lexicon:\n- F3 = square\n- G3 = green\n- H4 = bottom-right\n\nAll three components have established mappings. I'll combine them following the same pattern (shape-color-position).\n\nF3-G3-H4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 34,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G4-H3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 30,
+    "cumulative_accuracy": 0.6470588235294118,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G4 = yellow\n- H3 = bottom-left\n\nAll three components are already established in the lexicon. I can combine them directly.\n\nF4-G4-H3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 35,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "F3-G1-H2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 31,
+    "cumulative_accuracy": 0.6571428571428571,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G1 = red\n- H2 = top-right\n\nThis maps perfectly to F3-G1-H2, which isn't in the lexicon yet but follows the established pattern consistently.\n\nF3-G1-H2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 36,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G4-H2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 31,
+    "cumulative_accuracy": 0.6666666666666666,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G4 = yellow\n- H2 = top-right\n\nThis maps perfectly to the existing conventions.\n\nF4-G4-H2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 37,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F1-G3-H2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 32,
+    "cumulative_accuracy": 0.6756756756756757,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Green = G3\n- Top-right = H2\n\nThis combination (F1-G3-H2) doesn't exist in the lexicon yet, but all three components are well-established. I'll combine them following the consistent pattern.\n\nF1-G3-H2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 38,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G4-H3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 32,
+    "cumulative_accuracy": 0.6842105263157895,
+    "speaker_raw_output": "Looking at the lexicon:\n- Star = F4\n- Yellow = G4\n- Bottom-left = H3\n\nThis matches the existing pattern perfectly. The concept \"star, yellow, bottom-left\" should be encoded as F4-G4-H3, which is already in the lexicon!\n\nF4-G4-H3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 39,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F4-G4-H1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 32,
+    "cumulative_accuracy": 0.6923076923076923,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G4 = yellow\n- H1 = top-left\n\nThis combination already exists in the lexicon: \"F4-G4-H1\" = \"star, yellow, top-left\" \u2713\n\nF4-G4-H1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 40,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F3-G4-H4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 33,
+    "cumulative_accuracy": 0.7,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G4 = yellow\n- H4 = bottom-right\n\nAll three components are already in the lexicon. I'll combine them:\n\nF3-G4-H4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 41,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G1-H3",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 34,
+    "cumulative_accuracy": 0.7073170731707317,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Red = G1\n- Bottom-left = H3\n\nAll three components are established in the lexicon. I'll combine them:\n\nF1-G1-H3",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 42,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F3-G4-H1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.7142857142857143,
+    "speaker_raw_output": "Looking at the shared lexicon:\n- F3 = square\n- G4 = yellow\n- H1 = top-left\n\nThese mappings are all established. So I can directly compose:\n\nF3-G4-H1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 43,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G1-H4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.7209302325581395,
+    "speaker_raw_output": "Looking at the lexicon:\n- F2 = triangle\n- G1 = red\n- H4 = bottom-right\n\nThis combination (triangle, red, bottom-right) doesn't have an explicit entry yet, but all components are established. I'll combine them following the established pattern.\n\nF2-G1-H4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 44,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G3-H3",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 36,
+    "cumulative_accuracy": 0.7272727272727273,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Green = G3\n- Bottom-left = H3\n\nThis combination (F1-G3-H3) doesn't exist yet, but follows the established pattern perfectly.\n\nF1-G3-H3",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 45,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G4-H2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 36,
+    "cumulative_accuracy": 0.7333333333333333,
+    "speaker_raw_output": "Looking at the lexicon:\n- Star = F4\n- Yellow = G4\n- Top-right = H2\n\nAll three components are already established. Combining them: F4-G4-H2\n\nF4-G4-H2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 46,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G1-H3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 36,
+    "cumulative_accuracy": 0.7391304347826086,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G1 = red\n- H3 = bottom-left\n\nThis combination already exists in the lexicon: \"F4-G1-H3\": \"star, red, bottom-left\"\n\nF4-G1-H3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 47,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G2-H3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 37,
+    "cumulative_accuracy": 0.7446808510638298,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G2 = blue\n- H3 = bottom-left\n\nAll three components are already established in the lexicon. I'll combine them following the same pattern (shape-color-position).\n\nF4-G2-H3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 48,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F1-G3-H4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 37,
+    "cumulative_accuracy": 0.75,
+    "speaker_raw_output": "Looking at the lexicon:\n- F1 = circle\n- G3 = green\n- H4 = bottom-right\n\nThis combination F1-G3-H4 is already in the lexicon as \"circle, green, bottom-right\". Perfect.\n\nF1-G3-H4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 49,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F1-G3-H2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 37,
+    "cumulative_accuracy": 0.7551020408163265,
+    "speaker_raw_output": "Looking at the lexicon:\n- F1 = circle\n- G3 = green\n- H2 = top-right\n\nThis exact combination \"F1-G3-H2\" is already in the lexicon as \"circle, green, top-right\".\n\nF1-G3-H2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 50,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F4-G1-H4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 38,
+    "cumulative_accuracy": 0.76,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G1 = red\n- H4 = bottom-right\n\nSo the encoding for \"star, red, bottom-right\" would be F4-G1-H4.\n\nF4-G1-H4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 51,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F4-G1-H4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 38,
+    "cumulative_accuracy": 0.7647058823529411,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G1 = red\n- H4 = bottom-right\n\nThis combination (F4-G1-H4) exists in the lexicon as \"star, red, bottom-right\".\n\nF4-G1-H4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 52,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G4-H3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 38,
+    "cumulative_accuracy": 0.7692307692307693,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G4 = yellow\n- H3 = bottom-left\n\nThis combination follows the established pattern perfectly.\n\nF4-G4-H3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 53,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F1-G4-H4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 39,
+    "cumulative_accuracy": 0.7735849056603774,
+    "speaker_raw_output": "Looking at the lexicon:\n- F1 = circle\n- G4 = yellow\n- H4 = bottom-right\n\nAll three components are already in the lexicon. I can combine them directly.\n\nF1-G4-H4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 54,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F4-G2-H4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 40,
+    "cumulative_accuracy": 0.7777777777777778,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G2 = blue\n- H4 = bottom-right\n\nThis follows the established pattern perfectly.\n\nF4-G2-H4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 55,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G1-H4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 40,
+    "cumulative_accuracy": 0.7818181818181819,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Red = G1\n- Bottom-right = H4\n\nThis combination \"F2-G1-H4\" is already in the lexicon as \"triangle, red, bottom-right\". Perfect.\n\nF2-G1-H4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 56,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "F3-G1-H2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 40,
+    "cumulative_accuracy": 0.7857142857142857,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G1 = red\n- H2 = top-right\n\nThis combination is already in the lexicon: \"F3-G1-H2\": \"square, red, top-right\"\n\nF3-G1-H2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 57,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F2-G4-H3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 41,
+    "cumulative_accuracy": 0.7894736842105263,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Yellow = G4\n- Bottom-left = H3\n\nThis combination hasn't been used before, but the components are well established. I'll combine them:\n\nF2-G4-H3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 58,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F4-G4-H4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 42,
+    "cumulative_accuracy": 0.7931034482758621,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G4 = yellow\n- H4 = bottom-right\n\nThis follows the established pattern perfectly.\n\nF4-G4-H4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 59,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "F1-G2-H2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 43,
+    "cumulative_accuracy": 0.7966101694915254,
+    "speaker_raw_output": "Looking at the lexicon:\n- F1 = circle\n- G2 = blue\n- H2 = top-right\n\nThis combination (F1-G2-H2) isn't in the lexicon yet, but follows the established pattern perfectly.\n\nF1-G2-H2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 60,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G2-H4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 43,
+    "cumulative_accuracy": 0.8,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: triangle \u2192 F2\n- color: blue \u2192 G2\n- position: bottom-right \u2192 H4\n\nThis combination follows the established lexicon pattern perfectly. The string F2-G2-H4 is already in the lexicon as \"triangle, blue, bottom-right\".\n\nF2-G2-H4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 61,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G2-H3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 43,
+    "cumulative_accuracy": 0.8032786885245902,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G2 = blue\n- H3 = bottom-left\n\nThis combination F4-G2-H3 already exists in the lexicon as \"star, blue, bottom-left\" \u2713\n\nF4-G2-H3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 62,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "F2-G3-H1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 44,
+    "cumulative_accuracy": 0.8064516129032258,
+    "speaker_raw_output": "Looking at the lexicon:\n- F2 = triangle\n- G3 = green\n- H1 = top-left\n\nThis combination hasn't been used yet, but follows the established pattern perfectly.\n\nF2-G3-H1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 63,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "F4-G3-H1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 45,
+    "cumulative_accuracy": 0.8095238095238095,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G3 = green\n- H1 = top-left\n\nThis combination (F4-G3-H1) doesn't exist yet, but follows the established pattern perfectly.\n\nF4-G3-H1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 64,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "F2-G4-H2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 46,
+    "cumulative_accuracy": 0.8125,
+    "speaker_raw_output": "Looking at the lexicon:\n- F2 = triangle\n- G4 = yellow\n- H2 = top-right\n\nThis combination hasn't been used yet, but follows the established pattern perfectly.\n\nF2-G4-H2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 65,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F1-G4-H4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 46,
+    "cumulative_accuracy": 0.8153846153846154,
+    "speaker_raw_output": "Looking at the lexicon:\n- F1 = circle\n- G4 = yellow\n- H4 = bottom-right\n\nThis combination (F1-G4-H4) is already in the lexicon as \"circle, yellow, bottom-right\". \n\nF1-G4-H4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 66,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "F2-G1-H1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 47,
+    "cumulative_accuracy": 0.8181818181818182,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Red = G1\n- Top-left = H1\n\nThis combination (F2-G1-H1) doesn't exist in the lexicon yet, but the components are all established. I'll combine them consistently.\n\nF2-G1-H1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 67,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F4-G4-H1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 47,
+    "cumulative_accuracy": 0.8208955223880597,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G4 = yellow\n- H1 = top-left\n\nThis combination \"F4-G4-H1\" already exists in the lexicon as \"star, yellow, top-left\". \n\nF4-G4-H1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 68,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "F3-G1-H1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 47,
+    "cumulative_accuracy": 0.8235294117647058,
+    "speaker_raw_output": "Looking at the lexicon, I can see that \"square, red, top-left\" is already in the shared lexicon as \"F3-G1-H1\".\n\nF3-G1-H1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 69,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F2-G3-H3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 48,
+    "cumulative_accuracy": 0.8260869565217391,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Green = G3\n- Bottom-left = H3\n\nThis combination (F2-G3-H3) doesn't appear in the lexicon yet, but the components are all established. I'll combine them following the same pattern.\n\nF2-G3-H3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 70,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "F3-G2-H1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 49,
+    "cumulative_accuracy": 0.8285714285714286,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G2 = blue\n- H1 = top-left\n\nThis combination (F3-G2-H1) doesn't exist yet, but all components are established. I'll construct it systematically.\n\nF3-G2-H1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 71,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "F2-G2-H1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 50,
+    "cumulative_accuracy": 0.8309859154929577,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Blue = G2\n- Top-left = H1\n\nThis combination (F2-G2-H1) doesn't exist yet in the lexicon, but the components are all established. I'll combine them following the consistent pattern.\n\nF2-G2-H1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 72,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F3-G2-H3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 51,
+    "cumulative_accuracy": 0.8333333333333334,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G2 = blue\n- H3 = bottom-left\n\nThis combination (F3-G2-H3) follows the established pattern perfectly.\n\nF3-G2-H3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 73,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F1-G3-H4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 51,
+    "cumulative_accuracy": 0.8356164383561644,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Green = G3\n- Bottom-right = H4\n\nThis combination \"F1-G3-H4\" is already in the lexicon as \"circle, green, bottom-right\". Perfect.\n\nF1-G3-H4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 74,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "F1-G4-H2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 52,
+    "cumulative_accuracy": 0.8378378378378378,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Yellow = G4\n- Top-right = H2\n\nThis combination (F1-G4-H2) doesn't exist in the lexicon yet, but follows the established pattern perfectly.\n\nF1-G4-H2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 75,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F2-G1-H3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 53,
+    "cumulative_accuracy": 0.84,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Red = G1\n- Bottom-left = H3\n\nThis combination (F2-G1-H3) doesn't appear in the lexicon yet, but follows the established pattern perfectly.\n\nF2-G1-H3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 76,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F4-G3-H4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 54,
+    "cumulative_accuracy": 0.8421052631578947,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G3 = green\n- H4 = bottom-right\n\nSo the encoding for \"star, green, bottom-right\" would be F4-G3-H4.\n\nF4-G3-H4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 77,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F3-G4-H3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 55,
+    "cumulative_accuracy": 0.8441558441558441,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G4 = yellow\n- H3 = bottom-left\n\nThis combination (F3-G4-H3) doesn't exist yet in the lexicon, but follows the established pattern perfectly.\n\nF3-G4-H3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 78,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F1-G3-H2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 55,
+    "cumulative_accuracy": 0.8461538461538461,
+    "speaker_raw_output": "Looking at the target concept: circle, green, top-right\n\nFrom the lexicon:\n- ?F1 = circle\n- ?G3 = green\n- ?H2 = top-right\n\nAnd there's already an entry: \"F1-G3-H2\": \"circle, green, top-right\"\n\nF1-G3-H2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 79,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "F1-G2-H2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 55,
+    "cumulative_accuracy": 0.8481012658227848,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Blue = G2\n- Top-right = H2\n\nThis combination F1-G2-H2 is already in the lexicon as \"circle, blue, top-right\".\n\nF1-G2-H2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 80,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F2-G2-H3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 55,
+    "cumulative_accuracy": 0.85,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Blue = G2\n- Bottom-left = H3\n\nThis combination already exists in the lexicon: \"F2-G2-H3\" = \"triangle, blue, bottom-left\" \u2713\n\nF2-G2-H3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 81,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "F1-G4-H2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 55,
+    "cumulative_accuracy": 0.8518518518518519,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Yellow = G4\n- Top-right = H2\n\nThis combination (F1-G4-H2) isn't in the lexicon yet, but follows the established pattern perfectly.\n\nF1-G4-H2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 82,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "F4-G3-H1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 55,
+    "cumulative_accuracy": 0.8536585365853658,
+    "speaker_raw_output": "Looking at the target concept: star, green, top-left.\n\nFrom the lexicon:\n- ?F4 = star\n- ?G3 = green\n- ?H1 = top-left\n\nAnd there's already an entry: \"F4-G3-H1\": \"star, green, top-left\"\n\nF4-G3-H1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 83,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F4-G4-H1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 55,
+    "cumulative_accuracy": 0.8554216867469879,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G4 = yellow\n- H1 = top-left\n\nThe entry \"F4-G4-H1\" already exists and maps to \"star, yellow, top-left\". \n\nF4-G4-H1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 84,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G4-H4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 56,
+    "cumulative_accuracy": 0.8571428571428571,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Yellow = G4\n- Bottom-right = H4\n\nThis combination F2-G4-H4 doesn't appear in the lexicon yet, but follows the established pattern perfectly.\n\nF2-G4-H4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 85,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "F2-G2-H1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 56,
+    "cumulative_accuracy": 0.8588235294117647,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Blue = G2\n- Top-left = H1\n\nThe combination F2-G2-H1 already exists in the lexicon as \"triangle, blue, top-left\". Perfect.\n\nF2-G2-H1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 86,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "F3-G4-H2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 57,
+    "cumulative_accuracy": 0.8604651162790697,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G4 = yellow\n- H2 = top-right\n\nThis combination hasn't been used yet, but follows the established pattern perfectly.\n\nF3-G4-H2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 87,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "F1-G2-H1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 57,
+    "cumulative_accuracy": 0.8620689655172413,
+    "speaker_raw_output": "Looking at the lexicon:\n- F1 = circle\n- G2 = blue\n- H1 = top-left\n\nThe combination F1-G2-H1 is already in the lexicon as \"circle, blue, top-left\". \n\nF1-G2-H1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 88,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F4-G4-H4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 57,
+    "cumulative_accuracy": 0.8636363636363636,
+    "speaker_raw_output": "Looking at the target concept: star, yellow, bottom-right\n\nFrom the lexicon:\n- F4 = star\n- G4 = yellow\n- H4 = bottom-right\n\nThis combination \"F4-G4-H4\" is already in the lexicon as \"star, yellow, bottom-right\". \n\nF4-G4-H4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 89,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F2-G3-H2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 57,
+    "cumulative_accuracy": 0.8651685393258427,
+    "speaker_raw_output": "Looking at the lexicon, I can see that:\n- F2 = triangle\n- G3 = green\n- H2 = top-right\n\nAnd the combination F2-G3-H2 is already in the lexicon as \"triangle, green, top-right\". Perfect match.\n\nF2-G3-H2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 90,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F2-G3-H2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 57,
+    "cumulative_accuracy": 0.8666666666666667,
+    "speaker_raw_output": "Looking at the lexicon, I can see that \"triangle, green, top-right\" is already established:\n\n- F2 = triangle\n- G3 = green\n- H2 = top-right\n\nAnd the full entry \"F2-G3-H2\" = \"triangle, green, top-right\" is in the lexicon.\n\nF2-G3-H2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 91,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "F2-G3-H1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 57,
+    "cumulative_accuracy": 0.8681318681318682,
+    "speaker_raw_output": "Looking at the lexicon, I can see:\n- F2 = triangle\n- G3 = green\n- H1 = top-left\n\nAnd \"F2-G3-H1\" is already in the lexicon as \"triangle, green, top-left\". Perfect.\n\nF2-G3-H1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 92,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F4-G1-H4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 57,
+    "cumulative_accuracy": 0.8695652173913043,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G1 = red\n- H4 = bottom-right\n\nThis combination is already in the lexicon: \"F4-G1-H4\": \"star, red, bottom-right\"\n\nF4-G1-H4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 93,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G2-H2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 58,
+    "cumulative_accuracy": 0.8709677419354839,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G2 = blue\n- H2 = top-right\n\nSo the encoding for \"star, blue, top-right\" would be F4-G2-H2.\n\nF4-G2-H2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 94,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G3-H2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 58,
+    "cumulative_accuracy": 0.8723404255319149,
+    "speaker_raw_output": "Looking at the target concept: star, green, top-right\n\nFrom the lexicon:\n- star = F4\n- green = G3\n- top-right = H2\n\nThis exact combination exists: \"F4-G3-H2\": \"star, green, top-right\"\n\nF4-G3-H2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 95,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F1-G2-H4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 59,
+    "cumulative_accuracy": 0.8736842105263158,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Blue = G2\n- Bottom-right = H4\n\nThe combination F1-G2-H4 follows the established pattern perfectly.\n\nF1-G2-H4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 96,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F3-G1-H4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 60,
+    "cumulative_accuracy": 0.875,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G1 = red\n- H4 = bottom-right\n\nThis combination would be F3-G1-H4, which isn't in the lexicon yet but follows the established pattern perfectly.\n\nF3-G1-H4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 97,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "F1-G1-H1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 61,
+    "cumulative_accuracy": 0.8762886597938144,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Red = G1\n- Top-left = H1\n\nThis combination (F1-G1-H1) doesn't exist yet in the lexicon, but follows the established pattern perfectly.\n\nF1-G1-H1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 98,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F3-G3-H3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 62,
+    "cumulative_accuracy": 0.8775510204081632,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G3 = green\n- H3 = bottom-left\n\nSo the combination F3-G3-H3 should encode \"square, green, bottom-left\"\n\nF3-G3-H3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 99,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G3-H3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 63,
+    "cumulative_accuracy": 0.8787878787878788,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G3 = green\n- H3 = bottom-left\n\nSo the encoding for \"star, green, bottom-left\" should be F4-G3-H3.\n\nF4-G3-H3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 100,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G1-H3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 63,
+    "cumulative_accuracy": 0.88,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G1 = red\n- H3 = bottom-left\n\nThis combination F4-G1-H3 already exists in the lexicon as \"star, red, bottom-left\". Perfect.\n\nF4-G1-H3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  }
+]
