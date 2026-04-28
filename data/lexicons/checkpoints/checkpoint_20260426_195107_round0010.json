@@ -1,0 +1,11 @@
+{
+  "F1-G1-H1": "circle, red, top-left",
+  "?F1": "circle",
+  "?G1": "red",
+  "?H1": "top-left",
+  "F1-G2-H1": "circle, blue, top-left",
+  "?G2": "blue",
+  "F2-G2-H2": "triangle, blue, top-right",
+  "?F2": "triangle",
+  "?H2": "top-right"
+}
