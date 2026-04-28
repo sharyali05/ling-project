@@ -1,0 +1,67 @@
+[
+  {
+    "run": "run_20260423_091451.json",
+    "total_rounds": 100,
+    "final_cumulative_accuracy": 0.94,
+    "unique_concepts_seen": 55,
+    "final_lexicon_size": 67,
+    "lexicon_stabilization_round": 81,
+    "topographic_similarity": 1.0,
+    "avg_message_length": 3.0,
+    "final_shape_accuracy": 0.95,
+    "final_color_accuracy": 0.98,
+    "final_position_accuracy": 0.99
+  },
+  {
+    "run": "run_20260423_092714.json",
+    "total_rounds": 100,
+    "final_cumulative_accuracy": 0.88,
+    "unique_concepts_seen": 53,
+    "final_lexicon_size": 63,
+    "lexicon_stabilization_round": -1,
+    "topographic_similarity": 1.0,
+    "avg_message_length": 3.01,
+    "final_shape_accuracy": 0.88,
+    "final_color_accuracy": 0.92,
+    "final_position_accuracy": 0.98
+  },
+  {
+    "run": "run_20260426_140258.json",
+    "total_rounds": 100,
+    "final_cumulative_accuracy": 0.96,
+    "unique_concepts_seen": 51,
+    "final_lexicon_size": 62,
+    "lexicon_stabilization_round": 78,
+    "topographic_similarity": 1.0,
+    "avg_message_length": 3.0,
+    "final_shape_accuracy": 0.96,
+    "final_color_accuracy": 0.98,
+    "final_position_accuracy": 0.99
+  },
+  {
+    "run": "run_20260426_143118.json",
+    "total_rounds": 100,
+    "final_cumulative_accuracy": 0.71,
+    "unique_concepts_seen": 50,
+    "final_lexicon_size": 50,
+    "lexicon_stabilization_round": 23,
+    "topographic_similarity": 1.0,
+    "avg_message_length": 3.0,
+    "final_shape_accuracy": 0.81,
+    "final_color_accuracy": 0.79,
+    "final_position_accuracy": 0.99
+  },
+  {
+    "run": "run_20260426_144151.json",
+    "total_rounds": 100,
+    "final_cumulative_accuracy": 0.98,
+    "unique_concepts_seen": 52,
+    "final_lexicon_size": 64,
+    "lexicon_stabilization_round": 97,
+    "topographic_similarity": 1.0,
+    "avg_message_length": 3.0,
+    "final_shape_accuracy": 0.99,
+    "final_color_accuracy": 0.98,
+    "final_position_accuracy": 1.0
+  }
+]
