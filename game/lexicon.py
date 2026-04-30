@@ -67,12 +67,12 @@ def update_lexicon(lexicon: dict, symbol_message: str, concept: dict, success: b
     attribute_values = list(concept.values())  # [shape_val, color_val, position_val]
 
     # Only attempt 1:1 token→attribute mapping if message length matches attribute count
-    if len(tokens) == len(attribute_values):
-        for token, value in zip(tokens, attribute_values):
-            inferred_key = f"?{token}"
-            # Only record if we haven't seen a conflict yet
-            if inferred_key not in lexicon or lexicon[inferred_key] == value:
-                lexicon[inferred_key] = value
+    # if len(tokens) == len(attribute_values):
+    #     for token, value in zip(tokens, attribute_values):
+    #         inferred_key = f"?{token}"
+    #         # Only record if we haven't seen a conflict yet
+    #         if inferred_key not in lexicon or lexicon[inferred_key] == value:
+    #             lexicon[inferred_key] = value
 
     return lexicon
 

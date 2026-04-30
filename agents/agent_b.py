@@ -63,33 +63,31 @@ class ListenerAgent(BaseAgent):
             "position": POSITIONS
         }
 
-        prompt = f"""ou are Agent B, the Listener in a referential communication experiment.
+        prompt = f"""You are Agent B, the Listener in a referential communication experiment.
 
-            Agent A has sent you this exact symbol string: {symbol_message}
+Agent A has sent you this exact symbol string: {symbol_message}
 
-            YOUR ONLY JOB is to decode what concept this symbol string represents.
+YOUR ONLY JOB is to decode what concept this symbol string represents.
 
-            SYMBOL VOCABULARY STRUCTURE:
-            - F + number = shape (e.g. F1, F2, F3, F4)
-            - G + number = color (e.g. G1, G2, G3, G4)
-            - H + number = position (e.g. H1, H2, H3, H4)
-            - Numbers within each dimension likely follow a consistent ordering
+SYMBOL VOCABULARY (the channel Agent A used):
+Available letters: {SYMBOLS}
+Available numbers: {NUMBERS}
+Tokens are letter-number pairs separated by hyphens.
 
-            CURRENT SHARED LEXICON (conventions so far):
-            {lexicon_section}
+CURRENT SHARED LEXICON (conventions established so far):
+{lexicon_section}
 
-            VALID OUTPUT VALUES:
-            {json.dumps(valid_values, indent=2)}
+VALID OUTPUT VALUES:
+{json.dumps(valid_values, indent=2)}
 
-            CRITICAL INSTRUCTIONS:
-            - Parse the symbol string token by token: {symbol_message}
-            - Each token tells you something specific about one attribute
-            - Do NOT default to circle/red/top-left — actually decode the message
-            - If the lexicon has no entry for a token, infer from position and number patterns
-            - Output ONLY a JSON object with keys: "shape", "color", "position"
-            - No explanation, no markdown fences, just the JSON
+CRITICAL INSTRUCTIONS:
+- Use the lexicon to interpret the symbol string
+- If the lexicon has no entry for a token, infer from patterns across prior successful rounds
+- Do NOT default to circle/red/top-left — actually decode the message
+- Output ONLY a JSON object with keys: "shape", "color", "position"
+- No explanation, no markdown fences, just the JSON
 
-            Decode {symbol_message} now:"""
+Decode {symbol_message} now:"""
         return prompt
 
     def _parse_concept(self, raw_output: str) -> dict | None:

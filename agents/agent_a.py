@@ -13,10 +13,10 @@ from config import SYMBOLS, NUMBERS, MAX_MESSAGE_LENGTH
 
 # human-readable description of allowed vocabulary so agent knows whats allowed
 VOCAB_DESCRIPTION = (
-    f"Symbols: {SYMBOLS}\n"
-    f"Numbers: {NUMBERS}\n"
-    f"Format: pair one symbol with one number, e.g. 'F1', 'G3'\n"
-    f"Combine up to {MAX_MESSAGE_LENGTH} pairs with hyphens, e.g. 'F1-G3-H2'"
+    f"Available symbol letters: {SYMBOLS}\n"
+    f"Available numbers: {NUMBERS}\n"
+    f"Combine them freely into tokens, separate tokens with hyphens.\n"
+    f"You decide how many tokens to use and which symbols mean what."
 )
 
 
@@ -91,7 +91,7 @@ class SpeakerAgent(BaseAgent):
                     TARGET CONCEPT TO ENCODE:
                     {json.dumps(concept, indent=2)}
 
-                    Think through your encoding strategy above. Then on the very last line, output ONLY the symbol string with absolutely nothing else — no explanation, no punctuation, no labels. Just the symbol string like: F1-G3-H2
+                    Think through your encoding strategy above. Then on the very last line, output ONLY the symbol string — no explanation, no punctuation, no labels. Just the raw symbol string.
                     """
         return prompt
 
