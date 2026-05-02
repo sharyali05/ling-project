@@ -29,14 +29,15 @@ class ListenerAgent(BaseAgent):
 
         Args:
             symbol_message: the symbol string received from Agent A, e.g. "F1-G3-H2"
-            lexicon: current shared lexicon
+            lexicon: shared lexicon containing only outcome markers ($ or %)
+                    with no concept descriptions — Agent B must infer meaning
+                    purely from patterns across successes and failures
 
         Returns:
             A tuple of (parsed concept dict or None if parsing failed, raw model output)
         """
         prompt = self._build_prompt(symbol_message, lexicon)
         raw_output = self.call(prompt)
-
         decoded_concept = self._parse_concept(raw_output)
         return decoded_concept, raw_output
 
@@ -45,49 +46,40 @@ class ListenerAgent(BaseAgent):
         Construct the full prompt for Agent B.
 
         Key decisions:
-        - Agent B does NOT see the original concept
-        - We tell it the valid output values so it can't hallucinate new ones
-        - We ask for JSON output only so we can parse it reliably
+        - Agent B sees ONLY outcome markers — no concept descriptions
+        - No valid_values injected — Agent B must infer possible values from patterns
+        - No dimensional hints — Agent B cannot be told which letters mean shape/color/position
+        - JSON output only for reliable parsing
         """
+        from game.lexicon import get_agent_b_lexicon_view
 
-        lexicon_section = (
-            json.dumps(lexicon, indent=2)
-            if lexicon
-            else "(empty — no conventions established yet, use your best inference)"
-        )
-
-        # tell the agent exactly what values are valid
-        valid_values = {
-            "shape": SHAPES,
-            "color": COLORS,
-            "position": POSITIONS
-        }
+        lexicon_section = get_agent_b_lexicon_view(lexicon)
 
         prompt = f"""You are Agent B, the Listener in a referential communication experiment.
 
-Agent A has sent you this exact symbol string: {symbol_message}
+    Agent A has sent you this exact symbol string: {symbol_message}
 
-YOUR ONLY JOB is to decode what concept this symbol string represents.
+    YOUR ONLY JOB is to decode what concept this symbol string represents.
 
-SYMBOL VOCABULARY (the channel Agent A used):
-Available letters: {SYMBOLS}
-Available numbers: {NUMBERS}
-Tokens are letter-number pairs separated by hyphens.
+    SYMBOL VOCABULARY (the channel Agent A used):
+    Available letters: {SYMBOLS}
+    Available numbers: {NUMBERS}
+    Tokens are letter-number pairs separated by hyphens.
 
-CURRENT SHARED LEXICON (conventions established so far):
-{lexicon_section}
+    COMMUNICATION HISTORY ($ = this string led to a correct decode, % = this string led to a wrong decode):
+    {lexicon_section}
 
-VALID OUTPUT VALUES:
-{json.dumps(valid_values, indent=2)}
+    CRITICAL INSTRUCTIONS:
+    - Study the communication history carefully to infer what the symbols mean
+    - A $ entry means that exact symbol string was decoded correctly that round
+    - A % entry means that exact symbol string led to a wrong decode that round
+    - Look for patterns across multiple $ entries to infer what each token encodes
+    - Do NOT default to any assumed values — decode based only on observed patterns
+    - Output ONLY a JSON object with keys: "shape", "color", "position"
+    - No explanation, no markdown fences, just the JSON
+    - Start your response with {{ and end with }}
 
-CRITICAL INSTRUCTIONS:
-- Use the lexicon to interpret the symbol string
-- If the lexicon has no entry for a token, infer from patterns across prior successful rounds
-- Do NOT default to circle/red/top-left — actually decode the message
-- Output ONLY a JSON object with keys: "shape", "color", "position"
-- No explanation, no markdown fences, just the JSON
-
-Decode {symbol_message} now:"""
+    Decode {symbol_message} now:"""
         return prompt
 
     def _parse_concept(self, raw_output: str) -> dict | None:
@@ -97,15 +89,13 @@ Decode {symbol_message} now:"""
         Returns None if parsing fails — the communication loop will
         log this as a failure and flag it for later analysis.
         """
-        # Strip any accidental markdown code fences the model might add
-        cleaned = raw_output.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
-
-        try:
-            concept = json.loads(cleaned)
-            # Validate that required keys are present
-            if all(k in concept for k in ("shape", "color", "position")):
-                return concept
-            else:
-                return None
-        except json.JSONDecodeError:
-            return None
+        import re
+        json_match = re.search(r'\{[^{}]+\}', raw_output, re.DOTALL)
+        if json_match:
+            try:
+                concept = json.loads(json_match.group())
+                if all(k in concept for k in ("shape", "color", "position")):
+                    return concept
+            except json.JSONDecodeError:
+                pass
+        return None
