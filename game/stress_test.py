@@ -107,8 +107,8 @@ class NaiveLearnerAgent(BaseAgent):
             "symbol": symbol_message,
             "decoded": decoded,
             "correct": correct,
-            # Only reveal the target on success — binary feedback condition
-            "confirmed_meaning": target if correct else None
+            # confirmed_meaning removed — revealing concept labels to Agent C
+            # would leak natural language into the symbol channel
         }
         self.observations.append(entry)
 
@@ -140,10 +140,8 @@ class NaiveLearnerAgent(BaseAgent):
         if recent_obs:
             obs_lines = []
             for obs in recent_obs:
-                status = "CORRECT" if obs["correct"] else "WRONG"
-                line = f"  Symbol: {obs['symbol']} | Your guess: {obs['decoded']} | Result: {status}"
-                if obs["correct"] and obs["confirmed_meaning"]:
-                    line += f" | Confirmed meaning: {obs['confirmed_meaning']}"
+                marker = "$" if obs["correct"] else "%"
+                line = f"{marker}{obs['symbol']}"
                 obs_lines.append(line)
             observations_section = "\n".join(obs_lines)
         else:
@@ -164,26 +162,24 @@ HOW THE SYMBOL LANGUAGE WORKS (channel rules only):
 - Each concept has three attributes: shape, color, and position
 - You must figure out which letters and numbers map to which attribute values
 
-YOUR PRIOR OBSERVATIONS (what you have learned so far):
+YOUR PRIOR OBSERVATIONS:
+Each line shows a symbol string and whether your decode was correct ($) or wrong (%).
 {observations_section}
 
-VALID OUTPUT VALUES (these are the only possible attribute values):
-{json.dumps(valid_values, indent=2)}
-
 INSTRUCTIONS:
-- Study your prior observations carefully — look for patterns in which symbols
-  appear with which attribute values across rounds where you were correct
-- The language is likely systematic: if F1 meant circle once, it probably
-  means circle consistently
+- Study your prior observations carefully
+- Look for patterns across $ entries — tokens that appear consistently in successful rounds
+  likely encode the same attribute value each time
+- % entries tell you something went wrong — avoid repeating those interpretations
+- Do NOT assume any default values — infer everything from observed patterns
 - Output ONLY a JSON object with keys: "shape", "color", "position"
-- Values must come from the valid output values listed above
 - No explanation, no extra text — just the JSON
 
 SYMBOL STRING TO DECODE NOW:
 {symbol_message}
 
-CRITICAL: Your response must be ONLY the JSON object. 
-No reasoning, no code fences, no explanation. 
+CRITICAL: Your response must be ONLY the JSON object.
+No reasoning, no code fences, no explanation.
 Start your response with {{ and end with }}
 """
         return prompt

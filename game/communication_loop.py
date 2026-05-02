@@ -38,8 +38,7 @@ def run_experiment(
     Args:
         lexicon: starting lexicon (empty at beginning of experiment)
         num_rounds: total number of rounds to run
-        num_concepts: unused directly here (task generator draws from full space)
-                      reserved for future fixed-concept-set mode
+        num_concepts: size of the fixed concept pool agents draw from
         checkpoint_interval: save a lexicon snapshot every N rounds
         run_id: unique identifier for this run (used in filenames)
 
@@ -47,30 +46,29 @@ def run_experiment(
         (final_lexicon, round_logs) — the evolved lexicon and full log of every round
     """
 
-    # Initialize the two agents
-    # Each has its own API client but shares the same lexicon via prompts
     speaker = SpeakerAgent()
     listener = ListenerAgent()
 
-    round_logs = []   # We'll store one dict per round here
+    round_logs = []
     success_count = 0
+
+    # Agent A's private history — maps "$symbol" or "%symbol" to concept string
+    # This is NEVER passed to Agent B
+    agent_a_history = {}
 
     print(f"Starting experiment: {num_rounds} rounds\n")
 
-    # Generate a fixed concept pool of size num_concepts
-    # Agents will only ever see concepts from this pool
     concept_pool = generate_concept_set(num_concepts, allow_repeats=False)
     print(f"Concept pool ({num_concepts} concepts): {concept_pool}\n")
 
     for round_num in tqdm(range(1, num_rounds + 1), desc="Rounds"):
 
-        # generate target concept
         target_concept = random.choice(concept_pool)
 
-        # Agent A encodes the concept
-        symbol_message, speaker_raw = speaker.encode(target_concept, lexicon)
+        # Agent A encodes — receives its own private history (symbol + concept)
+        symbol_message, speaker_raw = speaker.encode(target_concept, agent_a_history)
 
-        # Agent B decodes the symbol string
+        # Agent B decodes — receives only outcome markers, no concept descriptions
         decoded_concept, listener_raw = listener.decode(symbol_message, lexicon)
 
         # evaluate
@@ -78,12 +76,15 @@ def run_experiment(
         if result["success"]:
             success_count += 1
 
-        # update shared lexicon
-        # Only updates on success — see lexicon.py for the update strategy
+        # Update shared lexicon (outcome markers only — what Agent B can see)
         lexicon = update_lexicon(lexicon, symbol_message, target_concept, result["success"])
 
-        # lLog everything
-        # We log raw model output too so you can analyze agent reasoning later
+        # Update Agent A's private history (full concept descriptions — never shown to B)
+        marker = "$" if result["success"] else "%"
+        concept_str = f"{target_concept['shape']}, {target_concept['color']}, {target_concept['position']}"
+        agent_a_history[f"{marker}{symbol_message}"] = concept_str
+
+        # Log everything
         round_log = {
             "round": round_num,
             "target_concept": target_concept,
@@ -92,13 +93,11 @@ def run_experiment(
             "result": result,
             "lexicon_size": len(lexicon),
             "cumulative_accuracy": success_count / round_num,
-            # raw outputs for debugging and later analysis
             "speaker_raw_output": speaker_raw,
             "listener_raw_output": listener_raw,
         }
         round_logs.append(round_log)
 
-        # Print a brief summary every round so you can watch it unfold
         status = "correct" if result["success"] else "wrong"
         print(
             f"  Round {round_num:03d} {status} | "
@@ -108,13 +107,11 @@ def run_experiment(
             f"Accuracy: {success_count/round_num:.0%}"
         )
 
-        # checkpoint
         if round_num % checkpoint_interval == 0:
             checkpoint_path = os.path.join(LEXICON_DIR, f"checkpoint_{run_id}_round{round_num:04d}.json")
             save_lexicon(lexicon, checkpoint_path)
             print(f"  [Checkpoint saved: {checkpoint_path}]")
 
-        # Small delay between API calls to avoid rate limiting
         time.sleep(0.5)
 
     print(f"\nExperiment complete.")
