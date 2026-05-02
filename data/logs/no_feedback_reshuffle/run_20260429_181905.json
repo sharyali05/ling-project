@@ -1,0 +1,2550 @@
+[
+  {
+    "round": 1,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L1-M11",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (triangle), color (blue), and position (top-left).\n\nLet me design a simple systematic encoding:\n\n**Shape encoding:**\n- Triangle = 1 (3 sides \u2192 token starts with shape concept)\n- I'll use `H` as shape marker\n- Triangle: `H1` (H=shape, 1=triangle... but let me think more cleanly)\n\n**Strategy: Use positional tokens**\n- Token 1 = Shape\n- Token 2 = Color\n- Token 3 = Position\n\n**Shape values:**\n- Triangle = `K3` (K=shape category, 3 = triangle has 3 sides \u2014 memorable!)\n\n**Color values:**\n- Blue = `LN` (L=color category, N for bLue... or just assign: blue=1, red=2, green=3)\n- Blue = `L1`\n\n**Position values:**\n- Top-left = `M11` or use a grid: top=1, middle=2, bottom=3; left=1, center=2, right=3\n- Top-left = `M11` (M=position, first digit=row, second=col)\n\nLet me simplify:\n- Shape: `K3` (triangle = 3 sides)\n- Color: `L1` (blue = 1st color assigned)\n- Position: `M11` (top=1, left=1)\n\nK3-L1-M11",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 2,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L2-M3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": false
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three features: shape (triangle), color (blue), and position (top-right).\n\nLet me design a simple systematic encoding:\n\n**Shape encoding:**\n- Triangle = K1 (K for shape category, 1 for triangle)\n\n**Color encoding:**\n- Blue = L2 (L for color category, 2 for blue)\n\n**Position encoding:**\n- Top-right = M3 (M for position category, 3 = top-right... using a grid: 1=top-left, 2=top-center, 3=top-right, 4=bottom-left, etc.)\n\nSo my message will be: K1-L2-M3\n\nK1-L2-M3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 3,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K1-L3-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (circle), color (yellow), and position (bottom-left).\n\nLet me devise a simple systematic encoding:\n\n**Shape encoding:**\n- Circle = K1\n- (future: square = K2, triangle = K3, etc.)\n\n**Color encoding:**\n- Yellow = L3\n- (future: red = L1, blue = L2, green = L4, etc.)\n\n**Position encoding:**\n- Bottom-left = M4\n- (future: top-left = M1, top-right = M2, bottom-right = M3)\n\nSo my encoding will be three tokens: shape-color-position\n\nK1-L3-M4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 4,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-G2-L4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (star), color (green), position (bottom-right).\n\nLet me design a simple systematic encoding:\n\n**Shape encoding:**\n- star = K1\n- (other shapes would be K2, K3, etc.)\n\n**Color encoding:**\n- green = G2\n- (other colors: G1=red, G3=blue, G4=yellow, etc.)\n\n**Position encoding:**\n- bottom-right = L4\n- (positions: L1=top-left, L2=top-right, L3=bottom-left, L4=bottom-right)\n\nSo the full string: shape-color-position = K1-G2-L4\n\nK1-G2-L4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 5,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K1-L1-M2-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (star), color (blue), and position (bottom-left).\n\nLet me design a simple systematic encoding:\n\n**Shape tokens:**\n- Star = `K1`\n- (other shapes would get K2, K3, etc.)\n\n**Color tokens:**\n- Blue = `L1`\n- (other colors would get L2, L3, etc.)\n\n**Position tokens:**\n- I'll think of position as two axes: vertical (top/bottom) and horizontal (left/right)\n- Bottom = `M2` (2 for bottom, 1 for top)\n- Left = `N1` (1 for left, 2 for right)\n\nSo the full encoding: shape-color-vertical_position-horizontal_position\n\nK1-L1-M2-N1\n\nK1-L1-M2-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 6,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-L2-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three features: shape (star), color (green), and position (bottom-right).\n\nLet me design a simple systematic encoding:\n\n**Shape:**\n- star = K1 (K for shape category, 1 for star)\n\n**Color:**\n- green = L2 (L for color category, 2 for green)\n\n**Position:**\n- I'll think of position as a grid. Bottom = row 2, Right = column 2\n- bottom-right = M4 (M for position category, 4 for bottom-right specifically)\n\nSo the full string: K1-L2-M4\n\nK1-L2-M4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 7,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "G1-H3-N2-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": false
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (triangle), color (yellow), and position (bottom-right).\n\nLet me design a simple systematic encoding:\n\n**Shape encoding:**\n- Triangle = G1\n- (other shapes would be G2, G3, etc.)\n\n**Color encoding:**\n- Yellow = H3\n- (e.g., red=H1, blue=H2, yellow=H3, green=H4)\n\n**Position encoding:**\n- Position uses two axes: vertical (top/bottom) and horizontal (left/right)\n- Bottom = N2 (top=N1, bottom=N2)\n- Right = M2 (left=M1, right=M2)\n- Combined bottom-right = N2-M2\n\nSo the full encoding: G1-H3-N2-M2\n\nG1-H3-N2-M2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 8,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L2-M3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (star), color (green), and position (top-right).\n\nLet me design a simple systematic encoding:\n\n**Shape tokens:**\n- Star = `K1` (K for shape category, 1 for star)\n\n**Color tokens:**\n- Green = `L2` (L for color category, 2 for green)\n\n**Position tokens:**\n- Top-right = `M3` (M for position category, 3 for top-right)\n  - Position grid: 1=top-left, 2=top-center, 3=top-right, 4=bottom-left, etc.\n\nSo the full string: `K1-L2-M3`\n\nK1-L2-M3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 9,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-F1-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (star), color (red), and position (bottom-right).\n\nLet me design a simple systematic encoding:\n\n**Shape encoding:**\n- star = K1\n- (other shapes would get other codes)\n\n**Color encoding:**\n- red = F1\n- (other colors would get other codes)\n\n**Position encoding:**\n- bottom-right = M4\n- (positions: top-left=M1, top-right=M2, bottom-left=M3, bottom-right=M4)\n\nSo the full string will be: K1-F1-M4\n\nThis is compact, systematic, and uses shape-color-position order consistently.\n\nK1-F1-M4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 10,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H1-K3-L2-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three attributes: shape (circle), color (yellow), and position (bottom-right).\n\nLet me design a simple systematic encoding:\n\n**Shape encoding:**\n- Circle = H1\n- (other shapes would be H2, H3, etc.)\n\n**Color encoding:**\n- Yellow = K3\n- (red = K1, blue = K2, green = K4, etc.)\n\n**Position encoding:**\n- Position is a 2D concept: vertical (top/bottom) and horizontal (left/right)\n- Top = L1, Bottom = L2\n- Left = M1, Right = M2\n- Bottom-right = L2-M2\n\nSo the full encoding: H1-K3-L2-M2\n\nH1-K3-L2-M2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 11,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H3-K1-L21",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (triangle), color (red), and position (bottom-left).\n\nLet me design a simple systematic encoding:\n\n**Shape encoding:**\n- Triangle = token starting with shape marker\n- I'll use `H` as shape prefix\n- Triangle = 3 sides \u2192 `H3`\n\n**Color encoding:**\n- I'll use `K` as color prefix\n- Red \u2192 `K1` (arbitrary assignment, but red = 1 as first primary color)\n\n**Position encoding:**\n- I'll use `L` as position prefix\n- bottom = `2`, left = `1` \u2192 `L21`\n\nSo the full string: `H3-K1-L21`\n\nH3-K1-L21",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 12,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F1-G1-H3-J2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three features: shape (triangle), color (red), and position (bottom-right).\n\nLet me design a simple systematic encoding:\n\n**Shape:**\n- Triangle = F1\n- (reserving F2 for circle, F3 for square, etc.)\n\n**Color:**\n- Red = G1\n- (reserving G2 for blue, G3 for green, etc.)\n\n**Position:**\n- I'll use a grid: top=H1, middle=H2, bottom=H3, left=J1, right=J2\n- Bottom-right = H3-J2\n\nSo the full string: F1-G1-H3-J2\n\nF1-G1-H3-J2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 13,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L1-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three attributes: shape (star), color (red), and position (top-right).\n\nLet me design a simple systematic encoding:\n\n**Shape encoding:**\n- star = K1\n- (other shapes would be K2, K3, etc.)\n\n**Color encoding:**\n- red = L1\n- (other colors would be L2, L3, etc.)\n\n**Position encoding:**\n- top-right = M2\n- (positions: top-left=M1, top-right=M2, bottom-left=M3, bottom-right=M4, center=M5)\n\nSo the full encoding for {star, red, top-right} = K1-L1-M2\n\nK1-L1-M2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 14,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K1-L2-N3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three attributes: shape (star), color (green), and position (bottom-left).\n\nLet me design a simple systematic encoding:\n\n**Shape encoding:**\n- star = SH1 \u2192 I'll use `K1` (K for shape category, 1 for star)\n\n**Color encoding:**\n- green = I'll use `MG` \u2192 Actually let me keep it simple\n- green = `L2` (L for color category, 2 for green... let me think: 1=red, 2=green, 3=blue, etc.)\n\n**Position encoding:**\n- bottom-left = I'll use `N` for position, and encode as grid: bottom=low, left=left\n- bottom-left = `N3` (N for position, 3 for bottom-left... let me map: 1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right)\n\nSo my encoding:\n- Shape: `K1` (K=shape, 1=star)\n- Color: `L2` (L=color, 2=green)\n- Position: `N3` (N=position, 3=bottom-left)\n\nFinal string: `K1-L2-N3`\n\nK1-L2-N3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 15,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "H1-G1-K1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (triangle), color (green), and position (top-left).\n\nLet me design a simple encoding scheme:\n\n**Shape encoding:**\n- Triangle = H1\n- (other shapes would be H2, H3, etc.)\n\n**Color encoding:**\n- Green = G1\n- (other colors would be G2, G3, etc.)\n\n**Position encoding:**\n- Top-left = K1\n- Top-right = K2\n- Bottom-left = K3\n- Bottom-right = K4\n\nSo the full encoding for {triangle, green, top-left} would be:\nH1-G1-K1\n\nH1-G1-K1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 16,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "H1-G1-K2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three properties: shape (circle), color (green), and position (top-right).\n\nLet me design a simple systematic encoding:\n\n**Shape encoding:**\n- Circle = H1\n- (Other shapes could be H2, H3, etc.)\n\n**Color encoding:**\n- Green = G1\n- (Other colors could be G2, G3, etc.)\n\n**Position encoding:**\n- Top-right = K2 (thinking of a grid: top-left=K1, top-right=K2, bottom-left=K3, bottom-right=K4)\n\nSo my encoding will be: H1-G1-K2\n\nH1-G1-K2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 17,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H1-G2-L3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 0,
+    "cumulative_accuracy": 0.0,
+    "speaker_raw_output": "I need to encode three features: shape (circle), color (green), and position (bottom-left).\n\nLet me design a simple systematic encoding:\n\n**Shape encoding:**\n- circle = H1\n- (other shapes would get other codes)\n\n**Color encoding:**\n- green = G2\n- (other colors would get other codes)\n\n**Position encoding:**\n- bottom-left = L3\n- (other positions would get other codes)\n\nI'll combine them in order: SHAPE-COLOR-POSITION\n\nH1-G2-L3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 18,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L3-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.05555555555555555,
+    "speaker_raw_output": "I need to encode three properties: shape (square), color (yellow), and position (top-right).\n\nLet me design a simple systematic encoding:\n\n**Shape:**\n- Square = K1\n- (other shapes would be K2, K3, etc.)\n\n**Color:**\n- Yellow = L3\n- (e.g., Red = L1, Blue = L2, Yellow = L3, Green = L4)\n\n**Position:**\n- I'll think of positions as a grid: top-left, top-right, bottom-left, bottom-right\n- Top-right = M2\n- (top-left = M1, top-right = M2, bottom-left = M3, bottom-right = M4)\n\nSo my encoding: shape-color-position = K1-L3-M2\n\nK1-L3-M2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 19,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-L1-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.05263157894736842,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nFrom this, I can infer:\n- `K1` = square (shape)\n- `L3` = yellow (color)\n- `M2` = top-right (position)\n\nI need to encode: square, green, bottom-right\n\n- Shape: square \u2192 `K1` (reuse)\n- Color: green \u2192 I'll use `L1` (new color mapping, L=color, 1=green)\n- Position: bottom-right \u2192 I'll use `M4` (new position mapping, M=position, 4=bottom-right; top-right=2, so bottom variants get higher numbers)\n\nK1-L1-M4",
+    "listener_raw_output": "Looking at the shared lexicon:\n\n- \"K1-L3-M2\" = \"square, yellow, top-right\"\n\nSo K maps to shape, L maps to color, M maps to position.\n\nK1 = square (K1 is same)\nL3 = yellow \u2192 L1 must be a different color. If L3=yellow, and colors are [red, blue, green, yellow], L1 could map to red (1st in list).\nM2 = top-right \u2192 M4 maps to the 4th position = bottom-right.\n\n{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 20,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K2-L1-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.05,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nI can try to derive a consistent system from that entry:\n- K = shape \u2192 K1 = square, so I need a new shape token for triangle \u2192 **K2** = triangle\n- L = color \u2192 L3 = yellow, so I need a new color token for green \u2192 **L1** = green\n- M = position \u2192 M2 = top-right, so I need a new position token for bottom-left \u2192 **M4** = bottom-left\n\nThis keeps the structure (K=shape, L=color, M=position) consistent with the existing lexicon.\n\nK2-L1-M4",
+    "listener_raw_output": "Looking at the established lexicon:\n- K1-L3-M2 = square, yellow, top-right\n\nMapping token positions:\n- K = shape, L = color, M = position\n\nK values: K1=square, so K2 likely = circle (next shape)\nL values: L3=yellow, so L1 likely = red (first color)\nM values: M2=top-right, so M4 likely = bottom-right (fourth position)\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 21,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K2-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.047619047619047616,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nI can try to reuse parts of this convention:\n- Position 1 (first token) = shape\n- Position 2 (second token) = color\n- Position 3 (third token) = position\n\nFrom the existing entry:\n- `K1` = square (shape)\n- `L3` = yellow (color)\n- `M2` = top-right (position)\n\nSo I need new tokens for:\n- **triangle** \u2192 `K2` (K = shape category, 2 = triangle)\n- **green** \u2192 `L1` (L = color category, 1 = green)\n- **top-left** \u2192 `M1` (M = position category, 1 = top-left; top-right was M2, so top-left = M1)\n\nThis keeps the system consistent and extensible.\n\nK2-L1-M1",
+    "listener_raw_output": "Looking at the shared lexicon:\n- K1-L3-M2 = square, yellow, top-right\n\nMapping token positions: K=shape, L=color, M=position\n\nK1=square, so K2=next shape \u2192 circle (square is index 0, circle might be index 1 in some ordering, or using number as index: shapes[2-1]=circle)\n\nUsing number as direct index (1-based):\n- Shapes: 1=circle, 2=triangle, 3=square, 4=star \u2192 K1=circle, but K1=square in lexicon... contradiction.\n\nRe-mapping: K1=square means square=1? Then K2=circle (next), or shapes indexed differently.\n\nIf square=1, then: 1=square, 2=circle, 3=triangle, 4=star \u2192 K2=circle\nColors: L3=yellow, so 3=yellow \u2192 1=red, 2=blue, 3=yellow, 4=green \u2192 L1=red\nPositions: M2=top-right, so 2=top-right \u2192 1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right \u2192 M1=top-left\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 22,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L4-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": true,
+        "color": false,
+        "position": false
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.045454545454545456,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nI can break down what each token likely means (or should mean going forward):\n- `K1` = square (shape)\n- `L3` = yellow (color)\n- `M2` = top-right (position)\n\nThe target concept is \"square, green, top-right\" \u2014 same shape and position as the lexicon entry, but different color (green instead of yellow).\n\nI need to keep `K1` for square and `M2` for top-right, but replace `L3` (yellow) with a new token for green. I'll use `L4` for green (keeping L as the color slot, new number for new color).\n\nSo: `K1-L4-M2`\n\nK1-L4-M2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 23,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L3-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.043478260869565216,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nFrom this I can infer:\n- `K1` likely encodes \"square\" (shape)\n- `L3` likely encodes \"yellow\" (color)\n- `M2` likely encodes \"top-right\" (position)\n\nNow I need to encode:\n- shape: \"star\" \u2192 need a new symbol, I'll use `K3` (K for shape category, 3 for star)\n- color: \"yellow\" \u2192 `L3` (reuse from lexicon)\n- position: \"top-left\" \u2192 need a new symbol; `M2` = top-right, so I'll use `M1` for top-left (1 could mean left, 2 could mean right)\n\nSo my encoding: `K3-L3-M1`\n\nK3-L3-M1",
+    "listener_raw_output": "Looking at the shared lexicon:\n\n- \"K1-L3-M2\" = \"square, yellow, top-right\"\n\nComparing tokens:\n- K1 \u2192 square; K3 \u2192 different number, likely different shape. K is shape dimension. Numbers 1-4 map to shapes: 1=square, so 3 might be triangle or star. With 4 shapes (circle, triangle, square, star) and numbers 1-4: K1=square(1), so K3=triangle(3) or similar ordering.\n- L3 \u2192 yellow (same as lexicon entry, L3=yellow confirmed)\n- M2 \u2192 top-right; M1 \u2192 different position. M is position dimension. M2=top-right, M1 might be top-left.\n\nAssuming ordering: shapes K1=square, K2=circle, K3=triangle, K4=star; positions M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right.\n\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 24,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L3-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.08333333333333333,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square\n- color: yellow\n- position: top-right\n\nThis exactly matches the existing lexicon entry: `\"K1-L3-M2\": \"square, yellow, top-right\"`\n\nI'll use that directly.\n\nK1-L3-M2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 25,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L3-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.08,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nI can break down the components:\n- Shape: square \u2192 K1, so I need a new symbol for star \u2192 let me use **K3** (K for shape, 3 for star)\n- Color: yellow \u2192 L3 (from existing lexicon, L seems to encode color, 3 = yellow)\n- Position: top-right \u2192 M2 (from existing lexicon, M encodes position, 2 = top-right)\n\nSo for top-left, I'll use M1 (keeping M for position, 1 = left/top-left, since 2 = top-right)\n\nEncoding:\n- star = K3\n- yellow = L3\n- top-left = M1\n\nK3-L3-M1",
+    "listener_raw_output": "Looking at the shared lexicon:\n\n- K1-L3-M2 = square, yellow, top-right\n\nComparing K1 vs K3: K seems to encode shape. K1 = square, so K3 = a different shape. With 4 shapes and letters mapped to numbers, K1=square, K2=circle, K3=triangle, K4=star (or some ordering).\n\nL3 = yellow (same token as in lexicon, so L3 = yellow).\n\nM2 = top-right, M1 = different position. Positions: M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right.\n\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 26,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K2-L1-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.07692307692307693,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nI can try to extract meaning from the existing entry to stay consistent:\n- K = shape? K1 = square \u2192 maybe K2 = circle\n- L = color? L3 = yellow \u2192 maybe L1 = green\n- M = position? M2 = top-right \u2192 maybe M4 = bottom-left\n\nLet me assign:\n- Shape: K1 = square, so K2 = circle\n- Color: L3 = yellow, so L1 = green (new)\n- Position: M2 = top-right, so M4 = bottom-left (new, opposite corner)\n\nThis stays systematic and consistent with the existing lexicon pattern.\n\nK2-L1-M4",
+    "listener_raw_output": "Looking at the established lexicon:\n- K1-L3-M2 = square, yellow, top-right\n\nMapping tokens to attributes (K=shape, L=color, M=position):\n- K: 1=square, so K2 = next shape (circle? triangle?)\n- L: 3=yellow, so L1 = first color (red)\n- M: 2=top-right, so M4 = fourth position (bottom-right)\n\nFor K (shape): 1=square, 2=circle (mapping 1-4 to square, circle, triangle, star)\nFor L (color): 3=yellow, mapping 1=red, 2=blue, 3=yellow, 4=green \u2192 L1=red\nFor M (position): 2=top-right, mapping 1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right \u2192 M4=bottom-right\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 27,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L1-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.07407407407407407,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nI can try to extract consistent mappings from this:\n- K1 = square\n- L3 = yellow\n- M2 = top-right\n\nNow I need to encode: triangle, red, bottom-right\n\nI'll extend the system:\n- Shape: K1 = square \u2192 K2 = triangle (new shape, increment number)\n- Color: L3 = yellow \u2192 L1 = red (new color mapping)\n- Position: M2 = top-right \u2192 M4 = bottom-right (new position, using 4 to suggest \"bottom\")\n\nSo: triangle = K2, red = L1, bottom-right = M4\n\nK2-L1-M4",
+    "listener_raw_output": "Looking at the established lexicon:\n- K1-L3-M2 = \"square, yellow, top-right\"\n\nMapping token positions: K=shape, L=color, M=position\n\nFor K: K1=square, so K2=next shape \u2192 circle\nFor L: L3=yellow, so L1=first color \u2192 red\nFor M: M2=top-right, so M4=fourth position \u2192 bottom-right\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 28,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K2-L1-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.07142857142857142,
+    "speaker_raw_output": "I need to encode: triangle, blue, bottom-left.\n\nFrom the existing lexicon: `K1-L3-M2` = \"square, yellow, top-right\"\n\nLet me analyze the structure: it seems like the pattern is `[shape token]-[color token]-[position token]`.\n\nBreaking down the existing entry:\n- K1 = square\n- L3 = yellow\n- M2 = top-right\n\nNow I need to create new mappings for:\n- triangle \u2192 I'll use K2 (K=shape category, 2=triangle)\n- blue \u2192 I'll use L1 (L=color category, 1=blue)\n- bottom-left \u2192 I'll use M4 (M=position category, 4=bottom-left)\n\nThis keeps the structure consistent:\n- K = shape (K1=square, K2=triangle)\n- L = color (L1=blue, L3=yellow)\n- M = position (M2=top-right, M4=bottom-left)\n\nK2-L1-M4",
+    "listener_raw_output": "Looking at the established lexicon:\n\n\"K1-L3-M2\" = \"square, yellow, top-right\"\n\nMapping token positions:\n- K = shape, L = color, M = position\n- K1=square, so K2=circle (next shape)\n- L3=yellow, so L1=red (first color)\n- M2=top-right, so M4=bottom-right (fourth position)\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 29,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L2-M3",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.06896551724137931,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- K1-L3-M2 = \"square, yellow, top-right\"\n\nI can try to extract component meanings from this, but since it's a single entry, I need to infer or establish new conventions.\n\nLet me think about building a systematic encoding:\n\n**Shape encoding:**\n- From lexicon: K1 might relate to shape, L3 to color, M2 to position (or some other breakdown)\n- Let me assign: First token = shape, Second token = color, Third token = position\n\n**Mapping shapes:**\n- Square = K1 (from lexicon)\n- Star = K3 (new, different number)\n\n**Mapping colors:**\n- Yellow = L3 (from lexicon)\n- Green = L2 (new)\n\n**Mapping positions:**\n- Top-right = M2 (from lexicon)\n- Bottom-left = M4 (new, using higher number for \"bottom\", different letter position for \"left\" vs \"right\")\n  - Or: top=1/2, bottom=3/4, right=even, left=odd\n  - Top-right = M2 \u2192 top=low number, right=even\n  - Bottom-left = M3 (bottom=high, left=odd) \u2192 M3\n\nLet me go with:\n- K3 = star\n- L2 = green\n- M3 = bottom-left\n\nK3-L2-M3",
+    "listener_raw_output": "Looking at the lexicon entry: K1-L3-M2 = \"square, yellow, top-right\"\n\nAnalyzing token by token:\n- K position: K1=square, so K encodes shape. K3 \u2260 K1, so different shape. Numbers 1-4 map to shapes. K1=square(3rd in list index?), let me map: shapes are circle, triangle, square, star = 1,2,3,4. K1=square means square=1? But that puts circle,triangle before it... Or K1=square could mean shape index 1 of some ordering. Let me try: square=1, so K1=square, K3=star (circle=2, triangle=3, star=4)? Actually: if 1=square, 2=circle, 3=triangle, 4=star... K3=triangle.\n\n- L position: L3=yellow, so L encodes color. Colors: red, blue, green, yellow = 1,2,3,4. L3=yellow means yellow=3. L2=blue (red=1, blue=2, green=3... wait L3=yellow: red=1,blue=2,green=3,yellow=4? No, L3=yellow means yellow maps to 3). So L2=green... or red=1,blue=2,yellow=3,green=4. L2=blue.\n\n- M position: M2=top-right, so M encodes position. Positions: top-left, top-right, bottom-left, bottom-right = 1,2,3,4. M2=top-right. M3=bottom-left.\n\n{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 30,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L1-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.06666666666666667,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nI can try to derive consistent mappings from this:\n- K = shape indicator, K1 = square \u2192 I need a new shape code for \"star\"\n- L = color indicator, L3 = yellow \u2192 I need a new color code for \"green\"\n- M = position indicator, M2 = top-right \u2192 I need a new position code for \"bottom-right\"\n\nLet me establish new codes:\n- Shape: K1 = square, so K2 = star\n- Color: L3 = yellow, so L1 = green (picking a new number)\n- Position: M2 = top-right, so M4 = bottom-right (top=2, bottom=4 feels logical; right is consistent)\n\nSo the encoding would be: K2-L1-M4\n\nK2-L1-M4",
+    "listener_raw_output": "Looking at the established lexicon:\n- K1-L3-M2 = square, yellow, top-right\n\nComparing tokens:\n- K: shape dimension. K1=square, K2=different shape\n- L: color dimension. L3=yellow, L1=different color\n- M: position dimension. M2=top-right, M4=different position\n\nI need to infer the mappings. With 4 shapes, 4 colors, 4 positions mapped to numbers 1-4, and letters to dimensions:\n\nK1=square(3rd shape?), systematically: shapes order circle/triangle/square/star \u2192 K1=circle, K2=triangle, K3=square, K4=star... but K1=square in lexicon.\n\nReconsidering: K1=square means K maps to shapes where 1=square. Colors: L3=yellow, so L1=red (1=red, 2=blue, 3=yellow... or 1=red). Positions: M2=top-right, so M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right.\n\nSo K2=circle (next shape after square), L1=red, M4=bottom-right.\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 31,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L2-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.06451612903225806,
+    "speaker_raw_output": "I need to encode: circle, green, bottom-right.\n\nLooking at the existing lexicon:\n- \"K1-L3-M2\" = \"square, yellow, top-right\"\n\nLet me analyze the structure: K1=shape(square), L3=color(yellow), M2=position(top-right)\n\nI'll keep the same positional structure (token1=shape, token2=color, token3=position) and introduce new symbols for new concepts:\n\n- Shape: K1=square, so for circle I'll use K2 (K=shape category, 2=circle)\n- Color: L3=yellow, so for green I'll use L2 (L=color category, 2=green)\n- Position: M2=top-right, so for bottom-right I'll use M4 (M=position category, 4=bottom-right)\n\nK2-L2-M4",
+    "listener_raw_output": "Looking at the lexicon:\n- K1-L3-M2 = square, yellow, top-right\n\nComparing tokens:\n- K1\u2192square, K2\u2192different shape. K has 4 values for 4 shapes. K1=square, so K2 could be circle, triangle, or star.\n- L3\u2192yellow, L2\u2192different color. L maps to color. L1,L2,L3,L4 = red,blue,yellow,green? With L3=yellow, L2=blue.\n- M2\u2192top-right, M4\u2192different position. M maps to position. M2=top-right, M4=bottom-right (mapping 1=top-left,2=top-right,3=bottom-left,4=bottom-right).\n\nFor K: K1=square, K2=circle (alphabetical/sequential mapping: 1=circle,2=square... or 1=square,2=circle). With K1=square, K2=circle seems reasonable.\n\n{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 32,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K1-L1-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.0625,
+    "speaker_raw_output": "I need to encode: square, red, bottom-left\n\nFrom the existing lexicon:\n- \"K1-L3-M2\" = \"square, yellow, top-right\"\n\nI can see a pattern here:\n- K1 seems to encode \"square\" (shape)\n- L3 seems to encode \"yellow\" (color)\n- M2 seems to encode \"top-right\" (position)\n\nSo let me keep K1 for \"square\" and invent new tokens for \"red\" and \"bottom-left\":\n\n- Shape: K1 = square (keep this)\n- Color: L3 = yellow \u2192 I'll use L1 for red (new color, same letter L but different number)\n- Position: M2 = top-right \u2192 I'll use M4 for bottom-left (new position, same letter M but different number; 2=top-right, so 4=bottom-left makes sense as an opposite)\n\nSo: K1-L1-M4\n\nK1-L1-M4",
+    "listener_raw_output": "Looking at the established lexicon:\n- \"K1-L3-M2\" = \"square, yellow, top-right\"\n\nSo:\n- K1 \u2192 square (K1 is same, so shape = square)\n- L3 \u2192 yellow; L1 is different from L3, so L encodes color. With L3=yellow, L1 likely = red (1st color)\n- M2 \u2192 top-right; M4 is different from M2, so M encodes position. With M2=top-right (2nd position), M4 likely = bottom-right (4th position)\n\n{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 33,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.06060606060606061,
+    "speaker_raw_output": "I need to encode: triangle, blue, top-right.\n\nFrom the existing lexicon:\n- \"K1-L3-M2\" = \"square, yellow, top-right\"\n\nI can analyze the existing entry to extract meaning from components:\n- K1 = square (shape)\n- L3 = yellow (color)\n- M2 = top-right (position)\n\nSo M2 already means \"top-right\" \u2014 I'll reuse that.\n\nNow I need new symbols for:\n- triangle: I'll use K2 (K=shape category, 2=triangle, since 1=square)\n- blue: I'll use L1 (L=color category, 1=blue, since 3=yellow)\n\nSo the encoding for \"triangle, blue, top-right\" would be:\nK2-L1-M2\n\nK2-L1-M2",
+    "listener_raw_output": "Looking at the shared lexicon:\n\n\"K1-L3-M2\" = \"square, yellow, top-right\"\n\nComparing tokens:\n- K1\u2192square, K2\u2192different shape. K maps to shape. K1=square, K2 could be next shape (circle, triangle, star...). Positions in shape list: circle=1, triangle=2, square=3, star=4... or square=1 with K1, so K2=circle or triangle. Let me try K1=square(index 1 in some ordering), K2=next... Using the list order: circle(1), triangle(2), square(3), star(4) \u2014 but K1=square doesn't fit that. Alternatively: square=1, so K2=circle, K3=triangle, K4=star.\n\n- L3\u2192yellow, L1\u2192different color. L maps to color. If L1=red, L2=blue, L3=green... but L3=yellow in lexicon. Let me try: L1=red, L2=blue, L3=yellow (skipping or different mapping). Or color list: red(1), blue(2), green(3), yellow(4)... but L3=yellow doesn't fit. Try: yellow=3 in some ordering: red, blue, yellow, green \u2192 L3=yellow \u2713. So L1=red.\n\n- M2\u2192top-right, M2\u2192top-right (same token, same value).\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 34,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.058823529411764705,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nI can break this down:\n- `K1` = square\n- `L3` = yellow\n- `M2` = top-right\n\nNow I need to encode: circle, green, top-right\n\n- Position \"top-right\" = `M2` (reuse from lexicon)\n- Shape \"circle\" = new symbol. K was square, so I'll use `K2` for circle\n- Color \"green\" = new symbol. L was yellow, so I'll use `L1` for green\n\nSo: circle=`K2`, green=`L1`, top-right=`M2`\n\nK2-L1-M2",
+    "listener_raw_output": "Looking at the shared lexicon:\n\n- K1-L3-M2 = \"square, yellow, top-right\"\n\nComparing K2-L1-M2 to K1-L3-M2:\n- K token: K1=square, K2=? (different shape)\n- L token: L3=yellow, L1=? (different color)\n- M token: M2=top-right (same M2, same position)\n\nI need to infer what K2 and L1 mean. The K letter likely encodes shape, L encodes color, M encodes position.\n\nShapes: [circle, triangle, square, star] \u2014 K1=square, so K2 might be circle (next in list)\nColors: [red, blue, green, yellow] \u2014 L3=yellow, so L1=red (first in list)\nPosition: M2=top-right (confirmed)\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 35,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K1-L1-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 0.05714285714285714,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nI can see a pattern here:\n- `K1` likely encodes \"square\" (shape)\n- `L3` likely encodes \"yellow\" (color)\n- `M2` likely encodes \"top-right\" (position)\n\nSo I'll reuse `K1` for \"square\" and invent new tokens for \"blue\" and \"bottom-left\":\n- Shape: `K1` = square (reuse)\n- Color: `L3` = yellow (existing), so I'll use `L1` = blue (new)\n- Position: `M2` = top-right (existing), so I'll use `M4` = bottom-left (new, using 4 as a different quadrant)\n\nThis keeps the structure consistent: K-token for shape, L-token for color, M-token for position.\n\nK1-L1-M4",
+    "listener_raw_output": "Looking at the shared lexicon:\n- K1-L3-M2 = \"square, yellow, top-right\"\n\nMapping tokens to attributes:\n- K = shape, L = color, M = position\n- K1 = square\n- L3 = yellow \u2192 L1 is a different color (L1 vs L3, lower number, inferring red as first in list)\n- M2 = top-right \u2192 M4 is a different position (4th in list = bottom-right)\n\n{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 36,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L3-M4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.08333333333333333,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- `K1-L3-M2` = \"square, yellow, top-right\"\n\nI can extract some conventions from this:\n- `L3` likely represents \"yellow\" (it's the color slot)\n- `K1` likely represents \"square\" (shape slot)\n- `M2` likely represents \"top-right\" (position slot)\n\nNow I need to encode:\n- shape: \"circle\" \u2192 need a new symbol, I'll use `K2` (K=shape, 2=circle)\n- color: \"yellow\" \u2192 reuse `L3`\n- position: \"bottom-right\" \u2192 need a new symbol, I'll use `M4` (M=position, 4=bottom-right; top-right was M2, so bottom-right gets M4)\n\nSo my encoding: `K2-L3-M4`\n\nK2-L3-M4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 37,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.08108108108108109,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nLet me analyze the patterns:\n- K1 = square, K2 = circle (K encodes shape)\n- L3 = yellow (L encodes color)\n- M2 = top-right, M4 = bottom-right (M encodes position)\n\nSo for the target concept: circle, green, top-right\n\n- Shape: circle = K2\n- Color: green = new color, need a new symbol. L3 = yellow, so I'll use L1 for green\n- Position: top-right = M2\n\nEncoding: K2-L1-M2\n\nK2-L1-M2",
+    "listener_raw_output": "Looking at the patterns:\n\n- K1 = square, K2 = circle (from lexicon)\n- L3 = yellow in both entries; L1 is a different color \u2014 inferring L1 = red (position 1 in color list)\n- M2 = top-right (from K1-L3-M2), M4 = bottom-right (from K2-L3-M4) \u2014 M encodes position; M2 = top-right\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 38,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.07894736842105263,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nI can see a pattern emerging:\n- K1 = square, K2 = circle (shape encoded in K token)\n- L3 = yellow (color encoded in L token)\n- M2 = top-right, M4 = bottom-right (position encoded in M token)\n\nFor the target concept: square, red, top-left\n\n- Shape = square \u2192 K1 (consistent with lexicon)\n- Color = red \u2192 need new code. L3 = yellow, so I'll use L1 for red\n- Position = top-left \u2192 need new code. M2 = top-right, so I'll use M1 for top-left\n\nEncoding: K1-L1-M1\n\nK1-L1-M1",
+    "listener_raw_output": "Looking at the patterns:\n\nFrom \"K1-L3-M2\" = \"square, yellow, top-right\" and \"K2-L3-M4\" = \"circle, yellow, bottom-right\":\n\n- K1 = square, K2 = circle \u2192 K encodes shape\n- L3 = yellow in both \u2192 L encodes color; L1 is a different color (not yellow)\n- M2 = top-right, M4 = bottom-right \u2192 M encodes position; M1 is another position\n\nFor M: M2=top-right, M4=bottom-right. The number seems to map to positions. With M1, and considering the pattern (lower numbers perhaps for top-left), M1 = top-left.\n\nFor L: L3=yellow, L1 could be red (first in the color list).\n\nK1 = square (first shape).\n\n{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 39,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L1-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.07692307692307693,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nI can see a pattern emerging:\n- K1 = square, K2 = circle (shape dimension)\n- L3 = yellow (color dimension)\n- M2 = top-right, M4 = bottom-right (position dimension)\n\nFor the target concept \"circle, red, bottom-right\":\n- Shape: circle = K2 (from existing lexicon)\n- Color: red = new, need to invent. L3 = yellow, so I'll use L1 for red\n- Position: bottom-right = M4 (from existing lexicon)\n\nSo the encoding would be: K2-L1-M4\n\nK2-L1-M4",
+    "listener_raw_output": "Looking at the lexicon:\n\n- K1-L3-M2 = square, yellow, top-right\n- K2-L3-M4 = circle, yellow, bottom-right\n\nK token: K1=square, K2=circle \u2192 K2=circle\nL token: L3=yellow in both entries; L1 is new \u2014 need to infer. Letters seem to map to colors, so L1 likely = red (first in color list)\nM token: M2=top-right, M4=bottom-right \u2192 M4=bottom-right\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 40,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.075,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- K1 = square, K2 = circle \u2192 K seems to encode shape\n- L3 = yellow \u2192 L seems to encode color\n- M2 = top-right, M4 = bottom-right \u2192 M seems to encode position\n\nI need to encode: star, red, top-left\n\nFollowing the pattern:\n- Shape \"star\" \u2192 K3 (extending K for shapes: K1=square, K2=circle, K3=star)\n- Color \"red\" \u2192 L1 (extending L for colors: L3=yellow, L1=red as a new mapping)\n- Position \"top-left\" \u2192 M1 (extending M for positions: M2=top-right, M4=bottom-right, M1=top-left)\n\nK3-L1-M1",
+    "listener_raw_output": "Looking at the established lexicon:\n\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nAnalyzing patterns:\n- K1 = square, K2 = circle \u2192 K3 likely = triangle (next shape in sequence)\n- L3 = yellow in both entries \u2192 L1 is a different color. With L values 1-4 mapping to colors, L1 could be red (first color)\n- M2 = top-right, M4 = bottom-right \u2192 M values map to positions. M1 likely = top-left (first position)\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 41,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.07317073170731707,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nI can infer the following patterns:\n- K1 = square, K2 = circle (K encodes shape)\n- L3 = yellow (L encodes color)\n- M2 = top-right, M4 = bottom-right (M encodes position)\n\nSo for this target concept:\n- shape = square \u2192 K1\n- color = green \u2192 need new symbol. L is for color, L3 = yellow, so I'll use L1 for green\n- position = top-right \u2192 M2\n\nEncoding: K1-L1-M2\n\nK1-L1-M2",
+    "listener_raw_output": "Looking at the patterns:\n\n- K1 = square (K1 appears in \"K1-L3-M2\" = square)\n- K2 = circle (K2 appears in \"K2-L3-M4\" = circle)\n- So K encodes shape, with K1=square, K2=circle\n\n- L3 = yellow (appears in both entries with yellow)\n- L1 is a new value \u2192 need to infer. L likely encodes color. With L3=yellow, L1 might be red (first in list)\n\n- M2 = top-right (M2 appears in \"K1-L3-M2\" = top-right)\n- M4 = bottom-right (M4 appears in \"K2-L3-M4\" = bottom-right)\n- So M encodes position, with M2=top-right, M4=bottom-right\n\n{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 42,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L1-M3",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.07142857142857142,
+    "speaker_raw_output": "Looking at the existing lexicon to understand the patterns:\n\n- K1 = square, K2 = circle \u2192 K is shape, 1=square, 2=circle \u2192 I'll use K3 for triangle\n- L3 = yellow \u2192 L is color, 3=yellow \u2192 I'll use L1 for blue\n- M2 = top-right, M4 = bottom-right \u2192 M is position, 2=top-right, 4=bottom-right \u2192 I'll use M3 for bottom-left\n\nSo:\n- Shape: triangle \u2192 K3\n- Color: blue \u2192 L1\n- Position: bottom-left \u2192 M3\n\nK3-L1-M3",
+    "listener_raw_output": "Looking at the patterns:\n\nK1 = square, K2 = circle \u2192 K3 likely = triangle (progressing through shapes)\n\nL3 = yellow in both entries \u2192 L1 likely = red (different color)\n\nM2 = top-right, M4 = bottom-right \u2192 M3 likely = bottom-left (M values map to positions)\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 43,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L3-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.06976744186046512,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- K1 = square, K2 = circle \u2192 shape encoding uses K with a number\n- L3 = yellow \u2192 color encoding uses L with a number\n- M2 = top-right, M4 = bottom-right \u2192 position encoding uses M with a number\n\nSo the system seems to be:\n- K1 = square, K2 = circle \u2192 I need a new shape code for triangle \u2192 K3\n- L3 = yellow \u2192 stays L3\n- M2 = top-right, M4 = bottom-right \u2192 I need top-left \u2192 M1 (using 1 for top-left, 2 for top-right makes spatial sense)\n\nEncoding: triangle=K3, yellow=L3, top-left=M1\n\nK3-L3-M1",
+    "listener_raw_output": "Looking at the patterns:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle (next shape)\n- L3 = yellow (consistent in both entries)\n- M2 = top-right, M4 = bottom-right \u2192 M1 likely = top-left (M1 being the lowest/first value maps to top-left)\n\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 44,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.06818181818181818,
+    "speaker_raw_output": "Looking at the existing lexicon to understand the conventions:\n\n- `K1` = square, `K2` = circle (K seems to encode shape)\n- `L3` = yellow (L seems to encode color)\n- `M2` = top-right, `M4` = bottom-right (M seems to encode position)\n\nSo the pattern is: **K=shape**, **L=color**, **M=position**\n\nNow I need to encode:\n- **shape**: triangle \u2192 need a new K value. K1=square, K2=circle, so K3=triangle\n- **color**: green \u2192 need a new L value. L3=yellow, so L1=green\n- **position**: top-left \u2192 need a new M value. M2=top-right, M4=bottom-right. Let me be systematic: top=1x, bottom=3x, right=x2, left=x1... or just assign: M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right. That fits the existing M2=top-right and M4=bottom-right perfectly! So M1=top-left.\n\nEncoding: K3-L1-M1\n\nK3-L1-M1",
+    "listener_raw_output": "Looking at the patterns:\n\nFrom \"K1-L3-M2\" = square, yellow, top-right\nFrom \"K2-L3-M4\" = circle, yellow, bottom-right\n\nK seems to encode shape: K1=square, K2=circle, K3=?\nL seems to encode color: L3=yellow, L1=?\nM seems to encode position: M2=top-right, M4=bottom-right, M1=?\n\nK values: K1=square, K2=circle \u2192 K3 likely follows sequence \u2192 triangle (3rd shape)\nL values: L3=yellow \u2192 L1 likely first color \u2192 red\nM values: M2=top-right, M4=bottom-right \u2192 M1 likely top-left (odd=top, 1=left)\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 45,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.06666666666666667,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nI can identify patterns:\n- K1 = square, K2 = circle (K encodes shape)\n- L3 = yellow (L encodes color)\n- M2 = top-right, M4 = bottom-right (M encodes position)\n\nSo for the target concept \"square, blue, top-left\":\n- Shape: square = K1 (consistent with lexicon)\n- Color: blue = new color, yellow was L3, so I'll use L1 for blue\n- Position: top-left = new position. top-right was M2, bottom-right was M4. I'll use M1 for top-left (1 could suggest \"left/top\")\n\nK1-L1-M1",
+    "listener_raw_output": "Looking at the patterns:\n\nFrom \"K1-L3-M2\" = \"square, yellow, top-right\" and \"K2-L3-M4\" = \"circle, yellow, bottom-right\":\n\n- K1 = square, K2 = circle \u2192 K encodes shape\n- L3 = yellow in both cases \u2192 L encodes color, L3 = yellow; L1 likely = red (first color)\n- M2 = top-right, M4 = bottom-right \u2192 M encodes position; M1 likely = top-left (first position)\n\n{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 46,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L3-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.08695652173913043,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square\n- color: yellow\n- position: top-right\n\nChecking the shared lexicon:\n\n`\"K1-L3-M2\": \"square, yellow, top-right\"` \u2014 this is an **exact match**!\n\nI'll use the existing lexicon entry directly.\n\nK1-L3-M2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 47,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.0851063829787234,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nI can identify patterns:\n- K1 = square, K2 = circle (K encodes shape)\n- L3 = yellow (L encodes color)\n- M2 = top-right, M4 = bottom-right (M encodes position)\n\nSo for the target concept \"square, blue, top-right\":\n- Shape = square \u2192 K1\n- Color = blue \u2192 need a new code. L3 = yellow, so I'll use L1 for blue\n- Position = top-right \u2192 M2\n\nThe encoding would be: K1-L1-M2\n\nK1-L1-M2",
+    "listener_raw_output": "Looking at the patterns:\n\n- K1 = square (K2 = circle, so K1 = square)\n- L1 vs L3: L3 = yellow in both entries. L1 is different from L3, need to infer. The number decreasing from 3 to 1 suggests a different color. No clear pattern yet, but L1 \u2260 yellow. Inferring L1 = red (first color in list).\n- M2 = top-right (appears in \"K1-L3-M2\": \"square, yellow, top-right\"), M4 = bottom-right. M2 = top-right confirmed.\n\n{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 48,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.08333333333333333,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nI can see a pattern emerging:\n- K1 = square, K2 = circle (shape encoding)\n- L3 = yellow (color encoding)\n- M2 = top-right, M4 = bottom-right (position encoding)\n\nThe target concept is: square, red, top-right\n\n- Shape: square = K1 (from lexicon)\n- Color: red = new, I need a new symbol. L3 = yellow, so I'll use L1 for red (a different L number)\n- Position: top-right = M2 (from lexicon)\n\nSo the encoding would be: K1-L1-M2\n\nK1-L1-M2",
+    "listener_raw_output": "Looking at the patterns:\n\nFrom \"K1-L3-M2\": square, yellow, top-right\nFrom \"K2-L3-M4\": circle, yellow, bottom-right\n\nK1 = square, K2 = circle \u2192 K encodes shape\nL3 = yellow in both cases \u2192 L encodes color; L1 is a different color\nM2 = top-right, M4 = bottom-right \u2192 M encodes position; M2 = top-right\n\nL1 vs L3: need to infer color. With 4 colors (red, blue, green, yellow) and L3=yellow, L1 likely maps to red (1=first color).\n\n{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 49,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.08163265306122448,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nI can see a pattern emerging:\n- **K** seems to encode shape: K1 = square, K2 = circle\n- **L** seems to encode color: L3 = yellow\n- **M** seems to encode position: M2 = top-right, M4 = bottom-right\n\nFor my target concept:\n- shape = circle \u2192 K2\n- color = red \u2192 I need a new color code. L3 = yellow, so I'll use L1 for red\n- position = top-right \u2192 M2\n\nSo the encoding would be: K2-L1-M2\n\nK2-L1-M2",
+    "listener_raw_output": "Looking at the established lexicon:\n\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nPattern analysis:\n- K1 = square, K2 = circle\n- L3 = yellow (consistent in both entries)\n- M2 = top-right, M4 = bottom-right\n\nFor K2-L1-M2:\n- K2 = circle\n- L1 = unknown color, but L3 = yellow. L1 likely maps to a different color. With L values ranging 1-4 and yellow at L3, L1 could be red (first in color list)\n- M2 = top-right\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 50,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K1-L1-M3",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.08,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nI can identify some patterns:\n- K1 = square, K2 = circle (K = shape, 1 = square, 2 = circle)\n- L3 = yellow (L = color, 3 = yellow)\n- M2 = top-right, M4 = bottom-right (M = position)\n\nNow I need to encode: square, blue, bottom-left\n\n- Shape: square = K1 (from lexicon)\n- Color: blue = new. L3 = yellow, so I'll use L1 for blue (new mapping)\n- Position: bottom-left = new. M4 = bottom-right, M2 = top-right. I'll use M3 for bottom-left (new mapping)\n\nSo: K1-L1-M3\n\nK1-L1-M3",
+    "listener_raw_output": "Looking at the established lexicon:\n\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nAnalyzing token patterns:\n\n**K token (shape):**\n- K1 = square\n- K2 = circle\n\n**L token (color):**\n- L3 = yellow (appears in both entries)\n- L1 = unknown, but with 4 colors and 4 numbers, L1 likely = red (mapping 1=red, 2=blue, 3=yellow, 4=green)\n\n**M token (position):**\n- M2 = top-right\n- M4 = bottom-right\n- Pattern: odd = top/left side, even = right side; higher = bottom\n- M3 = bottom-left (3 is odd\u2192left, higher number\u2192bottom)\n\n{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 51,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L2-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.0784313725490196,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns used:\n\n**Shape encoding (first token):**\n- K1 = square\n- K2 = circle\n- K3 = star (new, extending the K series)\n\n**Color encoding (second token):**\n- L3 = yellow\n- L2 = green (new, different number for different color)\n\n**Position encoding (third token):**\n- M2 = top-right\n- M4 = bottom-right\n- M1 = top-left (new, using 1 for top-left, consistent with positional logic)\n\nSo my encoding for {star, green, top-left} would be:\n- Shape: K3 (star)\n- Color: L2 (green)\n- Position: M1 (top-left)\n\nK3-L2-M1",
+    "listener_raw_output": "Looking at the patterns:\n\nFrom \"K1-L3-M2\" = \"square, yellow, top-right\"\nFrom \"K2-L3-M4\" = \"circle, yellow, bottom-right\"\n\nK seems to encode shape: K1=square, K2=circle, K3=?\nL seems to encode color: L3=yellow, L2=?\nM seems to encode position: M2=top-right, M4=bottom-right, M1=?\n\nFor K: K1=square, K2=circle \u2192 K3 likely follows the shape list order \u2192 triangle\nFor L: L3=yellow \u2192 L2 might be green (stepping back one)\nFor M: M2=top-right, M4=bottom-right \u2192 M1 likely=top-left\n\n{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 52,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.07692307692307693,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nI can infer the following patterns:\n- K1 = square, K2 = circle (K encodes shape)\n- L3 = yellow (L encodes color)\n- M2 = top-right, M4 = bottom-right (M encodes position)\n\nSo I need to encode: square, red, top-left\n\n- Shape: square = K1 (from existing lexicon)\n- Color: red = new color, yellow = L3, so I'll use L1 for red (new mapping)\n- Position: top-left = new position. M2 = top-right, so I'll use M1 for top-left (new mapping)\n\nEncoding: K1-L1-M1\n\nK1-L1-M1",
+    "listener_raw_output": "Looking at the patterns:\n\nFrom \"K1-L3-M2\" = \"square, yellow, top-right\" and \"K2-L3-M4\" = \"circle, yellow, bottom-right\":\n\n- K1 = square, K2 = circle \u2192 K encodes shape\n- L3 = yellow in both cases \u2192 L encodes color; L1 is a different color\n- M2 = top-right, M4 = bottom-right \u2192 M encodes position; M1 is a different position\n\nFor L: L3 = yellow. With 4 colors (red, blue, green, yellow), L1 likely = red (assuming ordered mapping: L1=red, L2=blue, L3=yellow or similar)\n\nFor M: M2 = top-right, M4 = bottom-right. Positions: top-left, top-right, bottom-left, bottom-right. M1 = top-left seems reasonable (M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right).\n\nFor K: K1 = square, K2 = circle.\n\n{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 53,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L1-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.07547169811320754,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nI can analyze the patterns:\n- K1 = square, K2 = circle (K encodes shape)\n- L3 = yellow (L encodes color)\n- M2 = top-right, M4 = bottom-right (M encodes position)\n\nSo for \"circle, blue, bottom-right\":\n- Shape: circle = K2\n- Color: blue = needs new symbol. L3 = yellow, so I'll use L1 for blue\n- Position: bottom-right = M4\n\nThis gives: K2-L1-M4\n\nK2-L1-M4",
+    "listener_raw_output": "Looking at the patterns:\n\n- K1 = square, K2 = circle (K encodes shape)\n- L3 = yellow; L1 is different (L encodes color) \u2014 need to infer L1's color\n- M2 = top-right, M4 = bottom-right (M encodes position)\n\nFor L (color): L3 = yellow. With 4 colors (red, blue, green, yellow) and 4 numbers, inferring L1 = red (lowest number = first color).\n\nFor M: M2 = top-right, M4 = bottom-right \u2192 M4 = bottom-right confirmed.\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 54,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.07407407407407407,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nI can identify patterns:\n- K1 = square, K2 = circle \u2192 K seems to encode shape. I'll use K3 for triangle.\n- L3 = yellow \u2192 L seems to encode color. I'll use L1 for blue.\n- M2 = top-right, M4 = bottom-right \u2192 M encodes position. M2 = top-right.\n\nSo for \"triangle, blue, top-right\":\n- Shape: K3 (triangle)\n- Color: L1 (blue)\n- Position: M2 (top-right)\n\nK3-L1-M2",
+    "listener_raw_output": "Looking at the lexicon:\n\n- K1 = square, K2 = circle \u2192 K represents shape; K3 likely = triangle\n- L3 = yellow in both entries \u2192 L represents color; L1 likely = red (opposite end of scale)\n- M2 = top-right, M4 = bottom-right \u2192 M represents position; M2 = top-right\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 55,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.07272727272727272,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- K1 = square, K2 = circle \u2192 K3 could be triangle\n- L3 = yellow \u2192 L1 could be red\n- M2 = top-right, M4 = bottom-right \u2192 M1 could be top-left\n\nSo my encoding: K3-L1-M1\n\nK3-L1-M1",
+    "listener_raw_output": "Looking at the established lexicon:\n\n- K1-L3-M2 = square, yellow, top-right\n- K2-L3-M4 = circle, yellow, bottom-right\n\nPattern analysis:\n- K token: K1=square, K2=circle, so K3 likely=triangle\n- L token: L3=yellow in both entries, L1 is new \u2014 mapping L values: if L3=yellow, L1 might=red (opposite end of scale)\n- M token: M2=top-right, M4=bottom-right, so higher M numbers seem to shift position. M1 could=top-left (lowest value)\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 56,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L3-M3",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.07142857142857142,
+    "speaker_raw_output": "I'll analyze the existing lexicon to extract the conventions:\n\n**Existing mappings:**\n- `K1-L3-M2`: square, yellow, top-right\n- `K2-L3-M4`: circle, yellow, bottom-right\n\n**Decoding the pattern:**\n\n- **K** seems to encode **shape**: K1 = square, K2 = circle \u2192 I'll use K3 for star\n- **L** seems to encode **color**: L3 = yellow \u2192 I'll keep L3 for yellow\n- **M** seems to encode **position**: M2 = top-right, M4 = bottom-right \u2192 I need bottom-left\n\nFor position, let me think about what M values mean:\n- M2 = top-right\n- M4 = bottom-right\n\nIt seems like even numbers might be right side, and perhaps M3 = bottom-left (or I could think of it as: top=1/2, bottom=3/4, left=odd, right=even). Let me try:\n- M1 = top-left, M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\nThat's a clean 2\u00d72 grid mapping. So bottom-left = M3.\n\n**New encoding:**\n- K3 = star\n- L3 = yellow (existing)\n- M3 = bottom-left\n\nK3-L3-M3",
+    "listener_raw_output": "Looking at the patterns:\n\nFrom \"K1-L3-M2\": square, yellow, top-right\nFrom \"K2-L3-M4\": circle, yellow, bottom-right\n\nK position: K1=square, K2=circle, so K3=triangle (next shape)\nL position: L3=yellow in both cases, so L3=yellow\nM position: M2=top-right, M4=bottom-right, M3=bottom-left (inferring M maps to positions: M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right)\n\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 57,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L3-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.07017543859649122,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify some patterns:\n\n- **K1** = square, **K2** = circle \u2192 K seems to encode shape, with numbers differentiating shapes\n- **L3** = yellow \u2192 L3 seems to encode yellow color\n- **M2** = top-right, **M4** = bottom-right \u2192 M seems to encode position, with numbers differentiating positions\n\nSo my conventions:\n- Shape: K1=square, K2=circle, **K3=triangle** (new)\n- Color: L3=yellow (existing)\n- Position: M2=top-right, M4=bottom-right \u2192 I need top-left. M1=top-left (new, top=odd numbers perhaps, left=1, right=2)\n\nEncoding: triangle=K3, yellow=L3, top-left=M1\n\nK3-L3-M1",
+    "listener_raw_output": "Looking at the patterns:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow (consistent in both entries)\n- M2 = top-right, M4 = bottom-right \u2192 M1 likely = top-left\n\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 58,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K2-L3-M3",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 3,
+    "cumulative_accuracy": 0.08620689655172414,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1-L3-M2\": \"square, yellow, top-right\"\n- \"K2-L3-M4\": \"circle, yellow, bottom-right\"\n\nLet me analyze the patterns:\n- K1 = square, K2 = circle \u2192 K encodes shape\n- L3 = yellow \u2192 L3 encodes yellow color\n- M2 = top-right, M4 = bottom-right \u2192 M encodes position\n\nFor positions, let me see what's been used:\n- M2 = top-right\n- M4 = bottom-right\n\nI need bottom-left. The pattern seems to use M for position. Let me assign:\n- M1 = top-left\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n\nThis is a logical 2x2 grid mapping (row \u00d7 column).\n\nSo for \"circle, yellow, bottom-left\":\n- K2 = circle (established)\n- L3 = yellow (established)\n- M3 = bottom-left (new, consistent with pattern)\n\nK2-L3-M3",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 59,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K2-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 3,
+    "cumulative_accuracy": 0.0847457627118644,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1 = square, K2 = circle\n- **Color**: L3 = yellow (I need a new code for green)\n- **Position**: M2 = top-right, M4 = bottom-right, M3 = bottom-left (I need a new code for top-left)\n\nLet me establish consistent mappings:\n\n**Shape (K-prefix):**\n- K1 = square\n- K2 = circle\n\n**Color (L-prefix):**\n- L3 = yellow\n- L1 = green (new \u2014 L1 is unused, and 1 could suggest \"first/primary\" alternative color)\n\n**Position (M-prefix):**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- M1 = top-left (new \u2014 M1 is unused, and 1 could suggest \"top-left\" as the first/primary corner)\n\nSo for circle + green + top-left:\n- Shape: K2 (circle)\n- Color: L1 (green)\n- Position: M1 (top-left)\n\nK2-L1-M1",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle (K maps to shape)\n- L3 = yellow (L maps to color; L1 is a new value, need to infer)\n- M2 = top-right, M4 = bottom-right, M3 = bottom-left (M maps to position; M1 is new)\n\nFor L: L3 = yellow. With 4 colors available, L1 likely maps to red (first in list).\n\nFor M: M3 = bottom-left, M4 = bottom-right, M2 = top-right. M1 likely maps to top-left (first position).\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 60,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K3-L3-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 3,
+    "cumulative_accuracy": 0.08333333333333333,
+    "speaker_raw_output": "Looking at the existing lexicon:\n\n- `K1` = square, `K2` = circle \u2192 K encodes shape\n- `L3` = yellow (appears in all entries) \u2192 L3 encodes yellow\n- `M2` = top-right, `M4` = bottom-right, `M3` = bottom-left \u2192 M encodes position\n\nSo the pattern is: **K[shape]-L[color]-M[position]**\n\nFor the target concept:\n- shape: \"star\" \u2192 new shape code needed. K1=square, K2=circle, so K3=star\n- color: \"yellow\" \u2192 L3 (existing)\n- position: \"bottom-right\" \u2192 M4 (existing)\n\nEncoding: `K3-L3-M4`\n\nK3-L3-M4",
+    "listener_raw_output": "Looking at the patterns:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow (consistent across all entries)\n- M4 = bottom-right (from K2-L3-M4)\n\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 61,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K3-L2-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 3,
+    "cumulative_accuracy": 0.08196721311475409,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify some patterns:\n\n- **Shape**: K1 = square, K2 = circle \u2192 I need a new code for triangle. I'll use **K3** for triangle.\n- **Color**: L3 = yellow \u2192 I need a new code for green. I'll use **L2** for green.\n- **Position**: M2 = top-right, M4 = bottom-right, M3 = bottom-left \u2192 M4 = bottom-right is already established.\n\nSo for \"triangle, green, bottom-right\":\n- Shape: K3\n- Color: L2\n- Position: M4\n\nK3-L2-M4",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow; L2 is different \u2192 need to infer color. L values seem to map to colors. L2 likely = blue (if L1=red, L2=blue, L3=yellow, L4=green)\n- M2 = top-right, M3 = bottom-left, M4 = bottom-right \u2192 M4 = bottom-right\n\n{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 62,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L1-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 3,
+    "cumulative_accuracy": 0.08064516129032258,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- \"K1\" = square, \"K2\" = circle (shape)\n- \"L3\" = yellow (color)\n- \"M2\" = top-right, \"M4\" = bottom-right, \"M3\" = bottom-left (position)\n\nSo the pattern seems to be:\n- K# = shape (K1=square, K2=circle)\n- L# = color (L3=yellow)\n- M# = position (M2=top-right, M3=bottom-left, M4=bottom-right)\n\nFor this target: circle, red, bottom-right\n\n- Shape: circle = K2 (established)\n- Color: red = need new code. L3=yellow, so I'll use L1 for red\n- Position: bottom-right = M4 (established)\n\nSo the encoding would be: K2-L1-M4\n\nK2-L1-M4",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle (shape dimension)\n- L3 = yellow (color dimension); L1 is new, need to infer \u2014 L1 vs L3, with available colors: red, blue, green, yellow. L1 likely = red (lowest number = first color)\n- M2 = top-right, M4 = bottom-right, M3 = bottom-left \u2014 M4 = bottom-right, M3 = bottom-left, M2 = top-right, so M1 = top-left\n\nK2 = circle, L1 = red, M4 = bottom-right\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 63,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 3,
+    "cumulative_accuracy": 0.07936507936507936,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the emerging patterns:\n\n- **Shape**: K1 = square, K2 = circle\n- **Color**: L3 = yellow (I need a new code for red)\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\nSo the structure seems to be: **K(shape) - L(color) - M(position)**\n\nFor this target:\n- Shape: circle \u2192 K2 (established)\n- Color: red \u2192 L3 is yellow, so I'll use L1 for red (new mapping)\n- Position: top-right \u2192 M2 (established)\n\nNew encoding: K2-L1-M2\n\nK2-L1-M2",
+    "listener_raw_output": "Looking at the patterns:\n\nK-token: K1 = square, K2 = circle\nL-token: L3 = yellow consistently; L1 is new \u2014 need to infer. Letters scale: L1 < L3, possibly red (first color)\nM-token: M2 = top-right (from K1-L3-M2), M4 = bottom-right, M3 = bottom-left \u2192 M2 = top-right\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 64,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K1-L3-M3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.09375,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify patterns:\n\n- **Shape**: K1 = square, K2 = circle\n- **Color**: L3 = yellow (appears consistently)\n- **Position**: M2 = top-right, M4 = bottom-right, M3 = bottom-left\n\nSo the conventions seem to be:\n- K1 = square\n- K2 = circle\n- L3 = yellow\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n\nFor the target concept: square, yellow, bottom-left\n- Shape = square \u2192 K1\n- Color = yellow \u2192 L3\n- Position = bottom-left \u2192 M3\n\nThis maps to: K1-L3-M3\n\nK1-L3-M3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 65,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K2-L1-M3",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.09230769230769231,
+    "speaker_raw_output": "Looking at the existing lexicon:\n\n- Shape: K1 = square, K2 = circle\n- Color: L3 = yellow (I need a new code for green \u2014 I'll use L1)\n- Position: M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\nSo for \"circle, green, bottom-left\":\n- Shape: K2 (circle)\n- Color: L1 (green \u2014 new mapping)\n- Position: M3 (bottom-left)\n\nK2-L1-M3",
+    "listener_raw_output": "Looking at the patterns:\n\n- K1 = square, K2 = circle (established across multiple entries)\n- L3 = yellow (consistent across all entries); L1 is new \u2014 need to infer. Letters seem to map to colors: L1 likely = red (first in color list, L1 being the \"1\" variant)\n- M2 = top-right, M4 = bottom-right, M3 = bottom-left (from lexicon); M1 would be top-left by elimination\n\nSo K2=circle, L1=red, M3=bottom-left\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 66,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-L1-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": true,
+        "color": false,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.09090909090909091,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1 = square, K2 = circle\n- **Color**: L3 = yellow (I need a new code for blue)\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\nSo the structure is: **K(shape) - L(color) - M(position)**\n\nFor the target concept:\n- Shape: square \u2192 **K1**\n- Color: blue \u2192 L3 is yellow, so I need a new color code. I'll use **L1** for blue (next available distinct code)\n- Position: bottom-right \u2192 **M4**\n\nNew mapping to establish: L1 = blue\n\nEncoding: K1-L1-M4\n\nK1-L1-M4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 67,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.08955223880597014,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify patterns:\n\n- **Shape**: K1 = square, K2 = circle \u2192 I need a new code for \"star\" \u2192 use **K3**\n- **Color**: L3 = yellow \u2192 I need a new code for \"red\" \u2192 use **L1**\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right \u2192 M2 = top-right already exists\n\nSo for \"star, red, top-right\":\n- Shape: K3 (star)\n- Color: L1 (red)\n- Position: M2 (top-right)\n\nK3-L1-M2",
+    "listener_raw_output": "Looking at the lexicon patterns:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow \u2192 L1 likely = red (different color)\n- M2 = top-right, M3 = bottom-left, M4 = bottom-right \u2192 M2 = top-right\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 68,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L3-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.08823529411764706,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1 = square, K2 = circle \u2192 I need a new code for triangle. I'll use **K3** for triangle.\n- **Color**: L3 = yellow \u2192 I'll keep **L3** for yellow (consistent).\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right \u2192 I'll use **M2** for top-right (consistent).\n\nSo for \"triangle, yellow, top-right\": K3-L3-M2\n\nK3-L3-M2",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow (consistent across all entries)\n- M2 = top-right (from K1-L3-M2: \"square, yellow, top-right\"), M3 = bottom-left, M4 = bottom-right\n\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 69,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L1-M3",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.08695652173913043,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify patterns:\n\n**Shape encoding (first token):**\n- K1 = square\n- K2 = circle\n- I need a new code for \"star\" \u2192 K3\n\n**Color encoding (second token):**\n- L3 = yellow\n- I need a new code for \"red\" \u2192 L1\n\n**Position encoding (third token):**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n\nSo for \"star, red, bottom-left\":\n- Shape: star \u2192 K3\n- Color: red \u2192 L1\n- Position: bottom-left \u2192 M3\n\nK3-L1-M3",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow \u2192 L1 likely = red (different number, different color)\n- M3 = bottom-left, M4 = bottom-right, M2 = top-right \u2192 M3 = bottom-left\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 70,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.08571428571428572,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1 = square, K2 = circle \u2192 I need a new code for triangle. I'll use **K3**.\n- **Color**: L3 = yellow \u2192 I need a new code for green. I'll use **L1**.\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right \u2192 I need top-left. Following the pattern, I'll use **M1**.\n\nSo the encoding for {triangle, green, top-left} = **K3-L1-M1**\n\nK3-L1-M1",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow \u2192 L1 likely = red (different color)\n- M2 = top-right, M4 = bottom-right, M3 = bottom-left \u2192 M1 likely = top-left\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 71,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.08450704225352113,
+    "speaker_raw_output": "Looking at the existing lexicon to understand the conventions:\n\n- **K** seems to encode shape: K1 = square, K2 = circle \u2192 I need a new value for star \u2192 **K3**\n- **L** seems to encode color: L3 = yellow \u2192 I need a new value for red \u2192 **L1**\n- **M** seems to encode position: M2 = top-right, M3 = bottom-left, M4 = bottom-right \u2192 I need top-left \u2192 **M1**\n\nSo the encoding for {star, red, top-left} would be:\n- K3 (star)\n- L1 (red)\n- M1 (top-left)\n\nK3-L1-M1",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow \u2192 L1 likely = red (different color)\n- M2 = top-right, M4 = bottom-right, M3 = bottom-left \u2192 M1 likely = top-left\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 72,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.08333333333333333,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1 = square, K2 = circle \u2192 I need a new code for triangle \u2192 **K3**\n- **Color**: L3 = yellow \u2192 I need a new code for red \u2192 **L1**\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right \u2192 M2 = top-right \u2713\n\nSo for \"triangle, red, top-right\":\n- Shape: K3 (triangle)\n- Color: L1 (red)\n- Position: M2 (top-right)\n\nK3-L1-M2",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow \u2192 L1 likely = red (different color)\n- M2 = top-right, M3 = bottom-left, M4 = bottom-right \u2192 M2 = top-right\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 73,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L3-M3",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.0821917808219178,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1 = square, K2 = circle \u2192 I need a new code for triangle \u2192 **K3**\n- **Color**: L3 = yellow \u2192 I'll keep L3 for yellow\n- **Position**: M3 = bottom-left \u2192 I'll keep M3 for bottom-left\n\nSo the encoding for \"triangle, yellow, bottom-left\" follows the same pattern as the existing entries:\n- K3 (triangle) - L3 (yellow) - M3 (bottom-left)\n\nK3-L3-M3",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow (consistent across all entries)\n- M3 = bottom-left (consistent across entries)\n\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 74,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L3-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.08108108108108109,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify patterns:\n\n- **K1** = square, **K2** = circle \u2192 K encodes shape\n- **L3** = yellow (consistent across all entries) \u2192 L3 encodes yellow\n- **M2** = top-right, **M3** = bottom-left, **M4** = bottom-right \u2192 M encodes position\n\nSo the pattern is: K[shape]-L[color]-M[position]\n\nFor the new concept:\n- Shape: \"star\" \u2192 need a new K value. K1=square, K2=circle, so **K3** = star\n- Color: \"yellow\" \u2192 **L3** (from lexicon)\n- Position: \"top-right\" \u2192 **M2** (from lexicon)\n\nEncoding: K3-L3-M2\n\nK3-L3-M2",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow (consistent across all entries)\n- M2 = top-right (from K1-L3-M2: square, yellow, top-right), M3 = bottom-left, M4 = bottom-right\n\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 75,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L3-M3",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.08,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1 = square, K2 = circle \u2192 I need a new code for triangle. I'll use **K3** for triangle.\n- **Color**: L3 = yellow \u2192 I'll keep **L3** for yellow (consistent).\n- **Position**: M3 = bottom-left \u2192 I'll keep **M3** for bottom-left (consistent).\n\nSo the encoding for {triangle, yellow, bottom-left} would be:\n- K3 (triangle) - L3 (yellow) - M3 (bottom-left)\n\nK3-L3-M3",
+    "listener_raw_output": "Looking at the patterns:\n\n- K1 = square, K2 = circle, so K3 likely = triangle\n- L3 = yellow (consistent across all entries)\n- M3 = bottom-left (consistent across entries)\n\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 76,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.07894736842105263,
+    "speaker_raw_output": "Looking at the existing lexicon:\n- K1 = square, K2 = circle\n- L3 = yellow, so I need a new color code for red \u2192 L1\n- M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\nSo for \"circle, red, top-right\":\n- K2 = circle\n- L1 = red (new)\n- M2 = top-right\n\nK2-L1-M2",
+    "listener_raw_output": "Looking at the patterns:\n\n- K1 = square, K2 = circle (from lexicon)\n- L3 = yellow consistently; L1 is new \u2014 need to infer. Letters likely map to colors: L1, L2, L3, L4 \u2192 with L3=yellow, L1 might be red (first in some ordering)\n- M2 = top-right, M3 = bottom-left, M4 = bottom-right (from lexicon: K1-L3-M2 = top-right, M3 = bottom-left, M4 = bottom-right) \u2192 M2 = top-right\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 77,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.07792207792207792,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1 = square, K2 = circle \u2192 I need a new code for \"star\" \u2192 **K3**\n- **Color**: L3 = yellow \u2192 I need a new code for \"red\" \u2192 **L1**\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right \u2192 I need a new code for \"top-left\" \u2192 **M1**\n\nThis keeps the system consistent:\n- K = shape (1=square, 2=circle, 3=star)\n- L = color (1=red, 3=yellow)\n- M = position (1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right)\n\nK3-L1-M1",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle (next shape in sequence)\n- L3 = yellow \u2192 L1 likely = red (different color)\n- M2 = top-right, M4 = bottom-right, M3 = bottom-left \u2192 M1 likely = top-left\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 78,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L1-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": true,
+        "color": false,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.07692307692307693,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the pattern:\n\n- **Shape**: K1 = square, K2 = circle\n- **Color**: L3 = yellow (I need a new code for blue \u2014 I'll use L1)\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right (I need top-right = M2)\n\nSo for \"circle, blue, top-right\":\n- Shape: K2 (circle)\n- Color: L1 (blue \u2014 new)\n- Position: M2 (top-right)\n\nK2-L1-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 79,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K2-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.0759493670886076,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- Shape: K1 = square, K2 = circle\n- Color: L3 = yellow (I need a new code for green, let's use L1)\n- Position: M2 = top-right, M3 = bottom-left, M4 = bottom-right (I need top-left, let's use M1)\n\nSo for \"circle, green, top-left\":\n- Shape: K2 (circle)\n- Color: L1 (green, new)\n- Position: M1 (top-left, new)\n\nK2-L1-M1",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle\n- L3 = yellow; L1 is a new value, need to infer color. Letters available suggest L1 might map to red (first color)\n- M2 = top-right, M4 = bottom-right, M3 = bottom-left; M1 likely = top-left\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 80,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.075,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify patterns:\n\n**Shape encoding (K-prefix):**\n- K1 = square\n- K2 = circle\n- Need a new one: K3 = triangle\n\n**Color encoding (L-prefix):**\n- L3 = yellow\n- Need a new one: L1 = blue\n\n**Position encoding (M-prefix):**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- Need a new one: M1 = top-left\n\nSo for triangle, blue, top-left:\n- Shape: K3 (triangle)\n- Color: L1 (blue)\n- Position: M1 (top-left)\n\nK3-L1-M1",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow \u2192 L1 likely = red (different color)\n- M2 = top-right, M4 = bottom-right, M3 = bottom-left \u2192 M1 likely = top-left\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 81,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L1-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.07407407407407407,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify patterns:\n\n- **Shape**: K1 = square, K2 = circle \u2192 I need a new code for triangle. I'll use **K3** for triangle.\n- **Color**: L3 = yellow \u2192 I need a new code for blue. I'll use **L1** for blue.\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right \u2192 M2 = top-right already exists!\n\nSo for \"triangle, blue, top-right\":\n- K3 = triangle\n- L1 = blue\n- M2 = top-right\n\nK3-L1-M2",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow \u2192 L1 likely = red (different color)\n- M2 = top-right, M3 = bottom-left, M4 = bottom-right \u2192 M2 = top-right\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 82,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L1-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 5,
+    "cumulative_accuracy": 0.08536585365853659,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1 = square, K2 = circle\n- **Color**: L3 = yellow (I need a new code for red \u2014 I'll use L1)\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\nSo for \"square, red, top-right\":\n- Shape: K1 (square)\n- Color: L1 (red \u2014 new mapping)\n- Position: M2 (top-right)\n\nThis gives: K1-L1-M2\n\nK1-L1-M2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 83,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L2-M3",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 5,
+    "cumulative_accuracy": 0.08433734939759036,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n**Shape encoding (K position):**\n- K1 = square\n- K2 = circle\n- K3 = ? (triangle - new)\n\n**Color encoding (L position):**\n- L1 = red\n- L3 = yellow\n- L2 = ? (green - new)\n\n**Position encoding (M position):**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n\nSo for \"triangle, green, bottom-left\":\n- Shape: triangle \u2192 K3 (new, following K1=square, K2=circle pattern)\n- Color: green \u2192 L2 (new, filling in between L1=red and L3=yellow)\n- Position: bottom-left \u2192 M3 (already established)\n\nThis gives: K3-L2-M3\n\nK3-L2-M3",
+    "listener_raw_output": "Looking at the patterns:\n\nK values: K1 = square, K2 = circle, K3 = ?\nL values: L3 = yellow, L1 = red, L2 = ?\nM values: M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\nFrom K1=square, K2=circle, K3 likely = triangle (next shape)\nFrom L1=red, L3=yellow, L2 likely = blue (between red and yellow, skipping)\nM3 = bottom-left (confirmed from multiple entries)\n\n{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 84,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K2-L2-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 5,
+    "cumulative_accuracy": 0.08333333333333333,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n**Shape encoding (K-position):**\n- K1 = square\n- K2 = circle\n\n**Color encoding (L-position):**\n- L3 = yellow\n- L1 = red\n- So I need a new color code for green \u2192 L2\n\n**Position encoding (M-position):**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- So I need a new position code for top-left \u2192 M1\n\nSo for \"circle, green, top-left\":\n- Shape: K2 (circle)\n- Color: L2 (green - new)\n- Position: M1 (top-left - new)\n\nK2-L2-M1",
+    "listener_raw_output": "Looking at the patterns:\n\nK1 = square, K2 = circle\nL3 = yellow, L1 = red, L2 = ? (between red and yellow, likely blue)\nM2 = top-right, M4 = bottom-right, M3 = bottom-left, M1 = top-left\n\n{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 85,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L3-M2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 5,
+    "cumulative_accuracy": 0.08235294117647059,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n**Shape encoding (K):**\n- K1 = square\n- K2 = circle\n- K3 = ? (need new one for star)\n\n**Color encoding (L):**\n- L3 = yellow\n- L1 = red\n\n**Position encoding (M):**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n\nSo for \"star, yellow, top-right\":\n- Shape: star \u2192 K3 (new, extending the K pattern)\n- Color: yellow \u2192 L3 (existing)\n- Position: top-right \u2192 M2 (existing)\n\nThis gives: K3-L3-M2\n\nK3-L3-M2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 86,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K3-L2-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 5,
+    "cumulative_accuracy": 0.08139534883720931,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify patterns:\n\n**Shape encoding (K_):**\n- K1 = square\n- K2 = circle\n- K3 = triangle (new, extending the pattern)\n\n**Color encoding (L_):**\n- L3 = yellow\n- L1 = red\n- L2 = green (new, filling in the gap)\n\n**Position encoding (M_):**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n\nSo for \"triangle, green, bottom-right\":\n- Shape: triangle \u2192 K3\n- Color: green \u2192 L2\n- Position: bottom-right \u2192 M4\n\nK3-L2-M4",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow, L1 = red \u2192 L2 likely = blue (between red and yellow, or next in sequence)\n- M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\n{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 87,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L2-M3",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 5,
+    "cumulative_accuracy": 0.08045977011494253,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify patterns:\n\n**Shape encoding (K position):**\n- K1 = square\n- K2 = circle\n- K3 = ? (need new one for star) \u2192 I'll use **K3** for star\n\n**Color encoding (L position):**\n- L3 = yellow\n- L1 = red\n- L2 = ? (need new one for blue) \u2192 I'll use **L2** for blue\n\n**Position encoding (M position):**\n- M2 = top-right\n- M4 = bottom-right\n- M3 = bottom-left\n- M1 = ? (unused)\n\nSo for \"star, blue, bottom-left\":\n- Shape: star \u2192 K3\n- Color: blue \u2192 L2\n- Position: bottom-left \u2192 M3\n\nThis is consistent with the existing pattern structure.\n\nK3-L2-M3",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow, L1 = red \u2192 L2 likely = blue (or green; but L2 appears new, need to infer ordering: L1=red, L2=blue, L3=yellow)\n- M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\n{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 88,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L1-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 5,
+    "cumulative_accuracy": 0.07954545454545454,
+    "speaker_raw_output": "Looking at the existing lexicon to find patterns:\n\n- Shape: K1 = square, K2 = circle \u2192 I need a new shape code for triangle \u2192 K3\n- Color: L3 = yellow, L1 = red \u2192 L1 = red (already established)\n- Position: M2 = top-right, M4 = bottom-right, M3 = bottom-left \u2192 I need top-left \u2192 M1\n\nSo for \"triangle, red, top-left\":\n- Shape: K3 (triangle)\n- Color: L1 (red)\n- Position: M1 (top-left)\n\nK3-L1-M1",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle \u2192 K3 likely = triangle\n- L3 = yellow, L1 = red \u2192 L1 = red\n- M2 = top-right, M4 = bottom-right, M3 = bottom-left \u2192 M1 = top-left\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 89,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L3-M1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 6,
+    "cumulative_accuracy": 0.0898876404494382,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n**Shape encoding (K position):**\n- K1 = square\n- K2 = circle\n- K? = triangle (new \u2014 I'll use K3)\n\n**Color encoding (L position):**\n- L3 = yellow\n- L1 = red\n- So L3 = yellow \u2713\n\n**Position encoding (M position):**\n- M2 = top-right\n- M4 = bottom-right\n- M3 = bottom-left\n- M? = top-left (new \u2014 I'll use M1)\n\nSo for \"triangle, yellow, top-left\":\n- Shape: K3 (triangle, new)\n- Color: L3 (yellow, existing)\n- Position: M1 (top-left, new)\n\nK3-L3-M1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 90,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K4-L2-M2",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 6,
+    "cumulative_accuracy": 0.08888888888888889,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify patterns:\n\n**Shape encoding (K):**\n- K1 = square\n- K2 = circle\n- K3 = triangle\n- K4 = star (new, extending the pattern)\n\n**Color encoding (L):**\n- L1 = red\n- L3 = yellow\n- L2 = blue (new, filling in the gap)\n\n**Position encoding (M):**\n- M1 = top-left\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n\nSo for \"star, blue, top-right\":\n- Shape: star \u2192 K4\n- Color: blue \u2192 L2\n- Position: top-right \u2192 M2\n\nK4-L2-M2",
+    "listener_raw_output": "Looking at the patterns in the lexicon:\n\n- K1 = square, K2 = circle, K3 = triangle \u2192 K4 = star\n- L1 = red, L3 = yellow \u2192 L2 = likely blue (between red and yellow, or next in sequence)\n- M2 = top-right, M3 = bottom-left, M4 = bottom-right, M1 = top-left \u2192 M2 = top-right\n\n{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 91,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K4-L1-M2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 7,
+    "cumulative_accuracy": 0.0989010989010989,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n**Shape encoding (K position):**\n- K1 = square\n- K2 = circle\n- K3 = triangle\n- K4 = star (new, extending the pattern)\n\n**Color encoding (L position):**\n- L1 = red\n- L3 = yellow\n- (L2 could be blue, L4 could be green for future use)\n\n**Position encoding (M position):**\n- M1 = top-left\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n\nSo for \"star, red, top-right\":\n- Shape: star \u2192 K4 (extending K series)\n- Color: red \u2192 L1 (already established from \"K1-L1-M2\")\n- Position: top-right \u2192 M2 (already established)\n\nThis gives: K4-L1-M2\n\nK4-L1-M2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 92,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L2-M1",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 7,
+    "cumulative_accuracy": 0.09782608695652174,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n**Shape encoding (K):**\n- K1 = square\n- K2 = circle\n- K3 = triangle\n- K4 = star\n\n**Color encoding (L):**\n- L1 = red\n- L3 = yellow\n- L2 = green (new, inferring from the pattern)\n\n**Position encoding (M):**\n- M1 = top-left\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n\nSo for \"square, green, top-left\":\n- Shape: K1 (square)\n- Color: L2 (green \u2014 new mapping, fitting the pattern)\n- Position: M1 (top-left)\n\nThis gives: K1-L2-M1\n\nK1-L2-M1",
+    "listener_raw_output": "Looking at the patterns:\n\n**K token (shape):**\n- K1 = square (from K1-L3-M2, K1-L3-M3, K1-L1-M2)\n- K2 = circle, K3 = triangle, K4 = star\n- K1 \u2192 **square**\n\n**L token (color):**\n- L3 = yellow (multiple entries)\n- L1 = red (from K1-L1-M2, K4-L1-M2)\n- L2 = unknown, but blue and green remain unassigned; inferring L2 = **blue**\n\n**M token (position):**\n- M2 = top-right (from K1-L3-M2, K1-L1-M2, K4-L1-M2)\n- M3 = bottom-left, M4 = bottom-right\n- M1 = **top-left** (the remaining position)\n\n{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 93,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L1-M3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 8,
+    "cumulative_accuracy": 0.10752688172043011,
+    "speaker_raw_output": "Looking at the existing lexicon to identify patterns:\n\n- **Shape**: K1=square, K2=circle, K3=triangle, K4=star\n- **Color**: L1=red, L2=?, L3=yellow\n- **Position**: M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right\n\nSo for triangle, red, bottom-left:\n- Shape: K3 (triangle, established)\n- Color: L1 (red, established)\n- Position: M3 (bottom-left, established)\n\nK3-L1-M3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 94,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L3-M1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 9,
+    "cumulative_accuracy": 0.11702127659574468,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1 = square, K2 = circle, K3 = triangle, K4 = star\n- **Color**: L1 = red, L3 = yellow\n- **Position**: M1 = top-left, M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\nSo for the target concept: square (K1), yellow (L3), top-left (M1)\n\nThis follows the established pattern perfectly.\n\nK1-L3-M1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 95,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K3-L2-M4",
+    "decoded_concept": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "lexicon_size": 9,
+    "cumulative_accuracy": 0.11578947368421053,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n**Shape (K value):**\n- K1 = square\n- K2 = circle\n- K3 = triangle\n- K4 = star\n\n**Color (L value):**\n- L1 = red\n- L3 = yellow\n- L2 = ? (not yet used, could be blue)\n\n**Position (M value):**\n- M1 = top-left\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n\nSo for \"triangle, blue, bottom-right\":\n- Shape: K3 (triangle)\n- Color: L2 (blue \u2014 new mapping, next available)\n- Position: M4 (bottom-right)\n\nThis gives: K3-L2-M4\n\nK3-L2-M4",
+    "listener_raw_output": "Looking at the patterns:\n\n- K3 = triangle (from K3-L3-M1, K3-L1-M3)\n- L2 = blue (L1=red, L3=yellow, so L2=blue by elimination)\n- M4 = bottom-right (from K2-L3-M4)\n\n{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 96,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L1-M1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 10,
+    "cumulative_accuracy": 0.125,
+    "speaker_raw_output": "Looking at the existing lexicon to identify the patterns:\n\n- **Shape**: K1 = square, K2 = circle, K3 = triangle, K4 = star\n- **Color**: L1 = red, L2 = ?, L3 = yellow\n- **Position**: M1 = top-left, M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\nFor the target concept: triangle (K3), red (L1), top-left (M1)\n\nChecking existing entries:\n- K3-L3-M1 = triangle, yellow, top-left \u2713 (same shape and position, different color)\n- K3-L1-M3 = triangle, red, bottom-left \u2713 (same shape and color, different position)\n\nSo K3 = triangle, L1 = red, M1 = top-left \u2192 K3-L1-M1\n\nK3-L1-M1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 97,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K3-L3-M1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 10,
+    "cumulative_accuracy": 0.13402061855670103,
+    "speaker_raw_output": "Looking at the existing lexicon:\n\n- Shape: K1 = square, K2 = circle, K3 = triangle, K4 = star\n- Color: L1 = red, L3 = yellow\n- Position: M1 = top-left, M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\nTarget concept: triangle, yellow, top-left\n\n- Triangle = K3\n- Yellow = L3\n- Top-left = M1\n\nThis maps to K3-L3-M1, which is already in the lexicon! \u2713\n\nK3-L3-M1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 98,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-L3-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 11,
+    "cumulative_accuracy": 0.14285714285714285,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1=square, K2=circle, K3=triangle, K4=star\n- **Color**: L1=red, L3=yellow\n- **Position**: M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right\n\nFor the target concept: square (K1), yellow (L3), bottom-right (M4)\n\nThis would be K1-L3-M4. Checking the lexicon... this combination doesn't exist yet, but it follows the established pattern perfectly.\n\nK1-L3-M4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 99,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K4-L2-M4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 12,
+    "cumulative_accuracy": 0.15151515151515152,
+    "speaker_raw_output": "Looking at the existing lexicon patterns:\n\n- K1 = square, K2 = circle, K3 = triangle, K4 = star\n- L1 = red, L3 = yellow \u2192 need blue, so L2 = blue\n- M1 = top-left, M2 = top-right, M3 = bottom-left, M4 = bottom-right\n\nSo for \"star, blue, bottom-right\":\n- K4 = star\n- L2 = blue (new assignment, consistent with L pattern)\n- M4 = bottom-right\n\nK4-L2-M4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 100,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K2-L3-M1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 13,
+    "cumulative_accuracy": 0.16,
+    "speaker_raw_output": "Looking at the existing lexicon, I can identify the patterns:\n\n- **Shape**: K1=square, K2=circle, K3=triangle, K4=star\n- **Color**: L1=red, L2=blue, L3=yellow\n- **Position**: M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right\n\nFor the target concept: circle (K2), yellow (L3), top-left (M1)\n\nThis follows the established pattern perfectly: K2-L3-M1\n\nK2-L3-M1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  }
+]

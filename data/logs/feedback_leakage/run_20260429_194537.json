@@ -1,0 +1,2802 @@
+[
+  {
+    "round": 1,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K1-L1-M3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 1.0,
+    "speaker_raw_output": "I need to encode: shape=square, color=red, position=bottom-left.\n\nSince there's no communication history to rely on, I'll invent a systematic encoding scheme:\n\n**Shape encoding:**\n- Square = S-like \u2192 I'll use `K1` (K for shape category, 1 for square)\n\n**Color encoding:**\n- Red = `L1` (L for color category, 1 for red)\n\n**Position encoding:**\n- Bottom-left = `M3` (M for position category; 1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right)\n\nSo the full encoding: `K1-L1-M3`\n\nK1-L1-M3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 2,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K2-L2-M1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": true,
+        "color": false,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.5,
+    "speaker_raw_output": "I'll analyze the existing convention and extend it systematically.\n\nFrom `$K1-L1-M3`: \"square, red, bottom-left\"\n\nBreaking this down:\n- **K** = shape: K1 = square \u2192 I need circle, so K2 = circle\n- **L** = color: L1 = red \u2192 I need yellow, so L2 = yellow\n- **M** = position: M3 = bottom-left \u2192 I need top-left\n\nFor position, I'll use a systematic grid:\n- Top-left = M1\n- Top-right = M2\n- Bottom-left = M3 (confirmed)\n- Bottom-right = M4\n\nSo:\n- Shape: circle \u2192 K2\n- Color: yellow \u2192 L2\n- Position: top-left \u2192 M1\n\nK2-L2-M1",
+    "listener_raw_output": "Looking at the confirmed convention:\n- $K1-L1-M3 = \"square, red, bottom-left\"\n\nSo:\n- K = shape, K1 = square \u2192 K2 = next shape = circle\n- L = color, L1 = red \u2192 L2 = next color = blue\n- M = position, M3 = bottom-left \u2192 M1 = different position\n\nFor position M mapping: M3 = bottom-left. If positions are ordered (top-left=1, top-right=2, bottom-left=3, bottom-right=4), then M1 = top-left.\n\nFor shapes: K1=square, K2=circle (next in list)\nFor colors: L1=red, L2=blue (next in list)\n\n{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 3,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K3-L3-M4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 3,
+    "cumulative_accuracy": 0.3333333333333333,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **K** = shape: K1=square, K2=circle \u2192 I need a new value for star \u2192 **K3**\n- **L** = color: L1=red, L2=yellow \u2192 I need a new value for blue \u2192 **L3**\n- **M** = position: M3=bottom-left, M1=top-left \u2192 I need bottom-right \u2192 let me think about the pattern\n\nFor position, M1=top-left, M3=bottom-left. It seems like odd numbers might be left positions? Or perhaps:\n- M1 = top-left\n- M3 = bottom-left\n- Following a pattern: top=1,2 and bottom=3,4; left=odd, right=even?\n  - M1=top-left \u2713\n  - M3=bottom-left \u2713\n  - So M4=bottom-right would follow (bottom=3,4; right=even \u2192 M4)\n\nThis gives a consistent positional grid:\n- M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right\n\nEncoding:\n- Shape: star = K3\n- Color: blue = L3\n- Position: bottom-right = M4\n\nK3-L3-M4",
+    "listener_raw_output": "Looking at the confirmed convention:\n- $K1-L1-M3: square, red, bottom-left\n\nSo K maps to shape, L maps to color, M maps to position.\n\nK: 1=square, so K3=triangle (mapping: 1=square, 2=circle, 3=triangle, 4=star)\nL: 1=red, so L3=green (mapping: 1=red, 2=yellow, 3=green, 4=blue)\nM: 3=bottom-left, so M4=bottom-right (mapping: 1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right)\n\n{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 4,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L3-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.5,
+    "speaker_raw_output": "Let me analyze the confirmed convention:\n\n**$K1-L1-M3**: square=K1, red=L1, bottom-left=M3\n\nSo the lexicon so far:\n- K = shape dimension\n  - K1 = square\n- L = color dimension\n  - L1 = red\n- M = position dimension\n  - M3 = bottom-left\n\nNow I need to encode: square, blue, top-right\n\n- **Shape**: square = K1 \u2713 (confirmed)\n- **Color**: blue \u2014 L1 is red, L2 is yellow (from failed attempt), L3 is blue (from failed attempt). Even though K3-L3-M4 failed, the failure might be due to shape or position confusion, not necessarily color. Let me use L3 for blue cautiously, but I need to be careful. The failed attempt used L3 for blue in context of star+blue+bottom-right. I'll use L3 for blue.\n- **Position**: top-right \u2014 M3 is bottom-left, M1 is top-left (failed attempt used M1 for top-left). Top-right would be a new mapping. I'll use M2 for top-right (M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right \u2014 this forms a consistent grid pattern).\n\nEncoding: K1-L3-M2\n\nK1-L3-M2",
+    "listener_raw_output": "Looking at the confirmed convention:\n- $K1-L1-M3: square, red, bottom-left\n\nThis tells me:\n- K1 = square\n- L1 = red\n- M3 = bottom-left\n\nNow decoding K1-L3-M2:\n- K1 = square (confirmed)\n- L3 = ? (L1=red, so L maps to color; L3 needs inference)\n- M2 = ? (M3=bottom-left, so M maps to position; M2 needs inference)\n\nFor colors (L): L1=red. Looking at failed attempt %K2-L2-M1 tried yellow for L2, and %K3-L3-M4 tried blue for L3. Since blue was part of a failed attempt for L3, but the position/shape may have been wrong, not the color mapping. The color sequence L1=red, L2=yellow, L3=blue seems consistent.\n\nFor positions (M): M3=bottom-left. Failed attempt M1=top-left, M4=bottom-right. Pattern: M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right.\n\nSo K1-L3-M2:\n- K1 = square\n- L3 = blue\n- M2 = top-right\n\n{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 5,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "K4-L3-N1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 5,
+    "cumulative_accuracy": 0.6,
+    "speaker_raw_output": "Looking at the confirmed conventions ($):\n\n- K1 = square, K3 was used for star (failed), K2 was used for circle (failed)\n- L1 = bottom-left, L2 = top-left (failed), L3 = blue\n- M3 = bottom-left, M2 = top-right, M1 = top-left (failed)\n\nLet me analyze what I can confirm:\n\nFrom \"$K1-L1-M3\": square, red, bottom-left\nFrom \"$K1-L3-M2\": square, blue, top-right\n\nSo K1 = square, L3 = blue, M2 = top-right are consistent across both confirmed entries.\n\nFor position, M3 = bottom-left, M2 = top-right seem confirmed.\n\nFor color: L3 = blue (confirmed in second entry), L1 might = red (from first entry).\n\nFor shape: K1 = square (confirmed twice).\n\nNow I need:\n- shape: triangle \u2192 K1 is square, K2/K3 failed but for different shapes. Let me use K4 for triangle (unused)\n- color: blue \u2192 L3 (confirmed!)\n- position: top-left \u2192 M1 was used in a failed attempt. Let me try M4 (unused) or reconsider. Actually M3=bottom-left, M2=top-right... for top-left I'll use M1 since the failure was about the whole message, not necessarily M1 specifically. But to be safe, let me use a fresh symbol: N1 for top-left.\n\nActually, let me keep it simple and consistent:\n- K4 = triangle (new)\n- L3 = blue (confirmed)\n- N1 = top-left (new, avoiding previously failed M1)\n\nK4-L3-N1",
+    "listener_raw_output": "Looking at confirmed conventions:\n- $K1-L1-M3: square, red, bottom-left\n- $K1-L3-M2: square, blue, top-right\n\nFrom these, K1 = square. K varies with shape.\nL1 = red, L3 = blue. L varies with color.\nM3 = bottom-left, M2 = top-right. M varies with position.\n\nNow K4-L3-N1: The token is N1 instead of M#. N is a new letter for position.\n\nFrom patterns:\n- K1 = square, so K4 = different shape. K likely maps to shapes: K1=square, K2=circle, K3=star, K4=triangle\n- L3 = blue (confirmed)\n- N1 = position. N replaces M here. M1=top-left (from failed %K2-L2-M1 where position was top-left). N1 could similarly = top-left, or since N is a new letter, N1 maps to position 1 = top-left.\n\n{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 6,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L4-M2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 6,
+    "cumulative_accuracy": 0.6666666666666666,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K1 = square, K4 = triangle \u2192 K3 was used for star in a failed attempt, but let me check what's available\n- K3-L3-M4 failed for \"star, blue, bottom-right\" \u2014 but K4-L3-N1 succeeded for \"triangle, blue, top-left\"\n- So K3 might still be the best candidate for star (the failure might have been due to other tokens)\n\nLet me analyze what's established:\n- **Shape**: K1=square, K4=triangle. K3 was attempted for star (failed). K2 was attempted for circle (failed). Since K3 is the only one tried for star, I'll use K3 for star.\n- **Color**: L1=red, L3=blue, L2=yellow (failed). Green hasn't been used. I'll use L4 for green.\n- **Position**: M3=bottom-left, M2=top-right, M1=top-left (failed), M4=bottom-right (failed). N1=top-left (confirmed in K4-L3-N1). M2=top-right is confirmed from K1-L3-M2.\n\nSo for \"star, green, top-right\":\n- Star = K3\n- Green = L4 (new)\n- Top-right = M2 (confirmed from $K1-L3-M2)\n\nK3-L4-M2",
+    "listener_raw_output": "Looking at confirmed ($) entries:\n\n- K1 = square, K4 = triangle \u2192 K3 likely = star (K2=circle, K3=star, K4=triangle pattern)\n- L1 = red, L3 = blue \u2192 L4 needs inference. Colors: red=L1, L2=yellow(from failed), L3=blue, L4=green\n- M3 = bottom-left, M2 = top-right, M1 = top-left \u2192 M2 = top-right\n\n{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 7,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-L3-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 7,
+    "cumulative_accuracy": 0.7142857142857143,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n**Shape (K token):**\n- K1 = square \u2713 (confirmed in two entries)\n- K3 = star\n- K4 = triangle\n\n**Color (L token):**\n- L1 = red\n- L3 = blue \u2713 (confirmed multiple times)\n- L4 = green\n\n**Position (M/N token):**\n- M3 = bottom-left\n- M2 = top-right\n- N1 = top-left (used with triangle)\n\nLooking at positions used so far:\n- M3 = bottom-left\n- M2 = top-right\n- N1 = top-left\n\nI need \"bottom-right\" \u2014 this hasn't been successfully encoded yet. The failed entry %K3-L3-M4 used M4 for bottom-right, but that whole message failed. However, M4 might still be the right mapping for bottom-right \u2014 the failure could have been due to other tokens. Let me check: K3=star, L3=blue, M4=bottom-right in that failed attempt. The target was \"star, blue, bottom-right\" \u2014 so it could have failed for any reason.\n\nLooking at position logic:\n- M3 = bottom-left, M2 = top-right, N1 = top-left\n- M4 for bottom-right seems reasonable (it was attempted)\n\nSince K1=square and L3=blue are both confirmed, and M4 was the attempted bottom-right, I'll use M4 for bottom-right. The previous failure with M4 was in a different context; K1 and L3 are solid.\n\nK1-L3-M4",
+    "listener_raw_output": "Looking at confirmed ($) entries:\n\n- K1 = square (from $K1-L1-M3 and $K1-L3-M2)\n- L3 = blue (from $K1-L3-M2, $K4-L3-N1)\n- M4 = bottom-right (need to infer)\n\nFor position, from confirmed entries:\n- M3 = bottom-left ($K1-L1-M3)\n- M2 = top-right ($K1-L3-M2, $K3-L4-M2)\n- N1 = top-left ($K4-L3-N1)\n\nM4 hasn't appeared in confirmed entries. The failed entry %K3-L3-M4 used M4 for \"bottom-right\". The failure was likely due to K3/L3 encoding, not M4. So M4 = bottom-right.\n\n{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 8,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K4-L2-M3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 8,
+    "cumulative_accuracy": 0.75,
+    "speaker_raw_output": "Let me analyze the confirmed conventions:\n\n**Shape (K):**\n- K1 = square\n- K3 = star\n- K4 = triangle\n- K2 = circle (from failed attempt, but shape mapping seems consistent)\n\n**Color (L):**\n- L1 = red\n- L3 = blue\n- L4 = green\n- L2 = yellow (from failed attempt %K2-L2-M1 was \"circle, yellow, top-left\" \u2014 the failure might have been due to position encoding, not color)\n\n**Position (M or N):**\n- M3 = bottom-left (from $K1-L1-M3)\n- M2 = top-right (from $K1-L3-M2 and $K3-L4-M2)\n- M4 = bottom-right (from $K1-L3-M4)\n- N1 = top-left (from $K4-L3-N1)\n- M1 = top-left (failed in %K2-L2-M1) \u2014 but N1 confirmed for top-left\n\nSo for triangle (K4), yellow (L2), bottom-left (M3):\n\n- K4 = triangle \u2713 (confirmed)\n- L2 = yellow (used in failed attempt, but the failure likely wasn't about color encoding specifically)\n- M3 = bottom-left \u2713 (confirmed)\n\nK4-L2-M3",
+    "listener_raw_output": "Looking at confirmed ($) entries to find patterns:\n\n- K1 \u2192 square, K3 \u2192 star, K4 \u2192 triangle (from K4-L3-N1)\n- L1 \u2192 red, L2 \u2192 yellow, L3 \u2192 blue, L4 \u2192 green\n- M1 \u2192 top-left, M2 \u2192 top-right, M3 \u2192 bottom-left, M4 \u2192 bottom-right\n\nK4 \u2192 triangle\nL2 \u2192 yellow\nM3 \u2192 bottom-left\n\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 9,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L1-M4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 9,
+    "cumulative_accuracy": 0.7777777777777778,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n**Shape (K slot):**\n- K1 = square\n- K3 = star\n- K4 = triangle\n- K2 was attempted for circle but failed (%K2-L2-M1)\n\nI need a symbol for circle. K2 was used in a failed attempt, but the failure might have been due to other symbols (L2, M1), not K2 itself. Let me check: the failed attempt was \"circle, yellow, top-left\" = K2-L2-M1. The confirmed conventions show K2 hasn't been confirmed for anything else. I'll try K2 for circle again since the failure could have been from L2 or M1.\n\n**Color (L slot):**\n- L1 = red (from K1-L1-M3 = square, red, bottom-left) \u2713\n- L2 = yellow (from K4-L2-M3 = triangle, yellow, bottom-left) \u2713\n- L3 = blue \u2713\n- L4 = green \u2713\n\nSo L1 = red.\n\n**Position (M slot):**\n- M3 = bottom-left \u2713\n- M2 = top-right \u2713\n- M4 = bottom-right \u2713\n- N1 = top-left (used with K4-L3-N1, but M1 might also be top-left \u2014 from failed attempt)\n\nM4 = bottom-right (confirmed from K1-L3-M4 = square, blue, bottom-right) \u2713\n\nSo:\n- Circle = K2 (risky but best guess)\n- Red = L1\n- Bottom-right = M4\n\nK2-L1-M4",
+    "listener_raw_output": "Looking at the confirmed conventions:\n\n**K token (shape):**\n- K1 = square\n- K3 = star\n- K4 = triangle\n- K2 = circle (by elimination)\n\n**L token (color):**\n- L1 = red\n- L2 = yellow\n- L3 = blue\n- L4 = green\n\n**M token (position):**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- M1 = top-left\n\nSo K2-L1-M4 = circle, red, bottom-right\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 10,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "K4-L3-N1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 9,
+    "cumulative_accuracy": 0.8,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green\n- **Position**: M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right\n\nBut wait \u2014 there's a special case: `$K4-L3-N1` = \"triangle, blue, top-left\" \u2014 this exact concept was already confirmed! It uses N1 instead of M1 for top-left (possibly because M1 failed in the %K2-L2-M1 attempt).\n\nThe confirmed entry `$K4-L3-N1` matches exactly: triangle, blue, top-left.\n\nK4-L3-N1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 11,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L4-M3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 10,
+    "cumulative_accuracy": 0.8181818181818182,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n**Shape (K token):**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle\n\n**Color (L token):**\n- L1 = red\n- L2 = yellow\n- L3 = blue\n- L4 = green\n\n**Position (M token):**\n- M1 = top-left (failed once, but let me check... %K2-L2-M1 failed, could be shape/color issue)\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- N1 = top-left (confirmed in K4-L3-N1)\n\nSo position M3 = bottom-left (confirmed in K1-L1-M3: square, red, bottom-left).\n\nFor \"star, green, bottom-left\":\n- Shape: K3 (star) \u2713\n- Color: L4 (green) \u2713\n- Position: M3 (bottom-left) \u2713\n\nK3-L4-M3",
+    "listener_raw_output": "Looking at confirmed conventions:\n\n- K1=square, K2=circle, K3=star, K4=triangle\n- L1=red, L2=yellow, L3=blue, L4=green\n- M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right\n\nK3=star, L4=green, M3=bottom-left\n\n{\"shape\": \"star\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 12,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L4-M3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 10,
+    "cumulative_accuracy": 0.8333333333333334,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green\n- **Position**: M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left (used once)\n\nFor the target concept:\n- shape = star \u2192 K3\n- color = green \u2192 L4\n- position = bottom-left \u2192 M3\n\nThis matches the confirmed entry `$K3-L4-M3` = \"star, green, bottom-left\" \u2713\n\nK3-L4-M3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 13,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K3-L3-M4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 11,
+    "cumulative_accuracy": 0.8461538461538461,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape:**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle\n\nSo star = K3 \u2713\n\n**Color:**\n- L1 = red\n- L2 = yellow\n- L3 = blue\n- L4 = green\n\nSo blue = L3 \u2713\n\n**Position:**\n- M1 = top-left (failed in %K2-L2-M1, but the shape/color encoding also failed, so M1 for top-left is uncertain)\n- M2 = top-right (confirmed in $K1-L3-M2 and $K3-L4-M2)\n- M3 = bottom-left (confirmed in $K1-L1-M3, $K4-L2-M3, $K3-L4-M3)\n- M4 = bottom-right (confirmed in $K1-L3-M4, $K2-L1-M4)\n- N1 = top-left (confirmed in $K4-L3-N1)\n\nSo bottom-right = M4 \u2713\n\nThe target is star (K3), blue (L3), bottom-right (M4).\n\nNote: %K3-L3-M4 failed before, but looking at the history, that was a failed attempt. However, K3=star, L3=blue, M4=bottom-right are all individually confirmed from other successful entries. The failure might have been due to Agent B's confusion at that time. I'll use the same encoding since the individual mappings are confirmed.\n\nK3-L3-M4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 14,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K2-L2-N1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 12,
+    "cumulative_accuracy": 0.8571428571428571,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n**Shape encoding (K):**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle\n\n**Color encoding (L):**\n- L1 = red\n- L2 = yellow\n- L3 = blue\n- L4 = green\n\n**Position encoding (M or N):**\n- M1 = top-left (failed in %K2-L2-M1)\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- N1 = top-left (used successfully in $K4-L3-N1)\n\nSo for circle=K2, yellow=L2, top-left=N1:\n\nThe failed attempt was %K2-L2-M1 for \"circle, yellow, top-left\". The issue was M1 for top-left. But N1 was confirmed as top-left in $K4-L3-N1. So I should use N1 for top-left instead of M1.\n\nK2-L2-N1",
+    "listener_raw_output": "Looking at the confirmed conventions:\n\n- K maps to shape: K1=square, K2=circle, K3=star, K4=triangle\n- L maps to color: L1=red, L2=yellow, L3=blue, L4=green\n- M/N maps to position: M1=top-left, M2=top-right, M3=bottom-left, M4=bottom-right\n\nFor N1, looking at \"$K4-L3-N1\": \"triangle, blue, top-left\" \u2014 N1=top-left (same as M1=top-left).\n\nSo K2-L2-N1 = circle, yellow, top-left.\n\nBut %K2-L2-M1 was \"circle, yellow, top-left\" \u2014 a failed attempt. The difference here is N1 instead of M1. Since N1 is confirmed as top-left from the K4-L3-N1 entry, and the only change from the failed attempt is using N1 instead of M1, the concept being communicated is still circle, yellow, top-left \u2014 but now with a corrected encoding.\n\n{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 15,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K4-L3-M3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 13,
+    "cumulative_accuracy": 0.8666666666666667,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape (K):**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle \u2713\n\n**Color (L):**\n- L1 = red\n- L2 = yellow\n- L3 = blue \u2713\n- L4 = green\n\n**Position (M/N):**\n- M2 = top-right\n- M3 = bottom-left \u2713\n- M4 = bottom-right\n- N1 = top-left\n\nSo triangle = K4, blue = L3, bottom-left = M3\n\nK4-L3-M3",
+    "listener_raw_output": "Looking at the confirmed conventions:\n\n- K4 appears in \"$K4-L3-N1\": \"triangle, blue, top-left\" and \"$K4-L2-M3\": \"triangle, yellow, bottom-left\" \u2192 K4 = triangle\n- L3 appears in \"$K1-L3-M2\": \"square, blue, top-right\", \"$K4-L3-N1\": \"triangle, blue, top-left\", \"$K1-L3-M4\": \"square, blue, bottom-right\", \"$K3-L3-M4\": \"star, blue, bottom-right\" \u2192 L3 = blue\n- M3 appears in \"$K1-L1-M3\": \"square, red, bottom-left\", \"$K4-L2-M3\": \"triangle, yellow, bottom-left\", \"$K3-L4-M3\": \"star, green, bottom-left\" \u2192 M3 = bottom-left\n\n{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 16,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K4-L3-M3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 13,
+    "cumulative_accuracy": 0.875,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nSo for triangle=K4, blue=L3, bottom-left=M3:\n\nK4-L3-M3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 17,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K4-L3-M3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 13,
+    "cumulative_accuracy": 0.8823529411764706,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape:**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle \u2713\n\n**Color:**\n- L1 = red\n- L2 = yellow\n- L3 = blue \u2713\n- L4 = green\n\n**Position:**\n- M2 = top-right\n- M3 = bottom-left \u2713\n- M4 = bottom-right\n- N1 = top-left\n\nSo triangle = K4, blue = L3, bottom-left = M3\n\nK4-L3-M3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 18,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K2-L2-N1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 13,
+    "cumulative_accuracy": 0.8888888888888888,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **K values**: K1=square, K2=circle, K3=star, K4=triangle\n- **L values**: L1=red, L2=yellow, L3=blue, L4=green\n- **M/N values for position**: M1=top-left (failed), M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left (confirmed in K4-L3-N1 and K2-L2-N1)\n\nSo for \"circle, yellow, top-left\":\n- Shape: K2 (circle) \u2713\n- Color: L2 (yellow) \u2713\n- Position: N1 (top-left) \u2713 \u2014 confirmed via K2-L2-N1 which IS a confirmed entry!\n\nWait, K2-L2-N1 = \"circle, yellow, top-left\" is already a confirmed ($) convention!\n\nK2-L2-N1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 19,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-L2-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 14,
+    "cumulative_accuracy": 0.8947368421052632,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape (K token):**\n- K1 = square \u2713\n- K2 = circle\n- K3 = star\n- K4 = triangle\n\n**Color (L token):**\n- L1 = red\n- L2 = yellow \u2713\n- L3 = blue\n- L4 = green\n\n**Position (M/N token):**\n- M1 = top-left (failed once, but N1 also used for top-left)\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right \u2713\n- N1 = top-left (confirmed in K4-L3-N1 and K2-L2-N1)\n\nSo for \"square, yellow, bottom-right\":\n- Shape: K1 (square)\n- Color: L2 (yellow)\n- Position: M4 (bottom-right)\n\nK1-L2-M4",
+    "listener_raw_output": "Looking at confirmed conventions:\n\n- K1 = square (from $K1-L1-M3, $K1-L3-M2, $K1-L3-M4)\n- L2 = yellow (from $K4-L2-M3: triangle, yellow, bottom-left)\n- M4 = bottom-right (from $K2-L1-M4: circle, red, bottom-right; $K1-L3-M4: square, blue, bottom-right)\n\n{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 20,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L3-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 15,
+    "cumulative_accuracy": 0.9,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape (K token):**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle\n\nSo circle = K2 \u2713\n\n**Color (L token):**\n- L1 = red\n- L2 = yellow\n- L3 = blue\n- L4 = green\n\nSo blue = L3 \u2713\n\n**Position (M or N token):**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- N1 = top-left\n\nSo top-right = M2 \u2713\n\nThe encoding for circle, blue, top-right should be: K2-L3-M2\n\nChecking history: No conflicts. K2-L2-N1 was confirmed for circle/yellow/top-left, K2-L1-M4 for circle/red/bottom-right. K2-L2-M1 failed (that used M1 for top-left, but N1 was later confirmed for top-left). All my tokens are consistent with confirmed conventions.\n\nK2-L3-M2",
+    "listener_raw_output": "Looking at the confirmed conventions:\n\nK2 = circle (from $K2-L1-M4, $K2-L2-N1)\nL3 = blue (from $K1-L3-M2, $K1-L3-M4, $K4-L3-N1, $K4-L3-M3)\nM2 = top-right (from $K1-L3-M2, $K3-L4-M2)\n\n{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 21,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K4-L3-M3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 15,
+    "cumulative_accuracy": 0.9047619047619048,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape:**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle \u2713\n\n**Color:**\n- L1 = red\n- L2 = yellow\n- L3 = blue \u2713\n- L4 = green\n\n**Position:**\n- M2 = top-right\n- M3 = bottom-left \u2713\n- M4 = bottom-right\n- N1 = top-left\n\nSo triangle = K4, blue = L3, bottom-left = M3\n\nK4-L3-M3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 22,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K1-L1-M3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 15,
+    "cumulative_accuracy": 0.9090909090909091,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K1 = square (confirmed in multiple $ entries)\n- L1 = red (confirmed: \"$K1-L1-M3\": \"square, red, bottom-left\")\n- M3 = bottom-left (confirmed: \"$K1-L1-M3\": \"square, red, bottom-left\")\n\nThis exact combination is already confirmed: \"$K1-L1-M3\" = \"square, red, bottom-left\"\n\nK1-L1-M3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 23,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L4-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 16,
+    "cumulative_accuracy": 0.9130434782608695,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M1 = ?, M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nFor \"top-left\", I can see that N1 was used successfully in \"$K4-L3-N1\" (triangle, blue, top-left) and \"$K2-L2-N1\" (circle, yellow, top-left). So N1 = top-left is a confirmed convention.\n\nSo for square (K1), green (L4), top-left (N1):\n\nK1-L4-N1",
+    "listener_raw_output": "Looking at the patterns from confirmed ($) entries:\n\nK1 = square (from K1-L1-M3, K1-L3-M2, K1-L3-M4, K1-L2-M4)\nL4 = green (from K3-L4-M2 \"star, green, top-right\" and K3-L4-M3 \"star, green, bottom-left\")\nN1 = top-left (from K4-L3-N1 \"triangle, blue, top-left\" and K2-L2-N1 \"circle, yellow, top-left\")\n\n{\"shape\": \"square\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 24,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L3-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 16,
+    "cumulative_accuracy": 0.9166666666666666,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nFor \"square, blue, top-right\":\n- Shape: K1 (square) \u2713\n- Color: L3 (blue) \u2713\n- Position: M2 (top-right) \u2713\n\nThis is already confirmed in the history as `$K1-L3-M2` = \"square, blue, top-right\" \u2713\n\nK1-L3-M2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 25,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L4-M2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 16,
+    "cumulative_accuracy": 0.92,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nFor \"star, green, top-right\":\n- Shape: K3 (star) \u2713\n- Color: L4 (green) \u2713\n- Position: M2 (top-right) \u2713\n\nThis matches the confirmed entry `$K3-L4-M2` = \"star, green, top-right\" \u2713\n\nK3-L4-M2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 26,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "K4-L3-N1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 16,
+    "cumulative_accuracy": 0.9230769230769231,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nFor \"triangle, blue, top-left\":\n- Shape: K4 (triangle) \u2713\n- Color: L3 (blue) \u2713\n- Position: N1 (top-left) \u2713\n\nThis matches exactly the confirmed entry `$K4-L3-N1` = \"triangle, blue, top-left\"\n\nK4-L3-N1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 27,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L1-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 17,
+    "cumulative_accuracy": 0.9259259259259259,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape:**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle\n\nSo circle = K2 \u2713\n\n**Color:**\n- L1 = red\n- L2 = yellow\n- L3 = blue\n- L4 = green\n\nSo red = L1 \u2713\n\n**Position:**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- N1 = top-left\n\nSo top-right = M2 \u2713\n\nThe target is circle (K2) + red (L1) + top-right (M2) = K2-L1-M2\n\nK2-L1-M2",
+    "listener_raw_output": "Looking at the patterns from $ entries:\n\nK2 = circle (from $K2-L1-M4, $K2-L2-N1, $K2-L3-M2)\nL1 = red (from $K1-L1-M3, $K2-L1-M4)\nM2 = top-right (from $K1-L3-M2, $K3-L4-M2, $K2-L3-M2)\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 28,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K4-L4-N1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 18,
+    "cumulative_accuracy": 0.9285714285714286,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape encoding (K):**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle \u2713\n\n**Color encoding (L):**\n- L1 = red\n- L2 = yellow\n- L3 = blue\n- L4 = green \u2713\n\n**Position encoding:**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- N1 = top-left \u2713 (confirmed in \"$K4-L3-N1\": \"triangle, blue, top-left\" and \"$K2-L2-N1\": \"circle, yellow, top-left\" and \"$K1-L4-N1\": \"square, green, top-left\")\n\nSo for triangle, green, top-left:\n- K4 (triangle)\n- L4 (green)\n- N1 (top-left)\n\nK4-L4-N1",
+    "listener_raw_output": "Looking at the confirmed conventions:\n\n- K4 = triangle (from $K4-L3-N1, $K4-L2-M3, $K4-L3-M3)\n- L4 = green (from $K3-L4-M2, $K3-L4-M3, $K1-L4-N1)\n- N1 = top-left (from $K4-L3-N1, $K2-L2-N1, $K1-L4-N1)\n\n{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 29,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L2-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 19,
+    "cumulative_accuracy": 0.9310344827586207,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape:**\n- K1 = square \u2713 (confirmed multiple times)\n\n**Color:**\n- L2 = yellow \u2713 (confirmed multiple times)\n\n**Position:**\n- Top-left has been encoded as N1 in confirmed entries ($K4-L3-N1, $K2-L2-N1, $K1-L4-N1, $K4-L4-N1)\n- M1 was used for top-left in a failed attempt (%K2-L2-M1), so N1 is the correct convention\n\nSo: square=K1, yellow=L2, top-left=N1\n\nK1-L2-N1",
+    "listener_raw_output": "Looking at the patterns:\n\nK1 = square (from multiple $ entries: K1-L1-M3, K1-L3-M2, K1-L3-M4, K1-L2-M4, K1-L4-N1)\nL2 = yellow (from $K4-L2-M3: triangle, yellow, bottom-left and $K1-L2-M4: square, yellow, bottom-right)\nN1 = top-left (from $K4-L3-N1: triangle, blue, top-left; $K2-L2-N1: circle, yellow, top-left; $K1-L4-N1: square, green, top-left; $K4-L4-N1: triangle, green, top-left)\n\n{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 30,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K3-L3-M4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 19,
+    "cumulative_accuracy": 0.9333333333333333,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K3 = star (confirmed in multiple $ entries)\n- L3 = blue (confirmed in multiple $ entries)\n- M4 = bottom-right (confirmed in multiple $ entries)\n\nThis exact combination K3-L3-M4 was previously a % (failed attempt), but then later it became a $ (confirmed). Let me check again...\n\n\"%K3-L3-M4\": \"star, blue, bottom-right\" \u2014 failed\n\"$K3-L3-M4\": \"star, blue, bottom-right\" \u2014 confirmed!\n\nSo K3-L3-M4 is now a confirmed convention. I should use it.\n\nK3-L3-M4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 31,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L2-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 19,
+    "cumulative_accuracy": 0.9354838709677419,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M1 = ?, M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nFor \"square, yellow, top-left\":\n- Shape: K1 (square) \u2713\n- Color: L2 (yellow) \u2713\n- Position: N1 (top-left) \u2713\n\nThis is directly confirmed by the entry `$K1-L2-N1`: \"square, yellow, top-left\" \u2713\n\nK1-L2-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 32,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-L3-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 19,
+    "cumulative_accuracy": 0.9375,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- Shape: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- Color: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- Position: M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nFor \"square, blue, bottom-right\":\n- square = K1\n- blue = L3\n- bottom-right = M4\n\nThis is already a confirmed convention: `$K1-L3-M4` = \"square, blue, bottom-right\" \u2713\n\nK1-L3-M4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 33,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K2-L2-N1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 19,
+    "cumulative_accuracy": 0.9393939393939394,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K2 = circle (from \"$K2-L1-M4\": \"circle, red, bottom-right\", \"$K2-L2-N1\": \"circle, yellow, top-left\", etc.)\n- L2 = yellow (from \"$K4-L2-M3\": \"triangle, yellow, bottom-left\", \"$K1-L2-M4\": \"square, yellow, bottom-right\", \"$K1-L2-N1\": \"square, yellow, top-left\")\n- N1 = top-left (from \"$K4-L3-N1\": \"triangle, blue, top-left\", \"$K2-L2-N1\": \"circle, yellow, top-left\", \"$K4-L4-N1\": \"triangle, green, top-left\", \"$K1-L4-N1\": \"square, green, top-left\", \"$K1-L2-N1\": \"square, yellow, top-left\")\n\nThe target is circle, yellow, top-left = K2-L2-N1\n\nThis is already a confirmed convention (\"$K2-L2-N1\": \"circle, yellow, top-left\")!\n\nK2-L2-N1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 34,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L1-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 20,
+    "cumulative_accuracy": 0.9411764705882353,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M1 = ?, M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nFor \"top-left\", the convention is N1 (confirmed multiple times: K4-L3-N1, K2-L2-N1, K1-L4-N1, K4-L4-N1, K1-L2-N1).\n\nSo:\n- square = K1\n- red = L1\n- top-left = N1\n\nK1-L1-N1",
+    "listener_raw_output": "Looking at the patterns:\n\nK1 = square (consistent across all K1 entries)\nL1 = red (from $K1-L1-M3: square, red, bottom-left and $K2-L1-M4: circle, red, bottom-right and $K2-L1-M2: circle, red, top-right)\nN1 = top-left (from $K4-L3-N1: triangle, blue, top-left; $K2-L2-N1: circle, yellow, top-left; $K1-L4-N1: square, green, top-left; $K4-L4-N1: triangle, green, top-left; $K1-L2-N1: square, yellow, top-left)\n\n{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 35,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L2-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.9428571428571428,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 circle = K2\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 yellow = L2\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-right = M2\n\nSo: circle=K2, yellow=L2, top-right=M2\n\nK2-L2-M2",
+    "listener_raw_output": "Looking at the patterns from $ entries:\n\nK2 = circle (from K2-L1-M4: circle, K2-L2-N1: circle, K2-L3-M2: circle, K2-L1-M2: circle)\n\nL2 = yellow (from K4-L2-M3: triangle, yellow; K1-L2-M4: square, yellow; K1-L2-N1: square, yellow)\n\nM2 = top-right (from K1-L3-M2: square, blue, top-right; K3-L4-M2: star, green, top-right; K2-L3-M2: circle, blue, top-right; K2-L1-M2: circle, red, top-right)\n\n{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 36,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L4-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.9444444444444444,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nFor \"square, green, top-left\":\n- Shape: K1 (square) \u2713\n- Color: L4 (green) \u2713\n- Position: N1 (top-left) \u2713\n\nThis matches exactly the confirmed convention `$K1-L4-N1` = \"square, green, top-left\" \u2713\n\nK1-L4-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 37,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L1-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.9459459459459459,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K1 = square (confirmed in many entries)\n- L1 = red (confirmed: K1-L1-M3 = square, red, bottom-left; K2-L1-M4 = circle, red, bottom-right; K2-L1-M2 = circle, red, top-right)\n- N1 = top-left (confirmed: K4-L3-N1 = triangle, blue, top-left; K2-L2-N1 = circle, yellow, top-left; K4-L4-N1 = triangle, green, top-left; K1-L4-N1 = square, green, top-left; K1-L2-N1 = square, yellow, top-left; K1-L1-N1 = square, red, top-left)\n\nThe target is square, red, top-left = K1-L1-N1, which is already a confirmed convention!\n\nK1-L1-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 38,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L2-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.9473684210526315,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle\n\n- L1 = red\n- L2 = yellow\n- L3 = blue\n- L4 = green\n\n- M1 = ? (failed)\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- N1 = top-left\n\nSo for \"square, yellow, top-left\":\n- K1 = square\n- L2 = yellow\n- N1 = top-left\n\nThis matches the confirmed entry `$K1-L2-N1` = \"square, yellow, top-left\" \u2713\n\nK1-L2-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 39,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L3-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.9487179487179487,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape (K token):**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle\n\n**Color (L token):**\n- L1 = red\n- L2 = yellow\n- L3 = blue\n- L4 = green\n\n**Position (M or N token):**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- N1 = top-left\n\nFor \"circle, blue, top-right\":\n- Shape: K2 (circle) \u2713\n- Color: L3 (blue) \u2713\n- Position: M2 (top-right) \u2713\n\nThis matches the confirmed entry `$K2-L3-M2` = \"circle, blue, top-right\" exactly!\n\nK2-L3-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 40,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L2-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.95,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 circle = K2\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 yellow = L2\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-right = M2\n\nSo circle + yellow + top-right = K2-L2-M2\n\nThis is confirmed in the history: \"$K2-L2-M2\": \"circle, yellow, top-right\" \u2713\n\nK2-L2-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 41,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L1-M4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.9512195121951219,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 circle = **K2**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 red = **L1**\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 bottom-right = **M4**\n\nThe entry `$K2-L1-M4` = \"circle, red, bottom-right\" is already confirmed in the history!\n\nK2-L1-M4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 42,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K4-L2-M3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.9523809523809523,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nFor \"triangle, yellow, bottom-left\":\n- Shape: K4 (triangle) \u2713\n- Color: L2 (yellow) \u2713\n- Position: M3 (bottom-left) \u2713\n\nThis matches the confirmed entry `$K4-L2-M3` = \"triangle, yellow, bottom-left\" \u2713\n\nK4-L2-M3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 43,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L1-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.9534883720930233,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K1 = square (confirmed multiple times)\n- L1 = red (confirmed: K1-L1-M3 = square, red, bottom-left; K2-L1-M4 = circle, red, bottom-right; K2-L1-M2 = circle, red, top-right)\n- N1 = top-left (confirmed: K4-L3-N1 = triangle, blue, top-left; K1-L4-N1 = square, green, top-left; K4-L4-N1 = triangle, green, top-left; K2-L2-N1 = circle, yellow, top-left; K1-L2-N1 = square, yellow, top-left; K1-L1-N1 = square, red, top-left)\n\nWait \u2014 K1-L1-N1 is already confirmed as \"square, red, top-left\"! Perfect, I can use that directly.\n\nK1-L1-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 44,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L3-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.9545454545454546,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape (K token):**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle\n\nSo K2 = circle \u2713\n\n**Color (L token):**\n- L1 = red\n- L2 = yellow\n- L3 = blue\n- L4 = green\n\nSo L3 = blue \u2713\n\n**Position (M or N token):**\n- M2 = top-right (confirmed in \"$K3-L4-M2\", \"$K2-L3-M2\", \"$K1-L3-M2\", \"$K2-L1-M2\")\n- N1 = top-left\n\nSo M2 = top-right \u2713\n\nThis is already a confirmed convention: \"$K2-L3-M2\": \"circle, blue, top-right\" \u2713\n\nK2-L3-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 45,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K4-L4-M4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 22,
+    "cumulative_accuracy": 0.9555555555555556,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 triangle = **K4**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 green = **L4**\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 bottom-right = **M4**\n\nSo triangle, green, bottom-right = K4-L4-M4\n\nK4-L4-M4",
+    "listener_raw_output": "Looking at the patterns from $ confirmed entries:\n\nK4 = triangle (from K4-L3-N1, K4-L2-M3, K4-L3-M3, K4-L4-N1)\nL4 = green (from K3-L4-M2, K3-L4-M3, K4-L4-N1, K1-L4-N1)\nM4 = bottom-right (from K1-L1-M3\u2192bottom-left uses M3, K2-L1-M4\u2192bottom-right, K1-L3-M4\u2192bottom-right, K1-L2-M4\u2192bottom-right)\n\n{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 46,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L3-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 22,
+    "cumulative_accuracy": 0.9565217391304348,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- Shape: K1=square, K2=circle, K3=star, K4=triangle\n- Color: L1=red, L2=yellow, L3=blue, L4=green\n- Position: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nSo for circle, blue, top-right:\n- K2 = circle\n- L3 = blue\n- M2 = top-right\n\nThis matches the confirmed entry `$K2-L3-M2`: \"circle, blue, top-right\" \u2713\n\nK2-L3-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 47,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L4-M3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 22,
+    "cumulative_accuracy": 0.9574468085106383,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nSo for \"star, green, bottom-left\":\n- Shape: K3 (star)\n- Color: L4 (green)\n- Position: M3 (bottom-left)\n\nThis matches the confirmed entry `$K3-L4-M3` = \"star, green, bottom-left\" \u2713\n\nK3-L4-M3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 48,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L4-M3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 22,
+    "cumulative_accuracy": 0.9583333333333334,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nFor \"star, green, bottom-left\":\n- Shape: K3 (star)\n- Color: L4 (green)\n- Position: M3 (bottom-left)\n\nThis matches the confirmed entry `$K3-L4-M3` = \"star, green, bottom-left\" \u2713\n\nK3-L4-M3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 49,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L2-M2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 23,
+    "cumulative_accuracy": 0.9591836734693877,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape (K token):**\n- K1 = square\n- K2 = circle\n- K3 = star\n- K4 = triangle\n\n**Color (L token):**\n- L1 = red\n- L2 = yellow\n- L3 = blue\n- L4 = green\n\n**Position (M or N token):**\n- M2 = top-right\n- M3 = bottom-left\n- M4 = bottom-right\n- N1 = top-left\n\nSo for \"star, yellow, top-right\":\n- Shape: K3 (star)\n- Color: L2 (yellow)\n- Position: M2 (top-right)\n\nThis gives: K3-L2-M2\n\nK3-L2-M2",
+    "listener_raw_output": "Looking at the patterns from $ confirmed entries:\n\nK3 = star (from $K3-L4-M2, $K3-L4-M3, $K3-L3-M4)\nL2 = yellow (from $K4-L2-M3, $K1-L2-M4, $K1-L2-N1)\nM2 = top-right (from $K3-L4-M2, $K1-L3-M2, $K2-L1-M2, $K2-L3-M2, $K2-L2-M2)\n\n{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 50,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L3-M4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.96,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 circle = **K2**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 blue = **L3**\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 bottom-right = **M4**\n\nSo circle, blue, bottom-right = K2-L3-M4\n\nK2-L3-M4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 51,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L1-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9607843137254902,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- K1 = square (confirmed in multiple entries)\n- L1 = red (confirmed: K1-L1-M3 = square, red, bottom-left; K2-L1-M4 = circle, red, bottom-right; K2-L1-M2 = circle, red, top-right)\n- N1 = top-left (confirmed: K4-L3-N1 = triangle, blue, top-left; K2-L2-N1 = circle, yellow, top-left; K1-L4-N1 = square, green, top-left; K4-L4-N1 = triangle, green, top-left; K1-L2-N1 = square, yellow, top-left; K1-L1-N1 = square, red, top-left)\n\nThe concept is square, red, top-left. This is exactly K1-L1-N1, which is already a confirmed convention!\n\nK1-L1-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 52,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L3-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9615384615384616,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K1 = square (confirmed in multiple entries)\n- L3 = blue (confirmed in multiple entries)\n- M2 = top-right (confirmed in multiple entries)\n\nThe target is: square, blue, top-right\n\nThis matches exactly with `$K1-L3-M2` which is already a confirmed convention!\n\nK1-L3-M2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 53,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K4-L4-N1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9622641509433962,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- K4 = triangle (from K4-L2-M3 \"triangle, yellow, bottom-left\", K4-L3-M3 \"triangle, blue, bottom-left\", etc.)\n- L4 = green (from K3-L4-M2 \"star, green, top-right\", K3-L4-M3 \"star, green, bottom-left\", K1-L4-N1 \"square, green, top-left\")\n- N1 = top-left (from K4-L3-N1 \"triangle, blue, top-left\", K2-L2-N1 \"circle, yellow, top-left\", K4-L4-N1 \"triangle, green, top-left\")\n\nThis exact combination already exists as a confirmed entry: \"$K4-L4-N1\": \"triangle, green, top-left\"\n\nK4-L4-N1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 54,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L3-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9629629629629629,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 circle = **K2**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 blue = **L3**\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-right = **M2**\n\nThis matches the confirmed entry `$K2-L3-M2`: \"circle, blue, top-right\" \u2713\n\nK2-L3-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 55,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L4-M3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9636363636363636,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K3 = star (confirmed in multiple $ entries)\n- L4 = green (confirmed in multiple $ entries)\n- M3 = bottom-left (confirmed in multiple $ entries)\n\nThis is straightforward - all three components have confirmed mappings:\n- K3 = star\n- L4 = green\n- M3 = bottom-left\n\nK3-L4-M3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 56,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K4-L4-M4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9642857142857143,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 triangle = **K4**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 green = **L4**\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 bottom-right = **M4**\n\nSo triangle + green + bottom-right = K4-L4-M4\n\nK4-L4-M4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 57,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L1-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9649122807017544,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 circle = **K2**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 red = **L1**\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-right = **M2**\n\nThe concept is circle (K2), red (L1), top-right (M2).\n\nThis matches the confirmed entry `$K2-L1-M2` = \"circle, red, top-right\" \u2713\n\nK2-L1-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 58,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L2-M2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9655172413793104,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 **K3** for star\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 **L2** for yellow\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 **M2** for top-right\n\nSo: star=K3, yellow=L2, top-right=M2\n\nThis matches the confirmed convention pattern perfectly.\n\nK3-L2-M2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 59,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-L2-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9661016949152542,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nSo for \"square, yellow, bottom-right\":\n- Shape: K1 (square) \u2713\n- Color: L2 (yellow) \u2713\n- Position: M4 (bottom-right) \u2713\n\nThis matches the confirmed entry `$K1-L2-M4` = \"square, yellow, bottom-right\" \u2713\n\nK1-L2-M4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 60,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L4-M2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9666666666666667,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 star = K3\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 green = L4\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-right = M2\n\nSo: star=K3, green=L4, top-right=M2\n\nThis matches the confirmed convention `$K3-L4-M2` = \"star, green, top-right\" \u2713\n\nK3-L4-M2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 61,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-L2-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9672131147540983,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M1 = ?, M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nSo for \"square, yellow, bottom-right\":\n- Shape: K1 (square) \u2713\n- Color: L2 (yellow) \u2713\n- Position: M4 (bottom-right) \u2713\n\nThis matches the confirmed entry `$K1-L2-M4` = \"square, yellow, bottom-right\" \u2713\n\nK1-L2-M4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 62,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L1-M4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.967741935483871,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K2 = circle (confirmed in multiple $ entries)\n- L1 = red (confirmed: K1-L1-M3 = square, red, bottom-left; K2-L1-M4 = circle, red, bottom-right; K2-L1-M2 = circle, red, top-right)\n- M4 = bottom-right (confirmed in multiple $ entries)\n\nSo \"circle, red, bottom-right\" = K2-L1-M4\n\nThis is directly confirmed as a $ entry: \"$K2-L1-M4\": \"circle, red, bottom-right\"\n\nK2-L1-M4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 63,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "K4-L3-N1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9682539682539683,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 triangle = **K4**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 blue = **L3**\n- **Position**: top-left has been encoded as N1 (confirmed in multiple entries like K4-L3-N1, K2-L2-N1, K4-L4-N1, K1-L4-N1, K1-L2-N1, K1-L1-N1) \u2192 top-left = **N1**\n\nNotably, K4-L3-N1 is already a confirmed entry meaning \"triangle, blue, top-left\"!\n\nK4-L3-N1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 64,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L4-M3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.96875,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 **K3** for star\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 **L4** for green\n- **Position**: M3=bottom-left, M2=top-right, M4=bottom-right, N1=top-left \u2192 **M3** for bottom-left\n\nThis matches the confirmed entry `$K3-L4-M3`: \"star, green, bottom-left\" \u2713\n\nK3-L4-M3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 65,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K4-L4-M4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9692307692307692,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **K values**: K1=square, K2=circle, K3=star, K4=triangle\n- **L values**: L1=red, L2=yellow, L3=blue, L4=green\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nSo for \"triangle, green, bottom-right\":\n- Shape: K4 (triangle) \u2713\n- Color: L4 (green) \u2713\n- Position: M4 (bottom-right) \u2713\n\nK4-L4-M4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 66,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L1-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9696969696969697,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- K1 = square (confirmed in multiple entries)\n- L1 = red (confirmed in \"$K1-L1-M3\": \"square, red, bottom-left\" and \"$K2-L1-M4\": \"circle, red, bottom-right\")\n- N1 = top-left (confirmed in multiple entries like \"$K4-L3-N1\", \"$K2-L2-N1\", \"$K4-L4-N1\", \"$K1-L4-N1\", \"$K1-L2-N1\", \"$K1-L1-N1\")\n\nThere's already a confirmed entry \"$K1-L1-N1\": \"square, red, top-left\" \u2014 this is exactly what I need!\n\nK1-L1-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 67,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L4-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9701492537313433,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nFor \"square, green, top-left\":\n- Shape: K1 (square) \u2713\n- Color: L4 (green) \u2713\n- Position: N1 (top-left) \u2713\n\nThis exact combination is already confirmed: `$K1-L4-N1` = \"square, green, top-left\" \u2713\n\nK1-L4-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 68,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-L2-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9705882352941176,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M1 = ?, M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nSo for \"square, yellow, bottom-right\":\n- Shape: K1 (square) \u2713\n- Color: L2 (yellow) \u2713\n- Position: M4 (bottom-right) \u2713\n\nThis matches the confirmed entry `$K1-L2-M4` = \"square, yellow, bottom-right\" \u2713\n\nK1-L2-M4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 69,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L4-M2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9710144927536232,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K1 = square, K2 = circle, K3 = star, K4 = triangle\n- L1 = red, L2 = yellow, L3 = blue, L4 = green\n- M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nSo for \"star, green, top-right\":\n- K3 = star \u2713\n- L4 = green \u2713\n- M2 = top-right \u2713\n\nThis matches the confirmed entry \"$K3-L4-M2\": \"star, green, top-right\" exactly!\n\nK3-L4-M2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 70,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K1-L2-M4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9714285714285714,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M1 = ?, M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nSo for \"square, yellow, bottom-right\":\n- Shape: K1 (square) \u2713\n- Color: L2 (yellow) \u2713\n- Position: M4 (bottom-right) \u2713\n\nThis matches the confirmed entry `$K1-L2-M4`: \"square, yellow, bottom-right\" \u2713\n\nK1-L2-M4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 71,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K4-L4-N1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.971830985915493,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 triangle = **K4**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 green = **L4**\n- **Position**: top-left has been encoded as N1 (confirmed in multiple entries: K4-L3-N1, K2-L2-N1, K1-L4-N1, K4-L4-N1, K1-L2-N1, K1-L1-N1) \u2192 top-left = **N1**\n\nThere's already a confirmed entry: `$K4-L4-N1` = \"triangle, green, top-left\" \u2713\n\nK4-L4-N1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 72,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K4-L4-M3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9722222222222222,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nSo for triangle, green, bottom-left:\n- Shape: K4 (triangle)\n- Color: L4 (green)\n- Position: M3 (bottom-left)\n\nThis follows all established conventions perfectly.\n\nK4-L4-M3",
+    "listener_raw_output": "Looking at the patterns from confirmed ($) entries:\n\nK4 = triangle (from K4-L3-N1, K4-L2-M3, K4-L3-M3, K4-L4-N1, K4-L4-M4)\nL4 = green (from K3-L4-M2, K3-L4-M3, K4-L4-N1, K4-L4-M4, K1-L4-N1)\nM3 = bottom-left (from K1-L1-M3, K4-L2-M3, K3-L4-M3, K4-L3-M3)\n\n{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 73,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K4-L4-N1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9726027397260274,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 triangle = **K4**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 green = **L4**\n- **Position**: N1=top-left (confirmed in multiple entries like K4-L3-N1, K4-L4-N1, K1-L4-N1, etc.) \u2192 top-left = **N1**\n\nThis exact combination K4-L4-N1 is already confirmed in the history as \"triangle, green, top-left\"!\n\nK4-L4-N1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 74,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K3-L2-M2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.972972972972973,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K1 = square, K2 = circle, K3 = star, K4 = triangle\n- L1 = red, L2 = yellow, L3 = blue, L4 = green\n- M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nSo for \"star, yellow, top-right\":\n- K3 = star\n- L2 = yellow\n- M2 = top-right\n\nK3-L2-M2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 75,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K2-L3-M4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9733333333333334,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- Shape: K1=square, K2=circle, K3=star, K4=triangle\n- Color: L1=red, L2=yellow, L3=blue, L4=green\n- Position: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nFor \"circle, blue, bottom-right\":\n- K2 = circle\n- L3 = blue\n- M4 = bottom-right\n\nThis matches the confirmed entry `$K2-L3-M4`: \"circle, blue, bottom-right\" \u2713\n\nK2-L3-M4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 76,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L1-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9736842105263158,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nFor \"circle, red, top-right\":\n- K2 = circle \u2713\n- L1 = red \u2713\n- M2 = top-right \u2713\n\nThis matches the confirmed entry `$K2-L1-M2` = \"circle, red, top-right\" \u2713\n\nK2-L1-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 77,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K1-L3-M2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.974025974025974,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nSo for \"square, blue, top-right\":\n- Shape: K1 (square) \u2713\n- Color: L3 (blue) \u2713\n- Position: M2 (top-right) \u2713\n\nThis matches the confirmed entry `$K1-L3-M2` = \"square, blue, top-right\" \u2713\n\nK1-L3-M2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 78,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K2-L2-N1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9743589743589743,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K2 = circle (from multiple $ entries: K2-L1-M4 \"circle, red, bottom-right\", K2-L2-N1 \"circle, yellow, top-left\", etc.)\n- L2 = yellow (from K4-L2-M3 \"triangle, yellow, bottom-left\", K1-L2-M4 \"square, yellow, bottom-right\", K1-L2-N1 \"square, yellow, top-left\")\n- N1 = top-left (from K4-L3-N1 \"triangle, blue, top-left\", K1-L4-N1 \"square, green, top-left\", K4-L4-N1 \"triangle, green, top-left\", K2-L2-N1 \"circle, yellow, top-left\", K1-L2-N1 \"square, yellow, top-left\", K1-L1-N1 \"square, red, top-left\")\n\nThe target is circle, yellow, top-left = K2-L2-N1\n\nThis is already a confirmed convention ($K2-L2-N1: \"circle, yellow, top-left\")!\n\nK2-L2-N1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 79,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L2-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9746835443037974,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 circle = **K2**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 yellow = **L2**\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-right = **M2**\n\nSo circle, yellow, top-right = K2-L2-M2\n\nChecking history: `$K2-L2-M2` = \"circle, yellow, top-right\" \u2713 This is already a confirmed convention!\n\nK2-L2-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 80,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "K4-L3-N1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.975,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 triangle = **K4**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 blue = **L3**\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-left = **N1**\n\nThis exact combination appeared in the history as `$K4-L3-N1` = \"triangle, blue, top-left\" \u2014 it's a confirmed convention!\n\nK4-L3-N1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 81,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L2-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9753086419753086,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 circle = K2\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 yellow = L2\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-right = M2\n\nThere's actually a confirmed entry: `$K2-L2-M2` = \"circle, yellow, top-right\" \u2713\n\nK2-L2-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 82,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "K4-L3-N1",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.975609756097561,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 triangle = K4\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 blue = L3\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-left = N1\n\nThis is confirmed by `$K4-L3-N1`: \"triangle, blue, top-left\" \u2014 exactly what I need!\n\nK4-L3-N1",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 83,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L1-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9759036144578314,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K1 = square (confirmed multiple times)\n- L1 = red (confirmed: K1-L1-M3 = square, red, bottom-left; K2-L1-M4 = circle, red, bottom-right; K2-L1-M2 = circle, red, top-right)\n- N1 = top-left (confirmed: K4-L3-N1 = triangle, blue, top-left; K2-L2-N1 = circle, yellow, top-left; K1-L4-N1 = square, green, top-left; K4-L4-N1 = triangle, green, top-left; K1-L2-N1 = square, yellow, top-left; K1-L1-N1 = square, red, top-left)\n\nThis exact concept \"square, red, top-left\" is already confirmed as `$K1-L1-N1`!\n\nK1-L1-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 84,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L2-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9761904761904762,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 circle = K2\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 yellow = L2\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-right = M2\n\nSo circle + yellow + top-right = K2-L2-M2\n\nThis is confirmed in the history: \"$K2-L2-M2\": \"circle, yellow, top-right\" \u2713\n\nK2-L2-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 85,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K3-L3-M3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.9764705882352941,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 K3 for star\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 L3 for blue\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 M3 for bottom-left\n\nSo: star=K3, blue=L3, bottom-left=M3\n\nK3-L3-M3",
+    "listener_raw_output": "Looking at the patterns from confirmed ($) entries:\n\nK3 = star (from $K3-L4-M2, $K3-L4-M3, $K3-L2-M2, $K3-L3-M4)\nL3 = blue (from $K1-L3-M2, $K1-L3-M4, $K4-L3-N1, $K4-L3-M3, $K2-L3-M2, $K2-L3-M4)\nM3 = bottom-left (from $K1-L1-M3, $K4-L2-M3, $K3-L4-M3, $K4-L3-M3, $K4-L4-M3)\n\n{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 86,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L4-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.9767441860465116,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1 = square, K2 = circle, K3 = star, K4 = triangle\n- **Color**: L1 = red, L2 = yellow, L3 = blue, L4 = green\n- **Position**: M2 = top-right, M3 = bottom-left, M4 = bottom-right, N1 = top-left\n\nFor \"square, green, top-left\":\n- Shape: K1 (square) \u2713\n- Color: L4 (green) \u2713\n- Position: N1 (top-left) \u2713\n\nThis matches exactly the confirmed entry `$K1-L4-N1`: \"square, green, top-left\" \u2713\n\nK1-L4-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 87,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K2-L2-N1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.9770114942528736,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 circle = K2\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 yellow = L2\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-left = N1\n\nThe failed attempt `%K2-L2-M1` used M1 for top-left, but the confirmed convention `$K2-L2-N1` already exists and uses N1 for top-left with circle+yellow. This exact combination is already confirmed!\n\nK2-L2-N1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 88,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K4-L3-M3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.9772727272727273,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- K4 = triangle (from multiple $ entries like K4-L3-N1, K4-L2-M3, K4-L4-N1, etc.)\n- L3 = blue (from K1-L3-M2, K4-L3-N1, K3-L3-M4, etc.)\n- M3 = bottom-left (from K1-L1-M3, K4-L2-M3, K3-L4-M3, K4-L4-M3, K3-L3-M3)\n\nSo triangle=K4, blue=L3, bottom-left=M3\n\nK4-L3-M3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 89,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L3-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.9775280898876404,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K2 = circle (from multiple $ entries with circle)\n- L3 = blue (from multiple $ entries with blue)\n- M2 = top-right (from multiple $ entries with top-right)\n\nThis matches exactly with `$K2-L3-M2` = \"circle, blue, top-right\" which is already a confirmed convention!\n\nK2-L3-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 90,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L2-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.9777777777777777,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K1 = square\n- L2 = yellow\n- N1 = top-left (confirmed in multiple entries like K4-L3-N1, K2-L2-N1, K4-L4-N1, K1-L4-N1, K1-L2-N1, K1-L1-N1)\n\nSo \"square, yellow, top-left\" = K1-L2-N1\n\nThis is already confirmed in the history as `$K1-L2-N1`: \"square, yellow, top-left\" \u2713\n\nK1-L2-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 91,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L3-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.978021978021978,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- K2 = circle (from \"$K2-L1-M4\": \"circle, red, bottom-right\", \"$K2-L2-N1\": \"circle, yellow, top-left\", etc.)\n- L3 = blue (from \"$K1-L3-M2\": \"square, blue, top-right\", \"$K4-L3-N1\": \"triangle, blue, top-left\", etc.)\n- M2 = top-right (from \"$K1-L3-M2\": \"square, blue, top-right\", \"$K2-L1-M2\": \"circle, red, top-right\", etc.)\n\nSo \"circle, blue, top-right\" = K2-L3-M2\n\nThis is already in the confirmed conventions: \"$K2-L3-M2\": \"circle, blue, top-right\" \u2713\n\nK2-L3-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 92,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L1-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.9782608695652174,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- K1 = square (confirmed multiple times)\n- L1 = red (confirmed: K1-L1-M3 = square, red, bottom-left; K2-L1-M4 = circle, red, bottom-right; K2-L1-M2 = circle, red, top-right)\n- N1 = top-left (confirmed multiple times: K4-L3-N1, K2-L2-N1, K1-L4-N1, K4-L4-N1, K1-L2-N1, K1-L1-N1)\n\nThe target is square, red, top-left = K1-L1-N1\n\nThis is already a confirmed convention! ($K1-L1-N1: \"square, red, top-left\")\n\nK1-L1-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 93,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "K2-L3-M2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.978494623655914,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 circle = **K2**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 blue = **L3**\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 top-right = **M2**\n\nThis matches the confirmed entry `$K2-L3-M2`: \"circle, blue, top-right\" \u2713\n\nK2-L3-M2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 94,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K3-L3-M4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.9787234042553191,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- Shape: K1=square, K2=circle, K3=star, K4=triangle\n- Color: L1=red, L2=yellow, L3=blue, L4=green\n- Position: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left\n\nFor \"star, blue, bottom-right\":\n- K3 = star\n- L3 = blue\n- M4 = bottom-right\n\nThis is already a confirmed convention: \"$K3-L3-M4\": \"star, blue, bottom-right\"\n\nK3-L3-M4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 95,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K4-L4-M3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.9789473684210527,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- K4 = triangle (confirmed in multiple $ entries)\n- L4 = green (confirmed in multiple $ entries)\n- M3 = bottom-left (confirmed in multiple $ entries)\n\nSo triangle + green + bottom-left = K4-L4-M3\n\nThis exact combination is already confirmed: \"$K4-L4-M3\": \"triangle, green, bottom-left\"\n\nK4-L4-M3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 96,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K4-L3-M4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.9791666666666666,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 triangle = **K4**\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 blue = **L3**\n- **Position**: M2=top-right, M3=bottom-left, M4=bottom-right, N1=top-left \u2192 bottom-right = **M4**\n\nSo triangle, blue, bottom-right = K4-L3-M4\n\nK4-L3-M4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 97,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "K1-L1-N1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.979381443298969,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- K1 = square (confirmed multiple times)\n- L1 = red (confirmed: K1-L1-M3 = square, red, bottom-left; K2-L1-M4 = circle, red, bottom-right; K2-L1-M2 = circle, red, top-right)\n- N1 = top-left (confirmed: K4-L3-N1 = triangle, blue, top-left; K1-L4-N1 = square, green, top-left; K4-L4-N1 = triangle, green, top-left; K2-L2-N1 = circle, yellow, top-left; K1-L2-N1 = square, yellow, top-left; K1-L1-N1 = square, red, top-left)\n\nK1-L1-N1 is already a confirmed convention for \"square, red, top-left\"!\n\nK1-L1-N1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 98,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "K4-L4-M3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.9795918367346939,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: K1=square, K2=circle, K3=star, K4=triangle \u2192 K4 for triangle\n- **Color**: L1=red, L2=yellow, L3=blue, L4=green \u2192 L4 for green\n- **Position**: M3=bottom-left, M4=bottom-right, M2=top-right, N1=top-left \u2192 M3 for bottom-left\n\nSo: triangle=K4, green=L4, bottom-left=M3\n\nThis matches the confirmed entry `$K4-L4-M3`: \"triangle, green, bottom-left\" \u2713\n\nK4-L4-M3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 99,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K3-L3-M4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.9797979797979798,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- K3 = star\n- L3 = blue\n- M4 = bottom-right\n\nThis exact combination was previously a failed attempt (%K3-L3-M4) but then later confirmed as ($K3-L3-M4). So it's now a confirmed convention.\n\nK3-L3-M4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 100,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "K4-L4-M4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.98,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- K4 = triangle (confirmed in multiple entries)\n- L4 = green (confirmed in multiple entries)\n- M4 = bottom-right (confirmed in multiple entries)\n\nSo triangle + green + bottom-right = K4-L4-M4\n\nThis exact combination is already confirmed: \"$K4-L4-M4\": \"triangle, green, bottom-right\" \u2713\n\nK4-L4-M4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  }
+]

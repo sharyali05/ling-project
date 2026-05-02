@@ -1,0 +1,2802 @@
+[
+  {
+    "round": 1,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "H1-G2-L1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 1,
+    "cumulative_accuracy": 1.0,
+    "speaker_raw_output": "I need to encode: shape=star, color=green, position=top-left.\n\nThere's no communication history to rely on, so I need to invent conventions from scratch.\n\nLet me design a systematic encoding:\n\n**Shape encoding:**\n- star = S... but S isn't available. Let me use H for star (H looks like it could be a star shape concept)\n- Actually, let me think positionally: token 1 = shape, token 2 = color, token 3 = position\n\n**Shape (token 1):**\n- star = H1 (H for shape category, 1 for star)\n\n**Color (token 2):**\n- green = G (G naturally suggests green)\n- So green = G2 (G for green specifically, or just G1)\n- Let me use: G1=red, G2=green, G3=blue, G4=yellow\n\n**Position (token 3):**\n- top-left = L1 (L for location, 1 for top-left)\n- top-right = L2\n- bottom-left = L3\n- bottom-right = L4\n\nSo my encoding:\n- shape=star \u2192 H1\n- color=green \u2192 G2\n- position=top-left \u2192 L1\n\nFinal string: H1-G2-L1\n\nH1-G2-L1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 2,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G3-L2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": true
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "lexicon_size": 2,
+    "cumulative_accuracy": 0.5,
+    "speaker_raw_output": "Looking at the established convention:\n- `$H1-G2-L1` = \"star, green, top-left\"\n\nI can extract the following mappings:\n- `H1` = star (shape)\n- `G2` = green (color)\n- `L1` = top-left (position)\n\nNow I need to encode: square, blue, top-right\n\nI'll build on the existing conventions:\n- Shape: `H1` = star, so I need a new token for square. I'll use `H2` (H = shape family, 2 = square)\n- Color: `G2` = green, so I need a new token for blue. I'll use `G3` (G = color family, 3 = blue)\n- Position: `L1` = top-left, so top-right could be `L2` (L = position family, 2 = top-right)\n\nThis stays systematic and consistent with the established lexicon.\n\nH2-G3-L2",
+    "listener_raw_output": "Looking at the confirmed convention:\n- $H1-G2-L1 = \"star, green, top-left\"\n\nSo:\n- H = shape, H1 = star \u2192 H2 = next shape = circle (star=1, circle=2, triangle=3, square=4)\n- G = color, G2 = green \u2192 G3 = next color = yellow (red=1, green=2, yellow=3, blue=4... or some ordering)\n- L = position, L1 = top-left \u2192 L2 = next position = top-right (top-left=1, top-right=2, bottom-left=3, bottom-right=4)\n\n{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 3,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H3-G1-L3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 3,
+    "cumulative_accuracy": 0.6666666666666666,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- `H1` = star, `H2` = square \u2192 `H` seems to encode shape, with numbers differentiating shapes\n- `G2` = green, `G3` = blue \u2192 `G` encodes color, with numbers differentiating colors\n- `L1` = top-left, `L2` = top-right \u2192 `L` encodes position, with numbers differentiating positions\n\nSo I need to extend this system:\n\n**Shape:** H1=star, H2=square \u2192 triangle could be `H3`\n\n**Color:** G2=green, G3=blue \u2192 red could be `G1` (using 1 since it's not yet assigned)\n\n**Position:** L1=top-left, L2=top-right \u2192 bottom-left could be `L3` (continuing the pattern: 1=top-left, 2=top-right, 3=bottom-left)\n\nSo my encoding: `H3-G1-L3`\n\nH3-G1-L3",
+    "listener_raw_output": "From the confirmed convention $H1-G2-L1 = \"star, green, top-left\":\n\n- H = shape, H1 = star, H3 = third shape = square (circle, triangle, square, star \u2192 index 3 = square... or star=1, so H3 = square)\n- G = color, G2 = green, G1 = first color = red\n- L = position, L1 = top-left, L3 = third position = bottom-left\n\nMapping shapes: H1=star, so numbering: 1=star, 2=circle?, 3=triangle?, 4=square? Let me use the failed attempt: H2-G3-L2 was intended as \"square, blue, top-right\" but failed. G3\u2260blue worked poorly. G2=green confirmed, so G1=red, G3=blue(failed), G4=yellow. Actually G3=blue might still be the encoding attempt.\n\nPositions: L1=top-left, L2=top-right(from failed), L3=bottom-left, L4=bottom-right.\n\nShapes: H1=star, H2=square(failed attempt), H3=triangle.\n\nColors: G1=red, G2=green, G3=blue, G4=yellow.\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 4,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "H2-G4-L1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 4,
+    "cumulative_accuracy": 0.75,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **H1** = star, **H2** = square, **H3** = triangle \u2192 so **H** encodes shape, with numbers: 1=star, 2=square, 3=triangle\n- **G2** = green, **G3** = blue, **G1** = red \u2192 so **G** encodes color, with numbers: 1=red, 2=green, 3=blue\n- **L1** = top-left, **L2** = top-right, **L3** = bottom-left \u2192 so **L** encodes position, with numbers: 1=top-left, 2=top-right, 3=bottom-left\n\nFor the target concept:\n- Shape = square \u2192 **H2** \u2713\n- Color = yellow \u2192 no existing entry for yellow; G1=red, G2=green, G3=blue, so I'll use **G4** for yellow\n- Position = top-left \u2192 **L1** \u2713\n\nH2-G4-L1",
+    "listener_raw_output": "Looking at confirmed conventions:\n- $H1-G2-L1: star, green, top-left\n- $H3-G1-L3: triangle, red, bottom-left\n\nH maps to shape: H1=star, H3=triangle, so H2=square (the remaining common shape mapping)\nG maps to color: G2=green, G1=red, so G4=yellow (new number, inferring yellow as remaining)\nL maps to position: L1=top-left, L3=bottom-left, so L1=top-left\n\n{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 5,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H2-G3-L3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 5,
+    "cumulative_accuracy": 0.8,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape encoding (H-token):**\n- H1 = star\n- H2 = square \u2713\n- H3 = triangle\n\n**Color encoding (G-token):**\n- G1 = red\n- G2 = green\n- G3 = blue \u2713\n- G4 = yellow\n\n**Position encoding (L-token):**\n- L1 = top-left\n- L2 = top-right\n- L3 = bottom-left \u2713\n\nSo for \"square, blue, bottom-left\":\n- Shape: H2 (square)\n- Color: G3 (blue)\n- Position: L3 (bottom-left)\n\nNote: The failed attempt %H2-G3-L2 was \"square, blue, top-right\" \u2014 it failed, but the individual tokens H2=square and G3=blue were likely correct; only L2=top-right was the issue there. My encoding uses L3=bottom-left which is confirmed from $H3-G1-L3. This should work.\n\nH2-G3-L3",
+    "listener_raw_output": "Looking at confirmed conventions:\n\n- H maps to shape: H1=star, H2=square, H3=triangle \u2192 H2=square\n- G maps to color: G2=green, G1=red, G4=yellow \u2192 G3=blue (the remaining color)\n- L maps to position: L1=top-left, L3=bottom-left \u2192 L3=bottom-left\n\nThe failed attempt %H2-G3-L2 was \"square, blue, top-right\" \u2014 meaning L2\u2260top-right was the issue, or the whole encoding failed. But from confirmed entries, L3=bottom-left is established in $H3-G1-L3.\n\n{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 6,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "H4-G1-L1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 6,
+    "cumulative_accuracy": 0.8333333333333334,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape encoding (H token):**\n- H1 = star\n- H2 = square\n- H3 = triangle\n- H4 = circle (new, logical extension)\n\n**Color encoding (G token):**\n- G1 = red\n- G2 = green\n- G3 = blue\n- G4 = yellow\n\n**Position encoding (L token):**\n- L1 = top-left\n- L2 = top-right\n- L3 = bottom-left\n- L4 = bottom-right (implied)\n\nTarget: circle, red, top-left\n- circle = H4 (new extension)\n- red = G1 (confirmed from H3-G1-L3)\n- top-left = L1 (confirmed from H1-G2-L1 and H2-G4-L1)\n\nH4-G1-L1",
+    "listener_raw_output": "Looking at the confirmed conventions:\n\n- H1=star, H2=square, H3=triangle \u2192 H4=circle\n- G1=red, G2=green, G3=blue, G4=yellow \u2192 G1=red\n- L1=top-left, L2=top-right, L3=bottom-left \u2192 L1=top-left\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 7,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H1-G3-L3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 7,
+    "cumulative_accuracy": 0.8571428571428571,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape encoding (H tokens):**\n- H1 = star\n- H2 = square\n- H3 = triangle\n- H4 = circle\n\n**Color encoding (G tokens):**\n- G1 = red\n- G2 = green\n- G3 = blue\n- G4 = yellow\n\n**Position encoding (L tokens):**\n- L1 = top-left\n- L2 = top-right\n- L3 = bottom-left\n\nSo for \"star, blue, bottom-left\":\n- Shape: star = H1\n- Color: blue = G3\n- Position: bottom-left = L3\n\nH1-G3-L3",
+    "listener_raw_output": "Looking at the confirmed conventions:\n\n- H1 = star (from $H1-G2-L1)\n- H2 = square (from $H2-G3-L3, $H2-G4-L1)\n- H3 = triangle (from $H3-G1-L3)\n- H4 = circle (from $H4-G1-L1)\n\n- G1 = red, G2 = green, G3 = blue, G4 = yellow\n\n- L1 = top-left, L3 = bottom-left (from $H3-G1-L3 and $H2-G3-L3)\n\nSo H1-G3-L3 = star, blue, bottom-left\n\n{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 8,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "H1-G4-L2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 8,
+    "cumulative_accuracy": 0.875,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape (H token):**\n- H1 = star \u2713\n- H2 = square\n- H3 = triangle\n- H4 = circle\n\n**Color (G token):**\n- G1 = red\n- G2 = green\n- G3 = blue\n- G4 = yellow \u2713\n\n**Position (L token):**\n- L1 = top-left\n- L2 = top-right (this was used in the failed attempt %H2-G3-L2, but the failure was about shape/color encoding, not position \u2014 the concept was \"square, blue, top-right\" and H2=square, G3=blue are both confirmed in other entries, so L2=top-right seems valid)\n- L3 = bottom-left\n\nSo for \"star, yellow, top-right\":\n- H1 = star\n- G4 = yellow\n- L2 = top-right\n\nThe failed entry %H2-G3-L2 failed likely because of H2 or G3 confusion at the time, but subsequent entries confirmed H2=square and G3=blue. L2=top-right hasn't been confirmed independently yet, but it's the only unconfirmed position and fits logically.\n\nH1-G4-L2",
+    "listener_raw_output": "Looking at the confirmed conventions:\n\n- H1 = star (from $H1-G2-L1 and $H1-G3-L3)\n- G4 = yellow (from $H2-G4-L1)\n- L2 = top-right (L1=top-left, L3=bottom-left, so L2=top-right)\n\n{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 9,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H2-G4-L3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 9,
+    "cumulative_accuracy": 0.8888888888888888,
+    "speaker_raw_output": "Looking at the established conventions:\n\n**Shape encoding (H token):**\n- H1 = star\n- H2 = square\n- H3 = triangle\n- H4 = circle\n\n**Color encoding (G token):**\n- G1 = red\n- G2 = green\n- G3 = blue\n- G4 = yellow\n\n**Position encoding (L token):**\n- L1 = top-left\n- L2 = top-right\n- L3 = bottom-left\n\nSo for \"square, yellow, bottom-left\":\n- Shape: square = H2\n- Color: yellow = G4\n- Position: bottom-left = L3\n\nH2-G4-L3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 10,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G3-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 10,
+    "cumulative_accuracy": 0.9,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H2 = square (confirmed multiple times)\n- **Color**: G3 = blue (confirmed: H2-G3-L3 = square, blue, bottom-left and H1-G3-L3 = star, blue, bottom-left)\n- **Position**: L2 = top-right (confirmed: H1-G4-L2 = star, yellow, top-right)\n\nThe failed attempt %H2-G3-L2 was \"square, blue, top-right\" \u2014 but this is exactly the target! \n\nWait, let me re-read: %H2-G3-L2 failed. But looking at the logic, H2=square, G3=blue, L2=top-right all check out from other confirmed entries. The failure might have been a one-time error or misidentification on Agent B's part.\n\nHowever, since it's marked as a failed attempt, I should try a different encoding. But all the components are individually confirmed:\n- H2 = square (confirmed in 4 entries)\n- G3 = blue (confirmed in 2 entries)\n- L2 = top-right (confirmed in 1 entry)\n\nThe conventions are solid. The failure might have been an anomaly. I'll use the same logical encoding since all three components are individually confirmed in other combinations. The system should recognize the established conventions.\n\nH2-G3-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 11,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "H1-G2-L2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 11,
+    "cumulative_accuracy": 0.9090909090909091,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H1 = star, H2 = square, H3 = triangle, H4 = circle\n- **Color**: G1 = red, G2 = green, G3 = blue, G4 = yellow\n- **Position**: L1 = top-left, L2 = top-right, L3 = bottom-left\n\nFor the target: star (H1), green (G2), top-right (L2)\n\nH1-G2-L2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 12,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H2-G3-L3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 11,
+    "cumulative_accuracy": 0.9166666666666666,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- Shape: H2 = square, H1 = star, H3 = triangle, H4 = circle\n- Color: G1 = red, G2 = green, G3 = blue, G4 = yellow\n- Position: L1 = top-left, L2 = top-right, L3 = bottom-left\n\nTarget: square (H2), blue (G3), bottom-left (L3)\n\nThis is directly confirmed in the history as `$H2-G3-L3`.\n\nH2-G3-L3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 13,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G1-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 12,
+    "cumulative_accuracy": 0.9230769230769231,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- **Shape**: H2 = square (confirmed multiple times)\n- **Color**: G1 = red (confirmed: H3-G1-L3 = triangle, red, bottom-left; H4-G1-L1 = circle, red, top-left)\n- **Position**: L2 = top-right (confirmed: H1-G4-L2 = star, yellow, top-right; H2-G3-L2 = square, blue, top-right)\n\nSo: square = H2, red = G1, top-right = L2\n\nH2-G1-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 14,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "H1-G4-L1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 13,
+    "cumulative_accuracy": 0.9285714285714286,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H1 = star, H2 = square, H3 = triangle, H4 = circle\n- **Color**: G1 = red, G2 = green, G3 = blue, G4 = yellow\n- **Position**: L1 = top-left, L2 = top-right, L3 = bottom-left\n\nFor \"star, yellow, top-left\":\n- star = H1\n- yellow = G4\n- top-left = L1\n\nH1-G4-L1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 15,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "H1-G4-L1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 13,
+    "cumulative_accuracy": 0.9333333333333333,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H1 = star, H2 = square, H3 = triangle, H4 = circle\n- **Color**: G1 = red, G2 = green, G3 = blue, G4 = yellow\n- **Position**: L1 = top-left, L2 = top-right, L3 = bottom-left\n\nTarget concept: star, yellow, top-left\n\n- star = H1\n- yellow = G4\n- top-left = L1\n\nThis exact combination `H1-G4-L1` is already in the confirmed conventions! \u2713\n\nH1-G4-L1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 16,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "H2-G3-L1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 14,
+    "cumulative_accuracy": 0.9375,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H2 = square (confirmed multiple times)\n- **Color**: G3 = blue (confirmed multiple times)\n- **Position**: L1 = top-left (confirmed multiple times)\n\nThis is straightforward \u2014 all three components have confirmed mappings.\n\nH2-G3-L1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 17,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H3-G1-L4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 15,
+    "cumulative_accuracy": 0.9411764705882353,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H1=star, H2=square, H3=triangle, H4=circle\n- **Color**: G1=red, G2=green, G3=blue, G4=yellow\n- **Position**: L1=top-left, L2=top-right, L3=bottom-left\n\nFor this target:\n- shape: triangle \u2192 H3\n- color: red \u2192 G1\n- position: bottom-right \u2192 L4 (new mapping needed, since L1=top-left, L2=top-right, L3=bottom-left, L4=bottom-right follows logically)\n\nH3-G1-L4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 18,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H3-G3-L4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 16,
+    "cumulative_accuracy": 0.9444444444444444,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **H** encodes shape: H1=star, H2=square, H3=triangle, H4=circle\n- **G** encodes color: G1=red, G2=green, G3=blue, G4=yellow\n- **L** encodes position: L1=top-left, L2=top-right, L3=bottom-left, L4=bottom-right\n\nFor the target concept: triangle, blue, bottom-right\n\n- Triangle = H3\n- Blue = G3\n- Bottom-right = L4\n\nH3-G3-L4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 19,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G4-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 17,
+    "cumulative_accuracy": 0.9473684210526315,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H1=star, H2=square, H3=triangle, H4=circle\n- **Color**: G1=red, G2=green, G3=blue, G4=yellow\n- **Position**: L1=top-left, L2=top-right, L3=bottom-left, L4=bottom-right\n\nFor \"triangle, yellow, top-right\":\n- Triangle = H3\n- Yellow = G4\n- Top-right = L2\n\nH3-G4-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 20,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H4-G1-L4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 18,
+    "cumulative_accuracy": 0.95,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H4 = circle (from `$H4-G1-L1`: circle, red, top-left)\n- **Color**: G1 = red (from `$H4-G1-L1`, `$H3-G1-L3`, `$H2-G1-L2`)\n- **Position**: L4 = bottom-right (from `$H3-G1-L4`: triangle, red, bottom-right)\n\nAll three components have confirmed mappings. Combining them:\n\nH4-G1-L4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 21,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "H1-G2-L1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 18,
+    "cumulative_accuracy": 0.9523809523809523,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H1 = star, H2 = square, H3 = triangle, H4 = circle\n- **Color**: G1 = red, G2 = green, G3 = blue, G4 = yellow\n- **Position**: L1 = top-left, L2 = top-right, L3 = bottom-left, L4 = bottom-right\n\nTarget: star (H1), green (G2), top-left (L1)\n\nThis is exactly the confirmed convention `$H1-G2-L1` = \"star, green, top-left\"\n\nH1-G2-L1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 22,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "H4-G4-L1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 19,
+    "cumulative_accuracy": 0.9545454545454546,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H4 = circle (from \"$H4-G1-L1\": \"circle, red, top-left\" and \"$H4-G1-L4\": \"circle, red, bottom-right\")\n- **Color**: G4 = yellow (from \"$H2-G4-L1\": \"square, yellow, top-left\", \"$H1-G4-L2\": \"star, yellow, top-right\", etc.)\n- **Position**: L1 = top-left (from \"$H1-G2-L1\": \"star, green, top-left\", \"$H2-G4-L1\": \"square, yellow, top-left\", etc.)\n\nSo: circle = H4, yellow = G4, top-left = L1\n\nH4-G4-L1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 23,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "H4-G4-L1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 19,
+    "cumulative_accuracy": 0.9565217391304348,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H4 = circle (confirmed from \"$H4-G1-L1\": \"circle, red, top-left\" and \"$H4-G1-L4\": \"circle, red, bottom-right\" and \"$H4-G4-L1\": \"circle, yellow, top-left\")\n- **Color**: G4 = yellow (confirmed from multiple entries)\n- **Position**: L1 = top-left (confirmed from multiple entries)\n\nThis exact combination already exists as a confirmed convention: \"$H4-G4-L1\": \"circle, yellow, top-left\"\n\nH4-G4-L1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 24,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "H4-G4-L1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 19,
+    "cumulative_accuracy": 0.9583333333333334,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H4 = circle (from \"$H4-G1-L1\": \"circle, red, top-left\" and \"$H4-G1-L4\": \"circle, red, bottom-right\" and \"$H4-G4-L1\": \"circle, yellow, top-left\")\n- G4 = yellow (from \"$H2-G4-L1\": \"square, yellow, top-left\" and \"$H4-G4-L1\": \"circle, yellow, top-left\")\n- L1 = top-left (from multiple confirmed entries)\n\nIn fact, \"$H4-G4-L1\" is already confirmed as \"circle, yellow, top-left\"!\n\nH4-G4-L1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 25,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G1-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 19,
+    "cumulative_accuracy": 0.96,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H2 = square (confirmed multiple times)\n- **Color**: G1 = red (confirmed: H3-G1-L3 = triangle, red, bottom-left; H4-G1-L1 = circle, red, top-left; etc.)\n- **Position**: L2 = top-right (confirmed: H1-G4-L2 = star, yellow, top-right; H3-G4-L2 = triangle, yellow, top-right; etc.)\n\nAlso, H2-G1-L2 = \"square, red, top-right\" is already a confirmed convention!\n\nH2-G1-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 26,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "H1-G2-L1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 19,
+    "cumulative_accuracy": 0.9615384615384616,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H1 = star, H2 = square, H3 = triangle, H4 = circle\n- **Color**: G1 = red, G2 = green, G3 = blue, G4 = yellow\n- **Position**: L1 = top-left, L2 = top-right, L3 = bottom-left, L4 = bottom-right\n\nFor \"star, green, top-left\":\n- H1 (star) + G2 (green) + L1 (top-left)\n\nThis is directly confirmed in the history as `$H1-G2-L1`.\n\nH1-G2-L1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 27,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G2-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 20,
+    "cumulative_accuracy": 0.9629629629629629,
+    "speaker_raw_output": "Looking at the confirmed conventions:\n\n- Shape: H2 = square\n- Color: G2 = green\n- Position: L2 = top-right\n\nAll three components have established conventions. This is straightforward.\n\nH2-G2-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 28,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "H4-G1-L1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 20,
+    "cumulative_accuracy": 0.9642857142857143,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H4 = circle (from \"$H4-G1-L1\": \"circle, red, top-left\" and \"$H4-G1-L4\": \"circle, red, bottom-right\" and \"$H4-G4-L1\": \"circle, yellow, top-left\")\n- G1 = red (from \"$H3-G1-L3\": \"triangle, red, bottom-left\" and \"$H4-G1-L1\": \"circle, red, top-left\")\n- L1 = top-left (from \"$H1-G2-L1\": \"star, green, top-left\" and \"$H4-G1-L1\": \"circle, red, top-left\")\n\nThe target is circle, red, top-left \u2192 H4-G1-L1\n\nThis is actually already in the confirmed conventions as \"$H4-G1-L1\": \"circle, red, top-left\"!\n\nH4-G1-L1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 29,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H3-G3-L3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.9655172413793104,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed from \"$H3-G1-L3\": \"triangle, red, bottom-left\" and other H3 entries)\n- G3 = blue (confirmed from multiple entries like \"$H2-G3-L2\": \"square, blue, top-right\")\n- L3 = bottom-left (confirmed from \"$H3-G1-L3\": \"triangle, red, bottom-left\")\n\nSo triangle + blue + bottom-left = H3-G3-L3\n\nH3-G3-L3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 30,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H1-G3-L3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 21,
+    "cumulative_accuracy": 0.9666666666666667,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed in multiple entries)\n- G3 = blue (confirmed in multiple entries)\n- L3 = bottom-left (confirmed in multiple entries)\n\nThis exact combination appears in the history: \"$H1-G3-L3\": \"star, blue, bottom-left\" \u2713\n\nH1-G3-L3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 31,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G3-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 22,
+    "cumulative_accuracy": 0.967741935483871,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H3 = triangle (confirmed in multiple entries)\n- **Color**: G3 = blue (confirmed in multiple entries)\n- **Position**: L2 = top-right (confirmed in multiple entries)\n\nThis is straightforward \u2014 all three components have confirmed mappings.\n\nH3-G3-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 32,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "H2-G4-L1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 22,
+    "cumulative_accuracy": 0.96875,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G4 = yellow (confirmed multiple times)\n- L1 = top-left (confirmed multiple times)\n\nThis exact combination H2-G4-L1 is already confirmed as \"square, yellow, top-left\" in the history.\n\nH2-G4-L1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 33,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H3-G1-L4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 22,
+    "cumulative_accuracy": 0.9696969696969697,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed by multiple entries)\n- G1 = red (confirmed by multiple entries)\n- L4 = bottom-right (confirmed by multiple entries)\n\nThis exact combination appears in the history as `$H3-G1-L4` = \"triangle, red, bottom-right\" \u2713\n\nH3-G1-L4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 34,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H3-G1-L4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 22,
+    "cumulative_accuracy": 0.9705882352941176,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed by \"$H3-G1-L3\": \"triangle, red, bottom-left\" and others)\n- G1 = red (confirmed by \"$H3-G1-L3\": \"triangle, red, bottom-left\" and \"$H4-G1-L1\": \"circle, red, top-left\")\n- L4 = bottom-right (confirmed by \"$H3-G1-L4\": \"triangle, red, bottom-right\")\n\nWait, this exact combination already exists as a confirmed convention! \"$H3-G1-L4\": \"triangle, red, bottom-right\" is already in the history with a $ marker.\n\nH3-G1-L4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 35,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H2-G2-L4",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 23,
+    "cumulative_accuracy": 0.9714285714285714,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G2 = green (confirmed: \"star, green\" uses G2)\n- L4 = bottom-right (confirmed: \"triangle, red, bottom-right\" and others use L4)\n\nSo: square = H2, green = G2, bottom-right = L4\n\nH2-G2-L4",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 36,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H1-G3-L3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 23,
+    "cumulative_accuracy": 0.9722222222222222,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- Shape: H1 = star, H2 = square, H3 = triangle, H4 = circle\n- Color: G1 = red, G2 = green, G3 = blue, G4 = yellow\n- Position: L1 = top-left, L2 = top-right, L3 = bottom-left, L4 = bottom-right\n\nFor \"star, blue, bottom-left\":\n- Star = H1\n- Blue = G3\n- Bottom-left = L3\n\nThis is confirmed in the history: \"$H1-G3-L3\": \"star, blue, bottom-left\" \u2713\n\nH1-G3-L3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 37,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "H4-G4-L1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 23,
+    "cumulative_accuracy": 0.972972972972973,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H4 = circle (from \"$H4-G1-L1\": \"circle, red, top-left\" and \"$H4-G1-L4\": \"circle, red, bottom-right\" and \"$H4-G4-L1\": \"circle, yellow, top-left\")\n- G4 = yellow (from \"$H2-G4-L1\": \"square, yellow, top-left\" and \"$H4-G4-L1\": \"circle, yellow, top-left\")\n- L1 = top-left (from multiple entries)\n\nThis exact concept \"circle, yellow, top-left\" is already confirmed as \"$H4-G4-L1\"!\n\nH4-G4-L1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 38,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G2-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 24,
+    "cumulative_accuracy": 0.9736842105263158,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H3 = triangle (confirmed by multiple entries)\n- **Color**: G2 = green (confirmed by H1-G2-L1 = star, green, top-left and H1-G2-L2 = star, green, top-right)\n- **Position**: L2 = top-right (confirmed by multiple entries)\n\nSo for \"triangle, green, top-right\": H3-G2-L2\n\nH3-G2-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 39,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H1-G4-L3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9743589743589743,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H1 = star, H2 = square, H3 = triangle, H4 = circle\n- **Color**: G1 = red, G2 = green, G3 = blue, G4 = yellow\n- **Position**: L1 = top-left, L2 = top-right, L3 = bottom-left, L4 = bottom-right\n\nFor \"star, yellow, bottom-left\":\n- Star = H1\n- Yellow = G4\n- Bottom-left = L3\n\nH1-G4-L3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 40,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G3-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.975,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L2 = top-right (confirmed multiple times)\n\nThe combination H2-G3-L2 was actually marked as a failed attempt (%), but looking at the history more carefully, it was later confirmed as $ with the same encoding \"$H2-G3-L2\": \"square, blue, top-right\".\n\nSo the correct encoding is clear from the confirmed convention.\n\nH2-G3-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 41,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G3-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.975609756097561,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L2 = top-right (confirmed multiple times)\n\nThis exact combination was previously marked as % (failed attempt), but then later marked as $ (confirmed). Let me check:\n\n- `%H2-G3-L2`: \"square, blue, top-right\" \u2014 failed\n- `$H2-G3-L2`: \"square, blue, top-right\" \u2014 confirmed\n\nThe confirmed convention exists! I'll use it.\n\nH2-G3-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 42,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "H1-G2-L1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9761904761904762,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed multiple times)\n- G2 = green (confirmed multiple times)\n- L1 = top-left (confirmed multiple times)\n\nThis exact combination \"H1-G2-L1\" = \"star, green, top-left\" is already a confirmed convention in the history (marked with $).\n\nH1-G2-L1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 43,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H3-G1-L3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9767441860465116,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed in multiple entries)\n- G1 = red (confirmed in multiple entries)\n- L3 = bottom-left (confirmed in multiple entries)\n\nSo triangle, red, bottom-left = H3-G1-L3\n\nWait, let me check \u2014 $H3-G1-L3 is already in the history as \"triangle, red, bottom-left\". Perfect, this is an exact match.\n\nH3-G1-L3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 44,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G3-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9772727272727273,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L2 = top-right (confirmed multiple times)\n\nThis exact combination was previously marked as % (failed attempt), but then later marked as $ (confirmed). Looking at the history:\n\n- `%H2-G3-L2`: \"square, blue, top-right\" \u2014 failed\n- `$H2-G3-L2`: \"square, blue, top-right\" \u2014 confirmed\n\nSo the convention is now confirmed. I should use H2-G3-L2.\n\nH2-G3-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 45,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "H1-G4-L1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 25,
+    "cumulative_accuracy": 0.9777777777777777,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed multiple times)\n- H2 = square\n- H3 = triangle\n- H4 = circle\n\n- G1 = red\n- G2 = green\n- G3 = blue\n- G4 = yellow\n\n- L1 = top-left\n- L2 = top-right\n- L3 = bottom-left\n- L4 = bottom-right\n\nFor \"star, yellow, top-left\":\n- H1 = star\n- G4 = yellow\n- L1 = top-left\n\nThis is already confirmed as `$H1-G4-L1`!\n\nH1-G4-L1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 46,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H3-G4-L3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 26,
+    "cumulative_accuracy": 0.9782608695652174,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed by multiple $ entries)\n- G4 = yellow (confirmed by multiple $ entries)\n- L3 = bottom-left (confirmed by multiple $ entries)\n\nThis is straightforward \u2014 all three components have established mappings.\n\nH3-G4-L3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 47,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H2-G1-L3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.9787234042553191,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G1 = red (confirmed: H3-G1-L3 = triangle, red, bottom-left; H4-G1-L1 = circle, red, top-left; etc.)\n- L3 = bottom-left (confirmed multiple times)\n\nSo: square = H2, red = G1, bottom-left = L3\n\nH2-G1-L3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 48,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H4-G1-L4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.9791666666666666,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H4 = circle (from \"$H4-G1-L1\": \"circle, red, top-left\" and \"$H4-G4-L1\": \"circle, yellow, top-left\" and \"$H4-G1-L4\": \"circle, red, bottom-right\")\n- G1 = red (from multiple entries)\n- L4 = bottom-right (from \"$H3-G1-L4\": \"triangle, red, bottom-right\" and \"$H4-G1-L4\": \"circle, red, bottom-right\")\n\nThis exact combination H4-G1-L4 is already confirmed as \"circle, red, bottom-right\"!\n\nH4-G1-L4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 49,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G3-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.9795918367346939,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed by multiple $ entries)\n- G3 = blue (confirmed by multiple $ entries)\n- L2 = top-right (confirmed by multiple $ entries)\n\nThis is straightforward \u2014 all three components have confirmed mappings.\n\nH3-G3-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 50,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H1-G4-L3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.98,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed multiple times)\n- G4 = yellow (confirmed multiple times)\n- L3 = bottom-left (confirmed multiple times)\n\nThis combination \"star, yellow, bottom-left\" maps to H1-G4-L3, which is already confirmed in the history as `$H1-G4-L3`.\n\nH1-G4-L3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 51,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G3-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 27,
+    "cumulative_accuracy": 0.9803921568627451,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L2 = top-right (confirmed multiple times)\n\nThis is straightforward from the lexicon.\n\nH2-G3-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 52,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H4-G2-L3",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 28,
+    "cumulative_accuracy": 0.9807692307692307,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H4 = circle (confirmed from \"$H4-G1-L1\": \"circle, red, top-left\" and \"$H4-G1-L4\": \"circle, red, bottom-right\" and \"$H4-G4-L1\": \"circle, yellow, top-left\")\n- **Color**: G2 = green (confirmed from \"$H1-G2-L1\": \"star, green, top-left\" and \"$H1-G2-L2\": \"star, green, top-right\" and \"$H2-G2-L2\": \"square, green, top-right\" and \"$H2-G2-L4\": \"square, green, bottom-right\")\n- **Position**: L3 = bottom-left (confirmed from multiple entries like \"$H3-G1-L3\": \"triangle, red, bottom-left\" and \"$H2-G3-L3\": \"square, blue, bottom-left\")\n\nSo: circle = H4, green = G2, bottom-left = L3\n\nH4-G2-L3",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 53,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H2-G4-L3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 28,
+    "cumulative_accuracy": 0.9811320754716981,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G4 = yellow (confirmed multiple times)\n- L3 = bottom-left (confirmed multiple times)\n\nThis exact combination H2-G4-L3 is already in the history as a confirmed convention for \"square, yellow, bottom-left\".\n\nH2-G4-L3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 54,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G3-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 28,
+    "cumulative_accuracy": 0.9814814814814815,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (from entries like \"$H3-G1-L3\": \"triangle, red, bottom-left\")\n- G3 = blue (from entries like \"$H2-G3-L2\": \"square, blue, top-right\")\n- L2 = top-right (from entries like \"$H1-G4-L2\": \"star, yellow, top-right\")\n\nSo triangle, blue, top-right = H3-G3-L2\n\nThis is already a confirmed convention: \"$H3-G3-L2\": \"triangle, blue, top-right\" \u2713\n\nH3-G3-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 55,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G3-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 28,
+    "cumulative_accuracy": 0.9818181818181818,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L2 = top-right (confirmed multiple times)\n\nThis exact combination was previously marked as % (failed attempt), but then later confirmed as $ with \"H2-G3-L2\" = \"square, blue, top-right\". So it is now a confirmed convention.\n\nH2-G3-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 56,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H2-G4-L3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 28,
+    "cumulative_accuracy": 0.9821428571428571,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G4 = yellow (confirmed multiple times)\n- L3 = bottom-left (confirmed multiple times)\n\nThis exact combination H2-G4-L3 is already in the history as a confirmed convention for \"square, yellow, bottom-left\".\n\nH2-G4-L3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 57,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G2-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 28,
+    "cumulative_accuracy": 0.9824561403508771,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star, H2 = square, H3 = triangle, H4 = circle\n- G1 = red, G2 = green, G3 = blue, G4 = yellow\n- L1 = top-left, L2 = top-right, L3 = bottom-left, L4 = bottom-right\n\nFor \"triangle, green, top-right\":\n- H3 = triangle\n- G2 = green\n- L2 = top-right\n\nH3-G2-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 58,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "H1-G4-L1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 28,
+    "cumulative_accuracy": 0.9827586206896551,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed multiple times)\n- H2 = square\n- H3 = triangle\n- H4 = circle\n\n- G1 = red\n- G2 = green\n- G3 = blue\n- G4 = yellow\n\n- L1 = top-left\n- L2 = top-right\n- L3 = bottom-left\n- L4 = bottom-right\n\nSo for \"star, yellow, top-left\":\n- H1 (star)\n- G4 (yellow)\n- L1 (top-left)\n\nThis is directly confirmed in the history: `$H1-G4-L1` = \"star, yellow, top-left\"\n\nH1-G4-L1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 59,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H3-G3-L3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 28,
+    "cumulative_accuracy": 0.9830508474576272,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed in multiple entries)\n- G3 = blue (confirmed in multiple entries)\n- L3 = bottom-left (confirmed in multiple entries)\n\nThis combination H3-G3-L3 is already confirmed in the history as \"triangle, blue, bottom-left\".\n\nH3-G3-L3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 60,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H1-G4-L4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 29,
+    "cumulative_accuracy": 0.9833333333333333,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed multiple times)\n- H2 = square, H3 = triangle, H4 = circle\n- G4 = yellow (confirmed multiple times)\n- G1 = red, G2 = green, G3 = blue\n- L1 = top-left, L2 = top-right, L3 = bottom-left, L4 = bottom-right\n\nSo for \"star, yellow, bottom-right\":\n- H1 = star\n- G4 = yellow\n- L4 = bottom-right\n\nH1-G4-L4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 61,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G4-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 29,
+    "cumulative_accuracy": 0.9836065573770492,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed in multiple entries)\n- G4 = yellow (confirmed in multiple entries)\n- L2 = top-right (confirmed in multiple entries)\n\nThis combination maps perfectly to \"triangle, yellow, top-right\" which is exactly what I need.\n\nH3-G4-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 62,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G3-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 29,
+    "cumulative_accuracy": 0.9838709677419355,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed by multiple $ entries)\n- G3 = blue (confirmed by multiple $ entries)\n- L2 = top-right (confirmed by multiple $ entries)\n\nSo the encoding is straightforward: H3-G3-L2\n\nH3-G3-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 63,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "H1-G2-L2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 29,
+    "cumulative_accuracy": 0.9841269841269841,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H1 = star, H2 = square, H3 = triangle, H4 = circle\n- **Color**: G1 = red, G2 = green, G3 = blue, G4 = yellow\n- **Position**: L1 = top-left, L2 = top-right, L3 = bottom-left, L4 = bottom-right\n\nTarget: star, green, top-right \u2192 H1, G2, L2\n\nThis matches the pattern perfectly.\n\nH1-G2-L2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 64,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H3-G4-L3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 29,
+    "cumulative_accuracy": 0.984375,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed by multiple $ entries)\n- G4 = yellow (confirmed by multiple $ entries)\n- L3 = bottom-left (confirmed by multiple $ entries)\n\nThis combination has already been confirmed: \"$H3-G4-L3\": \"triangle, yellow, bottom-left\"\n\nH3-G4-L3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 65,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H4-G1-L4",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 29,
+    "cumulative_accuracy": 0.9846153846153847,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H4 = circle (from \"$H4-G1-L1\": \"circle, red, top-left\", \"$H4-G4-L1\": \"circle, yellow, top-left\", \"$H4-G1-L4\": \"circle, red, bottom-right\", \"$H4-G2-L3\": \"circle, green, bottom-left\")\n- G1 = red (from \"$H3-G1-L3\": \"triangle, red, bottom-left\", \"$H4-G1-L1\": \"circle, red, top-left\", \"$H4-G1-L4\": \"circle, red, bottom-right\")\n- L4 = bottom-right (from \"$H3-G1-L4\": \"triangle, red, bottom-right\", \"$H4-G1-L4\": \"circle, red, bottom-right\", \"$H3-G3-L4\": \"triangle, blue, bottom-right\", \"$H2-G2-L4\": \"square, green, bottom-right\")\n\nThis is already a confirmed convention: \"$H4-G1-L4\": \"circle, red, bottom-right\" \u2713\n\nH4-G1-L4",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 66,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H4-G2-L3",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 29,
+    "cumulative_accuracy": 0.9848484848484849,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H4 = circle (confirmed from \"$H4-G1-L1\": \"circle, red, top-left\" and \"$H4-G4-L1\": \"circle, yellow, top-left\")\n- **Color**: G2 = green (confirmed from \"$H1-G2-L1\": \"star, green, top-left\" and \"$H2-G2-L2\": \"square, green, top-right\")\n- **Position**: L3 = bottom-left (confirmed from \"$H3-G1-L3\": \"triangle, red, bottom-left\" and \"$H2-G3-L3\": \"square, blue, bottom-left\")\n\nSo the encoding should be: H4-G2-L3\n\nH4-G2-L3",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 67,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H2-G3-L3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 29,
+    "cumulative_accuracy": 0.9850746268656716,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L3 = bottom-left (confirmed multiple times)\n\nThis combination \"H2-G3-L3\" is already confirmed as \"square, blue, bottom-left\" in the history with a $ marker.\n\nH2-G3-L3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 68,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H2-G4-L3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 29,
+    "cumulative_accuracy": 0.9852941176470589,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G4 = yellow (confirmed multiple times)\n- L3 = bottom-left (confirmed multiple times)\n\nThis exact combination \"square, yellow, bottom-left\" already exists as a confirmed entry: `$H2-G4-L3`\n\nH2-G4-L3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 69,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G1-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 29,
+    "cumulative_accuracy": 0.9855072463768116,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- **Shape**: H2 = square (confirmed in many entries)\n- **Color**: G1 = red (confirmed: H3-G1-L3 = triangle, red, bottom-left; H4-G1-L1 = circle, red, top-left; etc.)\n- **Position**: L2 = top-right (confirmed: H2-G3-L2 = square, blue, top-right; H1-G4-L2 = star, yellow, top-right; etc.)\n\nAlso, H2-G1-L2 is already confirmed as \"square, red, top-right\" in the history!\n\nH2-G1-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 70,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H3-G2-L4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 30,
+    "cumulative_accuracy": 0.9857142857142858,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed multiple times)\n- G2 = green (confirmed multiple times)\n- L4 = bottom-right (confirmed multiple times)\n\nThis is straightforward using existing lexicon entries.\n\nH3-G2-L4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 71,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H2-G3-L3",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 30,
+    "cumulative_accuracy": 0.9859154929577465,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L3 = bottom-left (confirmed multiple times)\n\nThis exact combination H2-G3-L3 is already confirmed in the history as \"square, blue, bottom-left\".\n\nH2-G3-L3",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 72,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H1-G3-L4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 31,
+    "cumulative_accuracy": 0.9861111111111112,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed from multiple entries)\n- G3 = blue (confirmed from multiple entries)\n- L4 = bottom-right (confirmed from multiple entries)\n\nSo the encoding is straightforward: H1-G3-L4\n\nH1-G3-L4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 73,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H3-G3-L4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 31,
+    "cumulative_accuracy": 0.9863013698630136,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed by multiple $ entries)\n- G3 = blue (confirmed by multiple $ entries)\n- L4 = bottom-right (confirmed by multiple $ entries)\n\nThis is straightforward \u2014 all three components have confirmed conventions.\n\nH3-G3-L4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 74,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H1-G3-L3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 31,
+    "cumulative_accuracy": 0.9864864864864865,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star\n- G3 = blue\n- L3 = bottom-left\n\nThis exact combination has already been confirmed: \"$H1-G3-L3\": \"star, blue, bottom-left\"\n\nH1-G3-L3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 75,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G3-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 31,
+    "cumulative_accuracy": 0.9866666666666667,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed by multiple $ entries)\n- G3 = blue (confirmed by multiple $ entries)\n- L2 = top-right (confirmed by multiple $ entries)\n\nSo the encoding is straightforward: H3-G3-L2\n\nH3-G3-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 76,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G3-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 31,
+    "cumulative_accuracy": 0.9868421052631579,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L2 = top-right (confirmed multiple times)\n\nThis exact combination was previously marked as % (failed), but then later confirmed as $ with the same string \"H2-G3-L2\". The $ entry confirms it works.\n\nH2-G3-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 77,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H3-G1-L3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 31,
+    "cumulative_accuracy": 0.987012987012987,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed from multiple $ entries)\n- G1 = red (confirmed from multiple $ entries)\n- L3 = bottom-left (confirmed from multiple $ entries)\n\nThis combination follows the pattern perfectly. The entry \"$H3-G1-L3\": \"triangle, red, bottom-left\" is already in the history as a confirmed convention!\n\nH3-G1-L3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 78,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H1-G2-L4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 32,
+    "cumulative_accuracy": 0.9871794871794872,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed in multiple entries)\n- G2 = green (confirmed in multiple entries)\n- L4 = bottom-right (confirmed in multiple entries)\n\nSo the encoding is straightforward: H1-G2-L4\n\nH1-G2-L4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 79,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G1-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 33,
+    "cumulative_accuracy": 0.9873417721518988,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed in multiple $ entries)\n- G1 = red (confirmed in multiple $ entries)\n- L2 = top-right (confirmed in multiple $ entries)\n\nSo the encoding for \"triangle, red, top-right\" follows directly from the lexicon.\n\nH3-G1-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 80,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H4-G3-L2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 34,
+    "cumulative_accuracy": 0.9875,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H4 = circle (from entries like H4-G1-L1 = circle, red, top-left)\n- G3 = blue (from entries like H2-G3-L2 = square, blue, top-right)\n- L2 = top-right (from entries like H1-G4-L2 = star, yellow, top-right)\n\nSo circle, blue, top-right = H4-G3-L2\n\nH4-G3-L2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 81,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G3-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 34,
+    "cumulative_accuracy": 0.9876543209876543,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L2 = top-right (confirmed multiple times)\n\nThis maps directly to H3-G3-L2, which is already a confirmed convention ($H3-G3-L2: \"triangle, blue, top-right\").\n\nH3-G3-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 82,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "H4-G1-L1",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 34,
+    "cumulative_accuracy": 0.9878048780487805,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H4 = circle (from \"$H4-G1-L1\": \"circle, red, top-left\", \"$H4-G1-L4\": \"circle, red, bottom-right\", \"$H4-G4-L1\": \"circle, yellow, top-left\", \"$H4-G2-L3\": \"circle, green, bottom-left\", \"$H4-G3-L2\": \"circle, blue, top-right\")\n- G1 = red (from \"$H3-G1-L3\": \"triangle, red, bottom-left\", \"$H4-G1-L1\": \"circle, red, top-left\", \"$H2-G1-L2\": \"square, red, top-right\", etc.)\n- L1 = top-left (from \"$H1-G2-L1\": \"star, green, top-left\", \"$H2-G4-L1\": \"square, yellow, top-left\", \"$H4-G1-L1\": \"circle, red, top-left\", etc.)\n\nThis exact combination \"$H4-G1-L1\" is already confirmed as \"circle, red, top-left\"!\n\nH4-G1-L1",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 83,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "H2-G3-L1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 34,
+    "cumulative_accuracy": 0.9879518072289156,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L1 = top-left (confirmed multiple times)\n\nThis exact combination H2-G3-L1 is already confirmed in the history as \"square, blue, top-left\".\n\nH2-G3-L1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 84,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H4-G2-L3",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 34,
+    "cumulative_accuracy": 0.9880952380952381,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H4 = circle (from \"$H4-G1-L1\": \"circle, red, top-left\", \"$H4-G4-L1\": \"circle, yellow, top-left\", etc.)\n- G2 = green (from \"$H1-G2-L1\": \"star, green, top-left\", \"$H2-G2-L2\": \"square, green, top-right\", etc.)\n- L3 = bottom-left (from \"$H3-G1-L3\": \"triangle, red, bottom-left\", \"$H2-G3-L3\": \"square, blue, bottom-left\", etc.)\n\nSo circle, green, bottom-left = H4-G2-L3\n\nH4-G2-L3",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 85,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H1-G4-L3",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 34,
+    "cumulative_accuracy": 0.9882352941176471,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed multiple times)\n- G4 = yellow (confirmed multiple times)\n- L3 = bottom-left (confirmed multiple times)\n\nThis combination (star, yellow, bottom-left) is actually already in the history as a confirmed convention: `$H1-G4-L3`\n\nH1-G4-L3",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 86,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H3-G4-L3",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 34,
+    "cumulative_accuracy": 0.9883720930232558,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed multiple times)\n- G4 = yellow (confirmed multiple times)\n- L3 = bottom-left (confirmed multiple times)\n\nThis combination $H3-G4-L3 is already confirmed in the history as \"triangle, yellow, bottom-left\".\n\nH3-G4-L3",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 87,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G2-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 34,
+    "cumulative_accuracy": 0.9885057471264368,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G2 = green (confirmed multiple times)\n- L2 = top-right (confirmed multiple times)\n\nThis maps perfectly to H2-G2-L2, which is already a confirmed convention in the history: \"$H2-G2-L2\": \"square, green, top-right\"\n\nH2-G2-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 88,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H1-G4-L4",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 34,
+    "cumulative_accuracy": 0.9886363636363636,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed multiple times)\n- G4 = yellow (confirmed multiple times)\n- L4 = bottom-right (confirmed multiple times)\n\nThis combination H1-G4-L4 is already in the history as a confirmed convention: \"$H1-G4-L4\": \"star, yellow, bottom-right\"\n\nH1-G4-L4",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 89,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H3-G4-L4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.9887640449438202,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed multiple times)\n- G4 = yellow (confirmed multiple times)\n- L4 = bottom-right (confirmed multiple times)\n\nThis is straightforward using the existing lexicon.\n\nH3-G4-L4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 90,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H4-G3-L2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.9888888888888889,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H4 = circle (from \"$H4-G1-L1\": \"circle, red, top-left\", \"$H4-G4-L1\": \"circle, yellow, top-left\", etc.)\n- G3 = blue (from \"$H2-G3-L2\": \"square, blue, top-right\", \"$H3-G3-L4\": \"triangle, blue, bottom-right\", etc.)\n- L2 = top-right (from \"$H1-G4-L2\": \"star, yellow, top-right\", \"$H2-G3-L2\": \"square, blue, top-right\", etc.)\n\nSo circle, blue, top-right = H4-G3-L2\n\nH4-G3-L2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 91,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H3-G4-L4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.989010989010989,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed multiple times)\n- G4 = yellow (confirmed multiple times)\n- L4 = bottom-right (confirmed multiple times)\n\nThis is straightforward using the existing lexicon.\n\nH3-G4-L4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 92,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "H4-G2-L3",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.9891304347826086,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H4 = circle (from \"$H4-G1-L1\": \"circle, red, top-left\", \"$H4-G4-L1\": \"circle, yellow, top-left\", etc.)\n- G2 = green (from \"$H1-G2-L1\": \"star, green, top-left\", \"$H2-G2-L2\": \"square, green, top-right\", etc.)\n- L3 = bottom-left (from \"$H3-G1-L3\": \"triangle, red, bottom-left\", \"$H2-G3-L3\": \"square, blue, bottom-left\", etc.)\n\nSo circle, green, bottom-left = H4-G2-L3\n\nThis matches the confirmed entry \"$H4-G2-L3\": \"circle, green, bottom-left\" \u2014 perfect!\n\nH4-G2-L3",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 93,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "H2-G3-L1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.989247311827957,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L1 = top-left (confirmed multiple times)\n\nThis exact combination $H2-G3-L1 is already in the history as a confirmed convention for \"square, blue, top-left\".\n\nH2-G3-L1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 94,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "H4-G3-L2",
+    "decoded_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.9893617021276596,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H4 = circle (from $H4-G1-L1 \"circle, red, top-left\", $H4-G4-L1 \"circle, yellow, top-left\", etc.)\n- G3 = blue (from $H2-G3-L2 \"square, blue, top-right\", $H1-G3-L3 \"star, blue, bottom-left\", etc.)\n- L2 = top-right (from $H1-G2-L2 \"star, green, top-right\", $H2-G3-L2 \"square, blue, top-right\", etc.)\n\nThis combination H4-G3-L2 is already confirmed: $H4-G3-L2 = \"circle, blue, top-right\" \u2713\n\nH4-G3-L2",
+    "listener_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 95,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "H1-G2-L1",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.9894736842105263,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed multiple times)\n- G2 = green (confirmed multiple times)\n- L1 = top-left (confirmed multiple times)\n\nThis exact combination \"$H1-G2-L1\" is already confirmed as \"star, green, top-left\" in the history.\n\nH1-G2-L1",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 96,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "H2-G2-L2",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.9895833333333334,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G2 = green (confirmed multiple times)\n- L2 = top-right (confirmed multiple times)\n\nThis is straightforward \u2014 all three components have confirmed conventions.\n\nH2-G2-L2",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 97,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "H3-G2-L4",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.9896907216494846,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed multiple times)\n- G2 = green (confirmed multiple times)\n- L4 = bottom-right (confirmed multiple times)\n\nThis combination H3-G2-L4 is already confirmed in the history as \"triangle, green, bottom-right\".\n\nH3-G2-L4",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 98,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "H1-G4-L2",
+    "decoded_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.9897959183673469,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H1 = star (confirmed multiple times)\n- G4 = yellow (confirmed multiple times)\n- L2 = top-right (confirmed multiple times)\n\nThis combination is straightforward using the existing lexicon.\n\nH1-G4-L2",
+    "listener_raw_output": "{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 99,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "H3-G1-L2",
+    "decoded_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.98989898989899,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H3 = triangle (confirmed multiple times)\n- G1 = red (confirmed multiple times)\n- L2 = top-right (confirmed multiple times)\n\nThis combination follows the pattern perfectly.\n\nH3-G1-L2",
+    "listener_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 100,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "symbol_message": "H2-G3-L1",
+    "decoded_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "lexicon_size": 35,
+    "cumulative_accuracy": 0.99,
+    "speaker_raw_output": "Looking at the established conventions:\n\n- H2 = square (confirmed multiple times)\n- G3 = blue (confirmed multiple times)\n- L1 = top-left (confirmed multiple times)\n\nThis exact combination H2-G3-L1 is already in the confirmed lexicon as \"square, blue, top-left\".\n\nH2-G3-L1",
+    "listener_raw_output": "{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-left\"}"
+  }
+]

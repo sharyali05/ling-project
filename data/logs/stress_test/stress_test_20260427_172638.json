@@ -1,0 +1,1242 @@
+[
+  {
+    "round": 1,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F3-G2-H3",
+    "agent_c_decoded": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "cumulative_accuracy": 0.0,
+    "agent_c_observation_count": 1,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G2 = blue\n- H3 = bottom-left\n\nSo the encoding is F3-G2-H3.\n\nF3-G2-H3",
+    "learner_raw_output": "{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 2,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "F3-G1-H2",
+    "agent_c_decoded": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": true,
+        "position": false
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "cumulative_accuracy": 0.0,
+    "agent_c_observation_count": 2,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square \u2192 F3\n- color: red \u2192 G1\n- position: top-right \u2192 H2\n\nThis combination is F3-G1-H2, which is already in the lexicon as \"square, red, top-right\".\n\nF3-G1-H2",
+    "learner_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 3,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G1-H3",
+    "agent_c_decoded": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "cumulative_accuracy": 0.3333333333333333,
+    "agent_c_observation_count": 3,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: star \u2192 F4\n- color: red \u2192 G1\n- position: bottom-left \u2192 H3\n\nThis combination is F4-G1-H3, which doesn't appear in the lexicon yet, but follows the established conventions perfectly.\n\nF4-G1-H3",
+    "learner_raw_output": "{\"shape\": \"star\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 4,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G2-H2",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.25,
+    "agent_c_observation_count": 4,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: star \u2192 F4\n- color: blue \u2192 G2\n- position: top-right \u2192 H2\n\nThis combination F4-G2-H2 is already in the lexicon as \"star, blue, top-right\".\n\nF4-G2-H2",
+    "learner_raw_output": "Based on my prior observations, I know:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo F4 = star, G1 = red, H3 = bottom-left\n\nNow for F4-G2-H2:\n- F4 = star\n- G2 = unknown color (not red, so maybe blue, green, or yellow)\n- H2 = unknown position (not bottom-left)\n\n```json\n{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-right\"}\n```"
+  },
+  {
+    "round": 5,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G3-H2",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.2,
+    "agent_c_observation_count": 5,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: star \u2192 F4\n- color: green \u2192 G3\n- position: top-right \u2192 H2\n\nThis combination is already in the lexicon: \"F4-G3-H2\": \"star, green, top-right\"\n\nF4-G3-H2",
+    "learner_raw_output": "From the confirmed correct answer:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo: F4 = star, G1 = red, H3 = bottom-left\n\nNow for F4-G3-H2:\n- F4 = star\n- G3 = unknown color (not red)\n- H2 = unknown position (not bottom-left)\n\nFrom observation 1: F3-G2-H3 was WRONG when guessed as circle/blue/bottom-left\nFrom observation 2: F3-G1-H2 was WRONG when guessed as triangle/red/bottom-right\n\nH3 = bottom-left (confirmed)\nH2 = not bottom-right (that was wrong in obs 2)... could be top-left or top-right\n\nG2 appears in obs 1 and obs 4 (both wrong). G3 appears in obs 1 (wrong) and now.\n\nG3 = not blue (obs 1 was wrong with blue for G2... actually G2 was guessed blue in obs1)\nG1 = red (confirmed)\nG2 = not blue (guessed blue in obs1, wrong)\nG3 = unknown\n\nH2 = not bottom-right (guessed in obs2, wrong). Could be top-left or top-right.\n\nLet me try: H2 = top-right, G3 = blue or green or yellow.\n\n```json\n{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"top-right\"}\n```"
+  },
+  {
+    "round": 6,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "F1-G2-H2",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.16666666666666666,
+    "agent_c_observation_count": 6,
+    "speaker_raw_output": "The target concept is circle (F1), blue (G2), top-right (H2). This is already in the lexicon as \"F1-G2-H2\".\n\nF1-G2-H2",
+    "learner_raw_output": "Looking at the confirmed correct answer:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo F4 = star, G1 = red, H3 = bottom-left.\n\nNow for F1-G2-H2:\n- F1 = unknown shape (not star, so circle/triangle/square)\n- G2 = unknown color (not red)\n- H2 = unknown position (not bottom-left)\n\nGiven limited info, I'll make educated guesses:\n- F1 \u2192 circle\n- G2 \u2192 blue\n- H2 \u2192 bottom-right\n\n```json\n{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"bottom-right\"}\n```"
+  },
+  {
+    "round": 7,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G4-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.14285714285714285,
+    "agent_c_observation_count": 7,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Yellow = G4\n- Bottom-left = H3\n\nThis combination (F1-G4-H3) is already in the lexicon as \"circle, yellow, bottom-left\". \n\nF1-G4-H3",
+    "learner_raw_output": "I'll analyze the patterns from prior observations.\n\nFrom the CORRECT observation:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo: F4=star (shape), G1=red (color), H3=bottom-left (position)\n\nNow for F1-G4-H3:\n- H3 = bottom-left (confirmed)\n- F1 = unknown shape (not star, since F4=star)\n- G4 = unknown color (not red, since G1=red)\n\nFrom wrong guesses:\n- F3-G2-H3: guessed circle/blue/bottom-left \u2192 WRONG\n- F3-G1-H2: guessed triangle/red/bottom-right \u2192 WRONG\n\nSince F4=star, F1, F3 are among circle/triangle/square.\nG1=red, so G2, G3, G4 are blue/green/yellow.\n\nF1 appears in F1-G2-H2 (WRONG) - no confirmed meaning yet.\nG4 appears nowhere confirmed.\n\nGiven the letter ordering (F1, F2, F3, F4) likely maps to shapes in order: circle, square, triangle, star (or similar). F1=circle is a reasonable guess.\n\nG4 as the 4th color value - ordering might be red, blue, green, yellow \u2192 G4=yellow.\n\n```json\n{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}\n```"
+  },
+  {
+    "round": 8,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "F2-G1-H1",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.125,
+    "agent_c_observation_count": 8,
+    "speaker_raw_output": "Looking at the lexicon:\n- F2 = triangle\n- G1 = red\n- H1 = top-left\n\nThis combination \"F2-G1-H1\" is already in the lexicon as \"triangle, red, top-left\".\n\nF2-G1-H1",
+    "learner_raw_output": "I need to analyze the patterns from my observations.\n\nFrom the CORRECT answer:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo:\n- F4 \u2192 star (shape)\n- G1 \u2192 red (color)\n- H3 \u2192 bottom-left (position)\n\nNow for F2-G1-H1:\n- G1 \u2192 red (confirmed)\n- F2 \u2192 unknown shape (not star, so: circle, triangle, or square)\n- H1 \u2192 unknown position (not bottom-left, so: top-left, top-right, or bottom-right)\n\nLooking at the wrong guesses to narrow down:\n- F3-G2-H3: guessed circle/blue/bottom-left \u2192 WRONG (H3=bottom-left confirmed, so the other mappings were wrong, meaning F3\u2260circle or G2\u2260blue)\n- F3-G1-H2: guessed triangle/red/bottom-right \u2192 WRONG (G1=red is confirmed, so F3\u2260triangle or H2\u2260bottom-right)\n\nSince F4=star, F1, F2, F3 map to circle, triangle, square in some order.\n\nF3-G1-H2 was WRONG: guessed triangle/red/bottom-right. G1=red is correct, so either F3\u2260triangle or H2\u2260bottom-right (or both).\n\nFor F2, I'll guess it's circle (as a reasonable choice among remaining shapes).\nFor H1, I'll guess top-left (as the first position not yet confirmed).\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 9,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F1-G3-H4",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.1111111111111111,
+    "agent_c_observation_count": 9,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: circle \u2192 F1\n- color: green \u2192 G3\n- position: bottom-right \u2192 H4\n\nThis combination is F1-G3-H4, which is already in the lexicon as \"circle, green, bottom-right\". \n\nF1-G3-H4",
+    "learner_raw_output": "Looking at my confirmed correct observation:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo: F4=star, G1=red, H3=bottom-left\n\nNow for F1-G3-H4:\n- F1 \u2260 F4(star), so F1 is circle, triangle, or square\n- G3 \u2260 G1(red), so G3 is blue, green, or yellow\n- H4 \u2260 H3(bottom-left), so H4 is top-left, top-right, or bottom-right\n\nFrom prior wrong guesses:\n- F3-G2-H3: guessed circle/blue/bottom-left \u2192 WRONG (H3=bottom-left confirmed correct, so F3\u2260circle or G2\u2260blue)\n- F3-G1-H2: guessed triangle/red/bottom-right \u2192 WRONG (G1=red confirmed, so F3\u2260triangle or H2\u2260bottom-right)\n\nSince G1=red and F4=star, H3=bottom-left are confirmed:\n- F3 is not triangle (from second observation, since G1=red is correct but result wrong, so F3\u2260triangle or H2\u2260bottom-right)\n- F1 likely = circle or square\n- G3 likely = blue or green or yellow\n- H4 likely = top-left, top-right, or bottom-right\n\nMaking best guesses with available info:\n\n```json\n{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"top-right\"}\n```"
+  },
+  {
+    "round": 10,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G3-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.1,
+    "agent_c_observation_count": 10,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: circle \u2192 F1\n- color: green \u2192 G3\n- position: bottom-left \u2192 H3\n\nThis combination (F1-G3-H3) doesn't appear in the lexicon yet, but follows the established conventions perfectly.\n\nF1-G3-H3",
+    "learner_raw_output": "I need to analyze the patterns from my observations.\n\nFrom the CORRECT answer:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo: F4 = star (or red, or bottom-left), G1 = red (or star, or bottom-left), H3 = bottom-left (or star, or red)\n\nLet me think about which letter maps to which attribute:\n- F appears with values 1,2,3,4 \u2192 likely maps to shape (4 shapes)\n- G appears with values 1,2,3,4 \u2192 likely maps to color (4 colors)\n- H appears with values 1,2,3,4 \u2192 likely maps to position (4 positions)\n\nFrom F4-G1-H3 = star, red, bottom-left:\n- F4 = star\n- G1 = red\n- H3 = bottom-left\n\nNow for F1-G3-H3:\n- F1 = ? (one of circle, triangle, square - not star)\n- G3 = ? (one of blue, green, yellow - not red)\n- H3 = bottom-left (confirmed)\n\nLooking at the wrong guesses to narrow down:\n- F3-G2-H3: guessed circle/blue/bottom-left \u2192 WRONG (H3=bottom-left was right though)\n- F3-G1-H2: guessed triangle/red/bottom-right \u2192 WRONG (G1=red was right, so F3\u2260triangle or H2\u2260bottom-right)\n\nSince G1=red is confirmed, and F3-G1-H2 was wrong with guess triangle/red/bottom-right, either F3\u2260triangle or H2\u2260bottom-right.\n\nFor F3-G2-H3 guessed circle/blue/bottom-left: H3=bottom-left is correct, so F3\u2260circle or G2\u2260blue.\n\nLet me assume a sequential mapping:\n- F1=circle, F2=triangle, F3=square, F4=star\n- G1=red, G2=blue, G3=green, G4=yellow\n- H1=top-left, H2=top-right, H3=bottom-left, H4=bottom-right\n\nCheck F3-G2-H3: square/blue/bottom-left \u2192 WRONG. So this mapping isn't fully right.\n\nTry: G2=green, G3=blue:\n- F3-G2-H3: square/green/bottom-left \u2192 wrong guess was circle/blue/bottom-left\n\nTry F1=square, F2=circle, F3=triangle, F4=star:\n- F3-G1-H2: triangle/red/? guessed triangle/red/bottom-right = WRONG, so H2\u2260bottom-right\n- H2=top-right? Or top-left?\n\nTry H1=bottom-right, H2=top-left, H3=bottom-left, H4=top-right:\n- F3-G2-H3: triangle/G2/bottom-left \u2192 wrong (guessed circle/blue/bottom-left), so G2\u2260blue or F3\u2260circle (F3=triangle here, not circle, consistent)\n\nWith F1=square, G3=blue or green:\n\nFor F1-G3-H3: F1=square or circle, G3=green or blue, H3=bottom-left\n\n```json\n{\"shape\": \"square\", \"color\": \"green\", \"position\": \"bottom-left\"}\n```"
+  },
+  {
+    "round": 11,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F3-G4-H1",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.09090909090909091,
+    "agent_c_observation_count": 11,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square \u2192 F3\n- color: yellow \u2192 G4\n- position: top-left \u2192 H1\n\nThis combination (F3-G4-H1) doesn't appear in the lexicon yet, but follows the established conventions perfectly.\n\nF3-G4-H1",
+    "learner_raw_output": "I need to analyze the patterns from my observations.\n\nFrom the one correct answer:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo: F4 = star (or color/position), G1 = red (or shape/position), H3 = bottom-left (or shape/color)\n\nLet me think about which letter maps to which attribute:\n- F appears with values F1, F2, F3, F4 \u2192 4 options \u2192 could be shape (4 shapes)\n- G appears with values G1, G2, G3, G4 \u2192 4 options \u2192 could be color (4 colors)\n- H appears with values H1, H2, H3, H4 \u2192 4 options \u2192 could be position (4 positions)\n\nFrom the correct answer (F4-G1-H3):\n- F4 = star \u2192 F maps to shape, F4 = star\n- G1 = red \u2192 G maps to color, G1 = red\n- H3 = bottom-left \u2192 H maps to position, H3 = bottom-left\n\nNow for F3-G4-H1:\n- F3 = ? (shape): F1, F2, F3, F4=star. F3 is one of circle, triangle, square\n- G4 = ? (color): G1=red, G2=?, G3=?, G4=? \u2192 one of blue, green, yellow\n- H1 = ? (position): H3=bottom-left, H1=? \u2192 one of top-left, top-right, bottom-right\n\nLooking at failed guesses to narrow down:\n- F3-G2-H3: wrong guess was circle/blue/bottom-left \u2192 H3=bottom-left was likely right, so F3\u2260circle or G2\u2260blue\n- F3-G1-H2: wrong guess was triangle/red/bottom-right \u2192 G1=red is confirmed, so F3\u2260triangle or H2\u2260bottom-right\n\nSince G1=red is confirmed, and H3=bottom-left is confirmed:\n- In F3-G2-H3 (wrong: circle/blue/bottom-left): H3=bottom-left is correct, so either F3\u2260circle or G2\u2260blue (or both)\n- In F3-G1-H2 (wrong: triangle/red/bottom-right): G1=red is correct, so either F3\u2260triangle or H2\u2260bottom-right\n\nF3 could be square (remaining option if not circle or triangle).\n\nFor G4: remaining colors are blue, green, yellow. G2 appeared in multiple wrong guesses.\n\nFor H1: H3=bottom-left, and positions remaining are top-left, top-right, bottom-right for H1, H2, H4.\n\nBest guess: F3=square, G4=yellow, H1=top-left\n\n```json\n{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"top-left\"}\n```"
+  },
+  {
+    "round": 12,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G2-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.08333333333333333,
+    "agent_c_observation_count": 12,
+    "speaker_raw_output": "Looking at the lexicon:\n- F1 = circle\n- G2 = blue\n- H3 = bottom-left\n\nThis maps directly to F1-G2-H3, which is already in the lexicon as \"circle, blue, bottom-left\".\n\nF1-G2-H3",
+    "learner_raw_output": "Looking at my one confirmed correct answer:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo: F4=star, G1=red, H3=bottom-left\n\nNow for F1-G2-H3:\n- F1 = unknown shape (not star)\n- G2 = unknown color (not red)\n- H3 = bottom-left (confirmed)\n\nI'll guess circle for F1, blue for G2.\n\n{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 13,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F4-G3-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.07692307692307693,
+    "agent_c_observation_count": 13,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: star \u2192 F4\n- color: green \u2192 G3\n- position: bottom-left \u2192 H3\n\nThis combination is already in the lexicon as \"F4-G3-H3\": \"star, green, bottom-left\"\n\nF4-G3-H3",
+    "learner_raw_output": "Looking at my confirmed observation:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo F4 = star, G1 = red, H3 = bottom-left\n\nNow for F4-G3-H3:\n- F4 = star\n- G3 = unknown color (not red)\n- H3 = bottom-left\n\nG3 appeared in F3-G2-H3 (wrong) and other strings. I need to guess G3's color. G1=red, so G3 is blue, green, or yellow.\n\n```json\n{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-left\"}\n```"
+  },
+  {
+    "round": 14,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F1-G1-H4",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.07142857142857142,
+    "agent_c_observation_count": 14,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Red = G1\n- Bottom-right = H4\n\nThis maps directly to F1-G1-H4, which is already in the lexicon as \"circle, red, bottom-right\".\n\nF1-G1-H4",
+    "learner_raw_output": "Looking at my confirmed correct answer:\n- F4-G1-H3 \u2192 {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo: F4=star, G1=red, H3=bottom-left\n\nFor F1-G1-H4:\n- G1=red (confirmed)\n- F1=unknown shape (not star)\n- H4=unknown position (not bottom-left)\n\nWith 4 shapes and F4=star, F1 could be circle, triangle, or square.\nWith 4 positions and H3=bottom-left, H4 could be top-left, top-right, or bottom-right.\n\nGiven the systematic nature, I'll guess F1=circle, H4=top-right.\n\n```json\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}\n```"
+  },
+  {
+    "round": 15,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G2-H2",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.06666666666666667,
+    "agent_c_observation_count": 15,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: star \u2192 F4\n- color: blue \u2192 G2\n- position: top-right \u2192 H2\n\nThis combination exists in the lexicon as \"F4-G2-H2\" = \"star, blue, top-right\". Perfect match.\n\nF4-G2-H2",
+    "learner_raw_output": "Looking at my confirmed observation:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo F4 = star, G1 = red, H3 = bottom-left.\n\nFor F4-G2-H2: F4 = star, G2 = ?, H2 = ?\n\nG2 and H2 are unknown, but I need to assign values. G maps to color, H maps to position.\n- G1 = red, so G2 could be blue, green, or yellow\n- H3 = bottom-left, so H2 could be top-left, top-right, or bottom-right\n\n```json\n{\"shape\": \"star\", \"color\": \"blue\", \"position\": \"bottom-right\"}\n```"
+  },
+  {
+    "round": 16,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G1-H4",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.0625,
+    "agent_c_observation_count": 16,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: triangle \u2192 F2\n- color: red \u2192 G1\n- position: bottom-right \u2192 H4\n\nThis combination is already in the lexicon as \"F2-G1-H4\": \"triangle, red, bottom-right\"\n\nF2-G1-H4",
+    "learner_raw_output": "I only have one confirmed correct mapping: F4=star, G1=red, H3=bottom-left.\n\nFrom this:\n- F4 \u2192 star\n- G1 \u2192 red\n- H3 \u2192 bottom-left\n\nFor F2-G1-H4:\n- F2 \u2192 unknown shape (not star), trying \"circle\"\n- G1 \u2192 red\n- H4 \u2192 unknown position (not bottom-left), trying \"bottom-right\"\n\n```json\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}\n```"
+  },
+  {
+    "round": 17,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F4-G3-H4",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.058823529411764705,
+    "agent_c_observation_count": 17,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: star \u2192 F4\n- color: green \u2192 G3\n- position: bottom-right \u2192 H4\n\nThis combination is already in the lexicon as \"F4-G3-H4\" = \"star, green, bottom-right\". \u2713\n\nF4-G3-H4",
+    "learner_raw_output": "Looking at my confirmed correct observation:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nFrom this: F4 = star, G1 = red, H3 = bottom-left\n\nNow decoding F4-G3-H4:\n- F4 = star\n- G3 = unknown color (not red)\n- H4 = unknown position (not bottom-left)\n\nI need to guess G3 and H4. From prior wrong guesses, G2 appeared in wrong answers. G3 appeared in F3-G2-H3 (wrong) and F4-G3-H2 (wrong) and F1-G3-H4 (wrong) and F1-G3-H3 (wrong) and F4-G3-H3 (wrong).\n\nH4 appeared in F1-G1-H4 (wrong), F2-G1-H4 (wrong), F1-G3-H4 (wrong), F2-G1-H4 (wrong).\n\nGiven G1=red, I'll try G3=green and H4=top-right.\n\n{\"shape\": \"star\", \"color\": \"green\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 18,
+    "target_concept": {
+      "shape": "star",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "F4-G1-H1",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.05555555555555555,
+    "agent_c_observation_count": 18,
+    "speaker_raw_output": "Looking at the target concept: star, red, top-left\n\nFrom the lexicon:\n- F4 = star\n- G1 = red\n- H1 = top-left\n\nThis combination is already in the lexicon as \"F4-G1-H1\" = \"star, red, top-left\"\n\nF4-G1-H1",
+    "learner_raw_output": "Based on my observations, I know from the confirmed correct answer that:\n- F4 = star\n- G1 = red\n- H3 = bottom-left\n\nNow for F4-G1-H1, F4=star, G1=red, and H1 is a new position value. The positions are top-left, top-right, bottom-left, bottom-right. H3=bottom-left, so H1 could be top-left.\n\n{\"shape\": \"star\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 19,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F2-G4-H1",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.05263157894736842,
+    "agent_c_observation_count": 19,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: triangle \u2192 F2\n- color: yellow \u2192 G4\n- position: top-left \u2192 H1\n\nThis combination F2-G4-H1 is already in the lexicon as \"triangle, yellow, top-left\".\n\nF2-G4-H1",
+    "learner_raw_output": "I need to analyze the patterns from my observations.\n\nFrom the one correct answer:\n- F4-G1-H3 \u2192 {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nThis tells me:\n- F4 = star (shape), OR G1 = star, OR H3 = star\n- G1 = red (color), OR F4 = red, OR H3 = red\n- H3 = bottom-left (position), OR F4 = bottom-left, OR G1 = bottom-left\n\nSince shapes, colors, and positions are different attribute types, and the symbols use F, G, H letters - it's likely that F maps to one attribute, G to another, H to another.\n\nFrom F4-G1-H3 = star/red/bottom-left:\n- F4 likely = star (shape)\n- G1 likely = red (color)\n- H3 likely = bottom-left (position)\n\nNow for F2-G4-H1:\n- F2 = some shape (not star, since F4=star). Options: circle, triangle, square\n- G4 = some color (not red, since G1=red). Options: blue, green, yellow\n- H1 = some position (not bottom-left, since H3=bottom-left). Options: top-left, top-right, bottom-right\n\nWithout more confirmed data, I'll make educated guesses:\n- F letters: F1, F2, F3, F4 \u2192 shapes: circle, triangle, square, star\n  - F4=star, so F1=circle, F2=triangle, F3=square (alphabetical mapping)\n- G letters: G1=red, G2=blue, G3=green, G4=yellow\n- H letters: H1=top-left, H2=top-right, H3=bottom-left, H4=bottom-right\n\nSo F2-G4-H1 = triangle, yellow, top-left\n\n```json\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"top-left\"}\n```"
+  },
+  {
+    "round": 20,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F3-G4-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.05,
+    "agent_c_observation_count": 20,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square \u2192 F3\n- color: yellow \u2192 G4\n- position: bottom-left \u2192 H3\n\nThis combination is already in the lexicon as \"F3-G4-H3\": \"square, yellow, bottom-left\"\n\nF3-G4-H3",
+    "learner_raw_output": "Looking at my one confirmed correct answer:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo: F4=star, G1=red, H3=bottom-left\n\nFor F3-G4-H3:\n- F3 = unknown shape (not star)\n- G4 = unknown color (not red)\n- H3 = bottom-left (confirmed)\n\nI need to guess F3 and G4. From the structure, F maps to shape (4 values: F1,F2,F3,F4) and G maps to color (4 values: G1,G2,G3,G4). F4=star, so F3 could be circle, triangle, or square. G1=red, so G4 could be blue, green, or yellow.\n\n{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 21,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "F1-G1-H1",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.047619047619047616,
+    "agent_c_observation_count": 21,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: circle \u2192 F1\n- color: red \u2192 G1\n- position: top-left \u2192 H1\n\nThis matches the existing lexicon entry \"F1-G1-H1\": \"circle, red, top-left\"\n\nF1-G1-H1",
+    "learner_raw_output": "Looking at my one confirmed correct answer:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo F4=star, G1=red, H3=bottom-left.\n\nFor F1-G1-H1:\n- F1 = unknown shape (not star)\n- G1 = red\n- H1 = unknown position (not bottom-left)\n\nF values: F1,F2,F3,F4 \u2192 shapes: circle,triangle,square,star\nF4=star, so F1,F2,F3 = circle,triangle,square in some order.\n\nH values: H1,H2,H3,H4 \u2192 positions\nH3=bottom-left, so H1,H2,H4 = top-left,top-right,bottom-right in some order.\n\nI'll guess F1=circle, H1=top-left.\n\n```json\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}\n```"
+  },
+  {
+    "round": 22,
+    "target_concept": {
+      "shape": "square",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "F3-G1-H1",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.045454545454545456,
+    "agent_c_observation_count": 22,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square \u2192 F3\n- color: red \u2192 G1\n- position: top-left \u2192 H1\n\nThis combination F3-G1-H1 follows the established lexicon conventions perfectly.\n\nF3-G1-H1",
+    "learner_raw_output": "Looking at my confirmed correct answer:\n- F4-G1-H3 = {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo F4=star, G1=red, H3=bottom-left.\n\nFor F3-G1-H1:\n- G1 = red (confirmed)\n- F3 = unknown shape (not star), likely triangle or square or circle\n- H1 = unknown position (not bottom-left)\n\nWith 4 shapes and 4 positions, and F4=star, H3=bottom-left, I need to guess for F3 and H1.\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 23,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F3-G2-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.043478260869565216,
+    "agent_c_observation_count": 23,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square \u2192 F3\n- color: blue \u2192 G2\n- position: bottom-left \u2192 H3\n\nThis combination (F3-G2-H3) doesn't appear in the lexicon yet, but follows the established conventions perfectly.\n\nF3-G2-H3",
+    "learner_raw_output": "I need to analyze the patterns from my observations.\n\nFrom the one correct answer:\n- F4-G1-H3 \u2192 {'shape': 'star', 'color': 'red', 'position': 'bottom-left'}\n\nSo: F4=star (or shape), G1=red (or color), H3=bottom-left (or position)\n\nGiven the structure, letters likely map to attributes:\n- F = shape\n- G = color  \n- H = position\n\nFrom F4-G1-H3:\n- F4 = star\n- G1 = red\n- H3 = bottom-left\n\nNow for F3-G2-H3:\n- F3 = ? (shape, not star since F4=star). Options: circle, triangle, square\n- G2 = ? (color, not red since G1=red). Options: blue, green, yellow\n- H3 = bottom-left (confirmed)\n\nFor F3 (shape): F1, F2, F3, F4 map to circle, triangle, square, star in some order. F4=star.\nFor G2 (color): G1=red, so G2 could be blue, green, or yellow.\n\nWithout more confirmed mappings, I'll make reasonable assumptions based on ordering:\n- F1=circle, F2=triangle, F3=square, F4=star\n- G1=red, G2=blue, G3=green, G4=yellow\n\n```json\n{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"bottom-left\"}\n```"
+  },
+  {
+    "round": 24,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F4-G3-H4",
+    "agent_c_decoded": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "cumulative_accuracy": 0.08333333333333333,
+    "agent_c_observation_count": 24,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: star \u2192 F4\n- color: green \u2192 G3\n- position: bottom-right \u2192 H4\n\nThis combination is already in the lexicon as \"F4-G3-H4\": \"star, green, bottom-right\" \u2713\n\nF4-G3-H4",
+    "learner_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 25,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "F3-G3-H1",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.08,
+    "agent_c_observation_count": 25,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square \u2192 F3\n- color: green \u2192 G3\n- position: top-left \u2192 H1\n\nThis combination F3-G3-H1 is already in the lexicon as \"square, green, top-left\".\n\nF3-G3-H1",
+    "learner_raw_output": "I need to decode F3-G3-H1 using what I know.\n\nFrom the one confirmed correct answer:\n- F4-G3-H4 = {'shape': 'star', 'color': 'green', 'position': 'bottom-right'}\n\nSo:\n- F4 = star (shape)\n- G3 = green (color)\n- H4 = bottom-right (position)\n\nNow for F3-G3-H1:\n- F3 = unknown shape (not star, since F4=star)\n- G3 = green (confirmed)\n- H1 = unknown position (not bottom-right, since H4=bottom-right)\n\nI need to guess the remaining values. With 4 shapes (circle, triangle, square, star) and F4=star, F3 could be circle, triangle, or square. With 4 positions and H4=bottom-right, H1 could be top-left, top-right, or bottom-left.\n\nGiven the systematic nature and that H1 appears frequently (often with what seem like \"first\" values), H1 likely maps to \"top-left\" (position 1). F3 likely maps to \"square\" (third shape).\n\n{\"shape\": \"square\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 26,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G2-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.07692307692307693,
+    "agent_c_observation_count": 26,
+    "speaker_raw_output": "Looking at the lexicon:\n- F1 = circle\n- G2 = blue\n- H3 = bottom-left\n\nThis combination exists in the lexicon as \"F1-G2-H3\" = \"circle, blue, bottom-left\"\n\nF1-G2-H3",
+    "learner_raw_output": "Looking at my only confirmed correct answer:\n- F4-G3-H4 = {'shape': 'star', 'color': 'green', 'position': 'bottom-right'}\n\nSo: F4=star, G3=green, H4=bottom-right\n\nFor F1-G2-H3:\n- F1 = not star (F4=star), so circle, triangle, or square\n- G2 = not green (G3=green), so red, blue, or yellow\n- H3 = not bottom-right (H4=bottom-right), so top-left, top-right, or bottom-left\n\nWithout more confirmed data, I'll make my best systematic guess:\n- F1 likely = circle (first letter value)\n- G2 likely = blue (second color value)\n- H3 likely = bottom-left (third position value)\n\n```json\n{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"bottom-left\"}\n```"
+  },
+  {
+    "round": 27,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F3-G4-H4",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.07407407407407407,
+    "agent_c_observation_count": 27,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square \u2192 F3\n- color: yellow \u2192 G4\n- position: bottom-right \u2192 H4\n\nThis matches the existing lexicon entry \"F3-G4-H4\": \"square, yellow, bottom-right\"\n\nF3-G4-H4",
+    "learner_raw_output": "I only have one confirmed mapping: F4-G3-H4 = {star, green, bottom-right}\n\nFrom this:\n- F4 = star\n- G3 = green\n- H4 = bottom-right\n\nFor F3-G4-H4:\n- F3 = unknown shape (not star)\n- G4 = unknown color (not green)\n- H4 = bottom-right (confirmed)\n\nI need to guess shape and color. With limited info, I'll try:\n\n{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 28,
+    "target_concept": {
+      "shape": "square",
+      "color": "yellow",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F3-G4-H4",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.07142857142857142,
+    "agent_c_observation_count": 28,
+    "speaker_raw_output": "Looking at the target concept: square, yellow, bottom-right.\n\nFrom the lexicon:\n- F3 = square\n- G4 = yellow\n- H4 = bottom-right\n\nThis exact combination \"F3-G4-H4\" is already in the lexicon as \"square, yellow, bottom-right\". \u2713\n\nF3-G4-H4",
+    "learner_raw_output": "Looking at my one confirmed correct answer:\n- F4-G3-H4 = star, green, bottom-right\n\nSo F4=star, G3=green, H4=bottom-right\n\nNow for F3-G4-H4:\n- F3 = unknown shape (not star)\n- G4 = unknown color (not green)\n- H4 = bottom-right (confirmed)\n\nI need to guess. F values map to shapes: F1, F2, F3, F4=star. \nG values map to colors: G1, G2, G3=green, G4.\n\nWithout more confirmed data, I'll estimate based on ordering patterns.\n\n{\"shape\": \"square\", \"color\": \"yellow\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 29,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F1-G3-H2",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.06896551724137931,
+    "agent_c_observation_count": 29,
+    "speaker_raw_output": "The target concept is circle (F1), green (G3), top-right (H2). This combination exists in the lexicon as \"F1-G3-H2\".\n\nF1-G3-H2",
+    "learner_raw_output": "Looking at the one confirmed mapping:\n- F4-G3-H4 \u2192 {'shape': 'star', 'color': 'green', 'position': 'bottom-right'}\n\nSo: F4=star, G3=green, H4=bottom-right\n\nFor F1-G3-H2:\n- F1 = unknown shape (not star)\n- G3 = green\n- H2 = unknown position (not bottom-right)\n\nI'll make my best guess based on remaining values:\n\n```json\n{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"top-left\"}\n```"
+  },
+  {
+    "round": 30,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "F3-G2-H2",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.06666666666666667,
+    "agent_c_observation_count": 30,
+    "speaker_raw_output": "Looking at the target concept: square, blue, top-right\n\nFrom the lexicon:\n- F3 = square\n- G2 = blue\n- H2 = top-right\n\nSo the encoding is F3-G2-H2.\n\nF3-G2-H2",
+    "learner_raw_output": "Looking at my one confirmed correct answer:\n- F4-G3-H4 = star, green, bottom-right\n\nSo:\n- F4 = star (shape)\n- G3 = green (color)\n- H4 = bottom-right (position)\n\nFor F3-G2-H2:\n- F3 = ? (not star, so circle/triangle/square)\n- G2 = ? (not green, so red/blue/yellow)\n- H2 = ? (not bottom-right, so top-left/top-right/bottom-left)\n\nWith limited info, I'll make systematic guesses. F letters likely map to shapes: F1=circle, F2=triangle, F3=square, F4=star. G letters to colors: G1=red, G2=blue, G3=green, G4=yellow. H letters to positions: H1=top-left, H2=top-right, H3=bottom-left, H4=bottom-right.\n\n```json\n{\"shape\": \"square\", \"color\": \"blue\", \"position\": \"top-right\"}\n```"
+  },
+  {
+    "round": 31,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "F3-G2-H2",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.06451612903225806,
+    "agent_c_observation_count": 31,
+    "speaker_raw_output": "Looking at the lexicon:\n- F3 = square\n- G2 = blue\n- H2 = top-right\n\nF3-G2-H2",
+    "learner_raw_output": "I only have one confirmed mapping: F4-G3-H4 = star, green, bottom-right.\n\nFrom this: F4=star, G3=green, H4=bottom-right.\n\nNow for F3-G2-H2:\n- F3 \u2260 F4(star), so F3 is circle, triangle, or square\n- G2 \u2260 G3(green), so G2 is red, blue, or yellow\n- H2 \u2260 H4(bottom-right), so H2 is top-left, top-right, or bottom-left\n\nI need to make my best guess with limited info.\n\n{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 32,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F2-G2-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.0625,
+    "agent_c_observation_count": 32,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Blue = G2\n- Bottom-left = H3\n\nThis combination is already in the lexicon as \"F2-G2-H3\": \"triangle, blue, bottom-left\"\n\nF2-G2-H3",
+    "learner_raw_output": "I only have one confirmed mapping: F4-G3-H4 = {'shape': 'star', 'color': 'green', 'position': 'bottom-right'}\n\nFrom this:\n- F4 = star\n- G3 = green\n- H4 = bottom-right\n\nFor F2-G2-H3:\n- F2 \u2260 F4 (star), so shape is one of: circle, triangle, square\n- G2 \u2260 G3 (green), so color is one of: red, blue, yellow\n- H3 \u2260 H4 (bottom-right), so position is one of: top-left, top-right, bottom-left\n\nI'll make my best guess:\n\n{\"shape\": \"circle\", \"color\": \"blue\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 33,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F2-G3-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.06060606060606061,
+    "agent_c_observation_count": 33,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: triangle \u2192 F2\n- color: green \u2192 G3\n- position: bottom-left \u2192 H3\n\nThis combination F2-G3-H3 is already in the lexicon as \"triangle, green, bottom-left\".\n\nF2-G3-H3",
+    "learner_raw_output": "I only have one confirmed mapping: F4-G3-H4 = {star, green, bottom-right}\n\nFrom this:\n- F4 = star (or one of the other attributes)\n- G3 = green (or one of the other attributes)\n- H4 = bottom-right (or one of the other attributes)\n\nThe symbol structure is F_-G_-H_ where F likely = shape, G likely = color, H likely = position.\n\nSo: F4=star, G3=green, H4=bottom-right\n\nFor F2-G3-H3:\n- F2 = ? (not star, so circle, triangle, or square)\n- G3 = green (confirmed)\n- H3 = ? (not bottom-right, so top-left, top-right, or bottom-left)\n\nI'll guess F2=circle, H3=bottom-left as reasonable defaults.\n\n{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 34,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G2-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.058823529411764705,
+    "agent_c_observation_count": 34,
+    "speaker_raw_output": "Looking at the lexicon:\n- F1 = circle\n- G2 = blue\n- H3 = bottom-left\n\nThis combination \"F1-G2-H3\" is already in the lexicon as \"circle, blue, bottom-left\". \u2713\n\nF1-G2-H3",
+    "learner_raw_output": "I only have one confirmed mapping: F4-G3-H4 = {shape: star, color: green, position: bottom-right}\n\nFrom this:\n- F4 = star\n- G3 = green\n- H4 = bottom-right\n\nNow for F1-G2-H3:\n- F1 = ? (not star, so circle, triangle, or square)\n- G2 = ? (not green, so red, blue, or yellow)\n- H3 = ? (not bottom-right, so top-left, top-right, or bottom-left)\n\nWith limited information, I'll make my best guess:\n\n```json\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-left\"}\n```"
+  },
+  {
+    "round": 35,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-left"
+    },
+    "symbol_message": "F4-G4-H1",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.05714285714285714,
+    "agent_c_observation_count": 35,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: star \u2192 F4\n- color: yellow \u2192 G4\n- position: top-left \u2192 H1\n\nThis combination is already in the lexicon as \"F4-G4-H1\": \"star, yellow, top-left\"\n\nF4-G4-H1",
+    "learner_raw_output": "Looking at my one confirmed correct answer:\n- F4-G3-H4 = star, green, bottom-right\n\nSo F4 = star, G3 = green, H4 = bottom-right\n\nFor F4-G4-H1:\n- F4 = star\n- G4 = ? (not green, so could be red, blue, or yellow)\n- H1 = ? (not bottom-right, so could be top-left, top-right, or bottom-left)\n\nI need to guess. With limited info, I'll try to reason about the number patterns:\n- G3 = green, so G1, G2, G4 = red, blue, yellow in some order\n- H4 = bottom-right, so H1, H2, H3 = top-left, top-right, bottom-left in some order\n\nNumbers might map sequentially. If H4 = bottom-right, perhaps H1 = top-left (first position).\nIf G3 = green, perhaps G4 = yellow (next), G1 = red (first), G2 = blue.\n\n```json\n{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"top-left\"}\n```"
+  },
+  {
+    "round": 36,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G1-H4",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.05555555555555555,
+    "agent_c_observation_count": 36,
+    "speaker_raw_output": "Looking at the lexicon:\n- Triangle = F2\n- Red = G1\n- Bottom-right = H4\n\nThis combination is already in the lexicon as \"F2-G1-H4\" = \"triangle, red, bottom-right\"\n\nF2-G1-H4",
+    "learner_raw_output": "I only have one confirmed mapping: F4-G3-H4 = star, green, bottom-right.\n\nFrom this: F4=star, G3=green, H4=bottom-right.\n\nNow for F2-G1-H4:\n- H4 = bottom-right\n- F2 = unknown shape (not star)\n- G1 = unknown color (not green)\n\nI need to guess among remaining values. With limited info, I'll guess:\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 37,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F2-G4-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.05405405405405406,
+    "agent_c_observation_count": 37,
+    "speaker_raw_output": "The target concept is triangle (F2), yellow (G4), bottom-left (H3).\n\nLooking at the lexicon, F2-G4-H3 maps to \"triangle, yellow, bottom-left\" \u2014 this exact entry exists.\n\nF2-G4-H3",
+    "learner_raw_output": "I only have one confirmed mapping: F4-G3-H4 = star, green, bottom-right.\n\nFrom this:\n- F4 = star\n- G3 = green\n- H4 = bottom-right\n\nNow for F2-G4-H3, I need to guess the unknown values.\n\nF2 \u2260 star (F4=star), so F2 is circle, triangle, or square\nG4 \u2260 green (G3=green), so G4 is red, blue, or yellow\nH3 \u2260 bottom-right (H4=bottom-right), so H3 is top-left, top-right, or bottom-left\n\nWithout more confirmed data, I'll make educated guesses based on ordering patterns (F1=circle, F2=triangle, F3=square, F4=star; G1=red, G2=blue, G3=green, G4=yellow; H1=top-left, H2=top-right, H3=bottom-left, H4=bottom-right).\n\n```json\n{\"shape\": \"triangle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}\n```"
+  },
+  {
+    "round": 38,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "F2-G1-H2",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.05263157894736842,
+    "agent_c_observation_count": 38,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: triangle \u2192 F2\n- color: red \u2192 G1\n- position: top-right \u2192 H2\n\nThis maps directly to F2-G1-H2, which is already in the lexicon.\n\nF2-G1-H2",
+    "learner_raw_output": "I only have one confirmed mapping: F4-G3-H4 = star, green, bottom-right.\n\nFrom this: F4=star, G3=green, H4=bottom-right.\n\nFor F2-G1-H2:\n- F2: not F4(star), so one of circle/triangle/square\n- G1: not G3(green), so one of red/blue/yellow\n- H2: not H4(bottom-right), so one of top-left/top-right/bottom-left\n\nWithout more confirmed mappings, I'll make my best guess based on common ordering patterns (F1-F4 = circle/triangle/square/star, G1-G4 = red/blue/green/yellow, H1-H4 = top-left/top-right/bottom-left/bottom-right):\n\n{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"top-right\"}"
+  },
+  {
+    "round": 39,
+    "target_concept": {
+      "shape": "circle",
+      "color": "red",
+      "position": "top-right"
+    },
+    "symbol_message": "F1-G1-H2",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.05128205128205128,
+    "agent_c_observation_count": 39,
+    "speaker_raw_output": "Looking at the lexicon:\n- Circle = F1\n- Red = G1\n- Top-right = H2\n\nThis combination exists in the lexicon as \"F1-G1-H2\": \"circle, red, top-right\"\n\nF1-G1-H2",
+    "learner_raw_output": "Looking at my one confirmed correct answer:\n- F4-G3-H4 = star, green, bottom-right\n\nSo: F4=star, G3=green, H4=bottom-right\n\nFor F1-G1-H2:\n- F1: F4=star, so F1=circle (4 shapes, 4 F values: F1=circle, F2=triangle, F3=square, F4=star)\n- G1: G3=green, so G1=red (G1=red, G2=blue, G3=green, G4=yellow)\n- H4=bottom-right, so H1=top-left, H2=top-right, H3=bottom-left, H4=bottom-right\n\n```json\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-right\"}\n```"
+  },
+  {
+    "round": 40,
+    "target_concept": {
+      "shape": "circle",
+      "color": "green",
+      "position": "top-left"
+    },
+    "symbol_message": "F1-G3-H1",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.05,
+    "agent_c_observation_count": 40,
+    "speaker_raw_output": "The target concept is circle, green, top-left.\n\nFrom the lexicon:\n- F1 = circle\n- G3 = green\n- H1 = top-left\n\nThis combination is already in the lexicon as \"F1-G3-H1\".\n\nF1-G3-H1",
+    "learner_raw_output": "I only have one confirmed mapping: F4=star, G3=green, H4=bottom-right.\n\nFrom F4-G4-H1 being wrong and other patterns, let me reason:\n\nF values: F4=star, so F1,F2,F3 = circle/triangle/square\nG values: G3=green, so G1,G2,G4 = red/blue/yellow\nH values: H4=bottom-right, so H1,H2,H3 = top-left/top-right/bottom-left\n\nFor F1-G3-H1: G3=green, need to guess F1 and H1.\n\nWith limited info, guessing F1=circle, H1=top-left.\n\n{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 41,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F2-G4-H3",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.04878048780487805,
+    "agent_c_observation_count": 41,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: triangle \u2192 F2\n- color: yellow \u2192 G4\n- position: bottom-left \u2192 H3\n\nThis matches the existing lexicon entry \"F2-G4-H3\": \"triangle, yellow, bottom-left\"\n\nF2-G4-H3",
+    "learner_raw_output": "I only have one confirmed mapping: F4-G3-H4 = {'shape': 'star', 'color': 'green', 'position': 'bottom-right'}\n\nFrom this: F4=star, G3=green, H4=bottom-right\n\nFor F2-G4-H3:\n- F2: not star (F4=star), so circle, triangle, or square\n- G4: not green (G3=green), so red, blue, or yellow\n- H3: not bottom-right (H4=bottom-right), so top-left, top-right, or bottom-left\n\nI'll make my best guess:\n\n{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 42,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "top-left"
+    },
+    "symbol_message": "F2-G1-H1",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.047619047619047616,
+    "agent_c_observation_count": 42,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: triangle \u2192 F2\n- color: red \u2192 G1\n- position: top-left \u2192 H1\n\nThis combination is already in the lexicon as \"F2-G1-H1\" = \"triangle, red, top-left\"\n\nF2-G1-H1",
+    "learner_raw_output": "I only have one confirmed mapping: F4=star, G3=green, H4=bottom-right.\n\nFrom this: F2\u2260star, G1\u2260green, H1\u2260bottom-right.\n\nI need to guess with limited info. F2 could be circle/triangle/square. G1 could be red/blue/yellow. H1 could be top-left/top-right/bottom-left.\n\n{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"top-left\"}"
+  },
+  {
+    "round": 43,
+    "target_concept": {
+      "shape": "star",
+      "color": "yellow",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G4-H2",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.046511627906976744,
+    "agent_c_observation_count": 43,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: star \u2192 F4\n- color: yellow \u2192 G4\n- position: top-right \u2192 H2\n\nThis combination is already in the lexicon as \"F4-G4-H2\": \"star, yellow, top-right\"\n\nF4-G4-H2",
+    "learner_raw_output": "Looking at my one confirmed correct answer:\n- F4-G2-H4 \u2192 wait, the confirmed was F4-G3-H4 = star, green, bottom-right\n\nSo: F4=star, G3=green, H4=bottom-right\n\nNow decoding F4-G4-H2:\n- F4 = star\n- G4 = ? (not green, so could be red, blue, or yellow)\n- H2 = ? (not bottom-right, so could be top-left, top-right, or bottom-left)\n\nI need to guess based on limited info. G values: G1, G2, G3(green), G4. H values: H1, H2, H3, H4(bottom-right).\n\n```json\n{\"shape\": \"star\", \"color\": \"yellow\", \"position\": \"bottom-left\"}\n```"
+  },
+  {
+    "round": 44,
+    "target_concept": {
+      "shape": "square",
+      "color": "green",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F3-G3-H4",
+    "agent_c_decoded": null,
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": false,
+        "color": false,
+        "position": false
+      },
+      "match_count": 0,
+      "parse_error": true
+    },
+    "cumulative_accuracy": 0.045454545454545456,
+    "agent_c_observation_count": 44,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square \u2192 F3\n- color: green \u2192 G3\n- position: bottom-right \u2192 H4\n\nThis matches the existing lexicon entry \"F3-G3-H4\": \"square, green, bottom-right\"\n\nF3-G3-H4",
+    "learner_raw_output": "I only have one confirmed mapping: F4=star, G3=green, H4=bottom-right.\n\nFrom F4-G3-H4 \u2192 star, green, bottom-right:\n- F4 = star\n- G3 = green\n- H4 = bottom-right\n\nFor F3-G3-H4:\n- F3 = unknown shape (not star, since F4=star) \u2192 guess \"circle\"\n- G3 = green\n- H4 = bottom-right\n\n{\"shape\": \"circle\", \"color\": \"green\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 45,
+    "target_concept": {
+      "shape": "square",
+      "color": "blue",
+      "position": "top-right"
+    },
+    "symbol_message": "F3-G2-H2",
+    "agent_c_decoded": {
+      "shape": "square",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": true,
+        "color": false,
+        "position": false
+      },
+      "match_count": 1,
+      "parse_error": false
+    },
+    "cumulative_accuracy": 0.044444444444444446,
+    "agent_c_observation_count": 45,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: square \u2192 F3\n- color: blue \u2192 G2\n- position: top-right \u2192 H2\n\nThis combination follows the established lexicon conventions perfectly.\n\nF3-G2-H2",
+    "learner_raw_output": "{\"shape\": \"square\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 46,
+    "target_concept": {
+      "shape": "circle",
+      "color": "blue",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G2-H3",
+    "agent_c_decoded": {
+      "shape": "circle",
+      "color": "red",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": true,
+        "color": false,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "cumulative_accuracy": 0.043478260869565216,
+    "agent_c_observation_count": 46,
+    "speaker_raw_output": "Looking at the lexicon:\n- F1 = circle\n- G2 = blue\n- H3 = bottom-left\n\nThis combination F1-G2-H3 is already in the lexicon as \"circle, blue, bottom-left\". \u2713\n\nF1-G2-H3",
+    "learner_raw_output": "{\"shape\": \"circle\", \"color\": \"red\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 47,
+    "target_concept": {
+      "shape": "triangle",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F2-G2-H4",
+    "agent_c_decoded": {
+      "shape": "triangle",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": true,
+        "color": false,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "cumulative_accuracy": 0.0425531914893617,
+    "agent_c_observation_count": 47,
+    "speaker_raw_output": "Looking at the lexicon:\n- F2 = triangle\n- G2 = blue\n- H4 = bottom-right\n\nThis combination is already in the lexicon as \"F2-G2-H4\": \"triangle, blue, bottom-right\"\n\nF2-G2-H4",
+    "learner_raw_output": "{\"shape\": \"triangle\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 48,
+    "target_concept": {
+      "shape": "star",
+      "color": "blue",
+      "position": "bottom-right"
+    },
+    "symbol_message": "F4-G2-H4",
+    "agent_c_decoded": {
+      "shape": "star",
+      "color": "red",
+      "position": "bottom-right"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": true,
+        "color": false,
+        "position": true
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "cumulative_accuracy": 0.041666666666666664,
+    "agent_c_observation_count": 48,
+    "speaker_raw_output": "Looking at the lexicon:\n- F4 = star\n- G2 = blue\n- H4 = bottom-right\n\nThis combination is already in the lexicon as \"F4-G2-H4\" = \"star, blue, bottom-right\"\n\nF4-G2-H4",
+    "learner_raw_output": "{\"shape\": \"star\", \"color\": \"red\", \"position\": \"bottom-right\"}"
+  },
+  {
+    "round": 49,
+    "target_concept": {
+      "shape": "star",
+      "color": "green",
+      "position": "top-right"
+    },
+    "symbol_message": "F4-G3-H2",
+    "agent_c_decoded": {
+      "shape": "star",
+      "color": "green",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": false,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": false
+      },
+      "match_count": 2,
+      "parse_error": false
+    },
+    "cumulative_accuracy": 0.04081632653061224,
+    "agent_c_observation_count": 49,
+    "speaker_raw_output": "Looking at the target concept:\n- shape: star \u2192 F4\n- color: green \u2192 G3\n- position: top-right \u2192 H2\n\nThis combination exists in the lexicon as \"F4-G3-H2\" = \"star, green, top-right\" \u2713\n\nF4-G3-H2",
+    "learner_raw_output": "{\"shape\": \"star\", \"color\": \"green\", \"position\": \"bottom-left\"}"
+  },
+  {
+    "round": 50,
+    "target_concept": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "symbol_message": "F1-G4-H3",
+    "agent_c_decoded": {
+      "shape": "circle",
+      "color": "yellow",
+      "position": "bottom-left"
+    },
+    "result": {
+      "success": true,
+      "attribute_scores": {
+        "shape": true,
+        "color": true,
+        "position": true
+      },
+      "match_count": 3,
+      "parse_error": false
+    },
+    "cumulative_accuracy": 0.06,
+    "agent_c_observation_count": 50,
+    "speaker_raw_output": "Looking at the lexicon:\n- F1 = circle\n- G4 = yellow\n- H3 = bottom-left\n\nThis maps directly to F1-G4-H3, which is already in the lexicon as \"circle, yellow, bottom-left\". \u2713\n\nF1-G4-H3",
+    "learner_raw_output": "{\"shape\": \"circle\", \"color\": \"yellow\", \"position\": \"bottom-left\"}"
+  }
+]
