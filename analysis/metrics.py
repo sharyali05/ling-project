@@ -51,6 +51,9 @@ def normalize_stress_test_log(rounds: list) -> list:
         r_copy = r.copy()
         if "agent_c_decoded" in r_copy:
             r_copy["decoded_concept"] = r_copy.pop("agent_c_decoded")
+        # stress test logs have no lexicon — set to 0 so pipeline doesn't crash
+        if "lexicon_size" not in r_copy:
+            r_copy["lexicon_size"] = 0
         normalized.append(r_copy)
     return normalized
 
@@ -304,6 +307,7 @@ def main():
 
     all_metrics = []
     for fname, rounds in logs.items():
+        rounds = normalize_stress_test_log(rounds)  # safe no-op if not a stress test log
         metrics = compute_all_metrics(rounds, run_name=fname)
         print_report(metrics)
         all_metrics.append(metrics)
