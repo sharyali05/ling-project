@@ -1,0 +1,12 @@
+{
+  "$H1-G2-L1": "star, green, top-left",
+  "%H2-G3-L2": "square, blue, top-right",
+  "$H3-G1-L3": "triangle, red, bottom-left",
+  "$H2-G4-L1": "square, yellow, top-left",
+  "$H2-G3-L3": "square, blue, bottom-left",
+  "$H4-G1-L1": "circle, red, top-left",
+  "$H1-G3-L3": "star, blue, bottom-left",
+  "$H1-G4-L2": "star, yellow, top-right",
+  "$H2-G4-L3": "square, yellow, bottom-left",
+  "$H2-G3-L2": "square, blue, top-right"
+}

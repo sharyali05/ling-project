@@ -1,0 +1,17 @@
+{
+  "F1-G1-H3": "circle, red, bottom-left",
+  "?F1": "circle",
+  "?G1": "red",
+  "?H3": "bottom-left",
+  "F1-G1-H4": "circle, red, bottom-right",
+  "?H4": "bottom-right",
+  "F2-G2-H4": "triangle, blue, bottom-right",
+  "?F2": "triangle",
+  "?G2": "blue",
+  "F3-G3-H3": "square, green, bottom-left",
+  "?F3": "square",
+  "?G3": "green",
+  "F4-G3-H2": "star, green, top-right",
+  "?F4": "star",
+  "?H2": "top-right"
+}
