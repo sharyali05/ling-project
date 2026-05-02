@@ -1,0 +1,41 @@
+[
+  {
+    "run": "stress_test_20260427_172638.json",
+    "total_rounds": 50,
+    "final_cumulative_accuracy": 0.06,
+    "unique_concepts_seen": 36,
+    "final_lexicon_size": 0,
+    "lexicon_stabilization_round": 11,
+    "topographic_similarity": "N/A",
+    "avg_message_length": 3.0,
+    "final_shape_accuracy": 0.16,
+    "final_color_accuracy": 0.12,
+    "final_position_accuracy": 0.14
+  },
+  {
+    "run": "stress_test_20260427_174608.json",
+    "total_rounds": 150,
+    "final_cumulative_accuracy": 0.04,
+    "unique_concepts_seen": 57,
+    "final_lexicon_size": 0,
+    "lexicon_stabilization_round": 11,
+    "topographic_similarity": "N/A",
+    "avg_message_length": 3.0,
+    "final_shape_accuracy": 0.0933,
+    "final_color_accuracy": 0.16,
+    "final_position_accuracy": 0.1267
+  },
+  {
+    "run": "stress_test_20260427_180502.json",
+    "total_rounds": 50,
+    "final_cumulative_accuracy": 0.84,
+    "unique_concepts_seen": 33,
+    "final_lexicon_size": 0,
+    "lexicon_stabilization_round": 11,
+    "topographic_similarity": 1.0,
+    "avg_message_length": 3.0,
+    "final_shape_accuracy": 0.86,
+    "final_color_accuracy": 1.0,
+    "final_position_accuracy": 0.98
+  }
+]

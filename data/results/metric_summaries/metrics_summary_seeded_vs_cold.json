@@ -1,0 +1,26 @@
+[
+  {
+    "run": "run_20260423_091451.json",
+    "total_rounds": 100,
+    "final_cumulative_accuracy": 0.94,
+    "final_lexicon_size": 67,
+    "lexicon_stabilization_round": 81,
+    "topographic_similarity": 1.0,
+    "avg_message_length": 3.0,
+    "final_shape_accuracy": 0.95,
+    "final_color_accuracy": 0.98,
+    "final_position_accuracy": 0.99
+  },
+  {
+    "run": "run_20260423_092714.json",
+    "total_rounds": 100,
+    "final_cumulative_accuracy": 0.88,
+    "final_lexicon_size": 63,
+    "lexicon_stabilization_round": -1,
+    "topographic_similarity": 1.0,
+    "avg_message_length": 3.01,
+    "final_shape_accuracy": 0.88,
+    "final_color_accuracy": 0.92,
+    "final_position_accuracy": 0.98
+  }
+]

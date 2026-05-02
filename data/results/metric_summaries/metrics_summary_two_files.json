@@ -1,0 +1,15 @@
+[
+  {
+    "run": "run_20260501_162412.json",
+    "total_rounds": 100,
+    "final_cumulative_accuracy": 0.02,
+    "unique_concepts_seen": 36,
+    "final_lexicon_size": 95,
+    "lexicon_stabilization_round": -1,
+    "topographic_similarity": "N/A",
+    "avg_message_length": 3.0,
+    "final_shape_accuracy": 0.29,
+    "final_color_accuracy": 0.23,
+    "final_position_accuracy": 0.33
+  }
+]
